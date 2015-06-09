@@ -8,6 +8,7 @@
 #import "JSZVCR.h"
 
 #import "JSZVCRNSURLSessionConnection.h"
+#import "NSURLSessionTask+JSZVCRAdditions.h"
 
 // For reference from the private class dump
 //@interface __NSCFURLSessionConnection : NSObject
@@ -26,6 +27,20 @@
 
 @implementation JSZVCRNSURLSessionConnection
 @dynamic task;
+
+- (void)JSZ_setTask:(NSURLSessionTask *)task {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"task: %@", task);
+    [self JSZ_setTask:task];
+}
+
+- (instancetype)JSZ_initWithTask:(NSURLSessionTask *)task delegate:(id <NSURLSessionDelegate>)delegate delegateQueue:(NSOperationQueue *)queue {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    if (!task.globallyUniqueIdentifier) {
+        task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
+    }
+    return [self JSZ_initWithTask:task delegate:delegate delegateQueue:queue];
+}
 
 - (void)JSZ__redirectRequest:(NSURLRequest *)arg1 redirectResponse:(NSURLResponse *)arg2 completion:(id)arg3;
 {

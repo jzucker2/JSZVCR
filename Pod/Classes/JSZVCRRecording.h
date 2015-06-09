@@ -7,19 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSZVCRSerializer.h"
 
-@interface JSZVCRRecording : NSObject
+@class JSZVCRResponse;
+@class JSZVCRRequest;
+@class JSZVCRData;
+
+@interface JSZVCRRecording : NSObject <JSZVCRSerializer>
 
 @property (nonatomic, copy) NSNumber *taskIdentifier;
 @property (nonatomic, copy) NSString *taskDescription;
-@property (nonatomic, copy) NSURLResponse *response;
-@property (nonatomic, copy) NSURLRequest *originalRequest;
-@property (nonatomic, copy) NSURLRequest *currentRequest;
-@property (nonatomic, copy) NSData *data;
+@property (nonatomic) JSZVCRResponse *response;
+@property (nonatomic) JSZVCRRequest *request;
+@property (nonatomic) JSZVCRData *data;
 @property (nonatomic, copy) NSError *error;
 
 - (instancetype)initWithTask:(NSURLSessionTask *)task;
 + (instancetype)recordingWithTask:(NSURLSessionTask *)task;
-- (NSDictionary *)dictionaryRepresentation;
 
 @end
