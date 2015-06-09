@@ -160,7 +160,8 @@
 - (void)dumpRecordingsToFile:(NSString *)aPathFile {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"file.plist"];
+    NSString *filePathComponent = [NSString stringWithFormat:@"%@.plist", [NSUUID UUID].UUIDString];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:filePathComponent];
     NSLog(@"filePath = %@", filePath);
     NSMutableArray *dumpArray = [NSMutableArray array];
     for (JSZVCRRecording *recording in self.recordings.allValues) {
