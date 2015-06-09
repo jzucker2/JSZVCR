@@ -90,9 +90,9 @@
         
         NSAssert(originalImp, @"Must find imp");
         
-        BOOL success = class_addMethod(cfURLSessionConnectionClass, sourceMethod, originalImp, encoding);
+        __unused BOOL success = class_addMethod(cfURLSessionConnectionClass, sourceMethod, originalImp, encoding);
         NSAssert(success, @"Should be successful");
-        IMP replacedImp = class_replaceMethod(cfURLSessionConnectionClass, originalMethod, sourceImp, encoding);
+        __unused IMP replacedImp = class_replaceMethod(cfURLSessionConnectionClass, originalMethod, sourceImp, encoding);
         NSAssert(replacedImp, @"Expected original method to have been replaced");
     }
     
