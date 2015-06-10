@@ -16,6 +16,9 @@
 {
     // Override point for customization after application launch.
     [JSZVCR swizzleNSURLSessionClasses];
+    
+//    id responses = [JSZVCRResourceLoader pathForFile:@"testSimpleSubscribe" bundleForClass:self.class];
+//    NSLog(@"responses: %@", responses);
     return YES;
 }
 							
