@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <XCTest/XCTest.h>
-#import <JSZVCR/JSZVCRTestCase.h>
+#import <JSZVCR/JSZVCR.h>
 
 @interface JSZTestTestCase : JSZVCRTestCase
 
