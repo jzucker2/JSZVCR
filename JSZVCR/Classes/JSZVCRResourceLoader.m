@@ -67,6 +67,11 @@
 
 - (void)setTest:(XCTestCase *)testCase {
 //    self.networkInfo = [[self class] pathForFileMatchingTest:testCase];
+    if (!testCase) {
+        self.networkInfoPath = nil;
+        self.networkInfo = nil;
+        return;
+    }
     self.networkInfoPath = [self pathForFileMatchingTest:testCase];
     NSAssert(self.networkInfoPath, @"No path found for testCase: %@", testCase);
     self.networkInfo = [[NSArray alloc] initWithContentsOfFile:self.networkInfoPath];
