@@ -78,7 +78,7 @@
         SEL sourceMethod = method_getName(m);
         const char *encoding = method_getTypeEncoding(m);
         NSString *sourceMethodName = NSStringFromSelector(sourceMethod);
-        NSLog(@"%@", sourceMethodName);
+//        NSLog(@"%@", sourceMethodName);
         NSAssert([sourceMethodName hasPrefix:@"JSZ_"], @"Expecting swizzle methods only");
         NSString *originalMethodName = [sourceMethodName substringFromIndex:4];
         SEL originalMethod = NSSelectorFromString(originalMethodName);
@@ -116,7 +116,7 @@
     }
     JSZVCRRecording *recording = [self storedRecordingFromTask:task];
     if (recording.data) {
-        NSLog(@"already had a response: %@", recording.data);
+        NSLog(@"already had data: %@", recording.data);
     }
     recording.data = [JSZVCRData dataWithData:data];
 }

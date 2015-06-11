@@ -29,13 +29,13 @@
 @dynamic task;
 
 - (void)JSZ_setTask:(NSURLSessionTask *)task {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-    NSLog(@"task: %@", task);
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    NSLog(@"task: %@", task);
     [self JSZ_setTask:task];
 }
 
 - (instancetype)JSZ_initWithTask:(NSURLSessionTask *)task delegate:(id <NSURLSessionDelegate>)delegate delegateQueue:(NSOperationQueue *)queue {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
     if (!task.globallyUniqueIdentifier) {
         task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
     }

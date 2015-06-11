@@ -1,12 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
+workspace '../JSZVCR'
 use_frameworks!
 
-target 'JSZVCR_Example', :exclusive => true do
-  pod "JSZVCR", :path => "../"
-end
 
 target 'JSZVCR_Tests', :exclusive => true do
   pod "JSZVCR", :path => "../"
-
-  
 end
