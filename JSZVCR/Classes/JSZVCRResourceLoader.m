@@ -72,7 +72,7 @@
 }
 
 - (NSArray *)networkInfo {
-    return @{};
+    return @[];
 }
 
 @end
