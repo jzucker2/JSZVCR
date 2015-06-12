@@ -68,10 +68,6 @@
     [self.recorder dumpRecordingsToFile:filePath];
 }
 
-//- (void)setCurrentTestCase:(XCTestCase *)currentTestCase {
-//    
-//}
-
 
 
 @end
