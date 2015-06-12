@@ -20,6 +20,7 @@
 @property (nonatomic) NSString *networkInfoPath;
 @property (nonatomic) NSBundle *bundle;
 @property (nonatomic) NSArray *networkInfo;
+//@property (nonatomic) XCTestCase *currentTestCase;
 
 @end
 
@@ -65,17 +66,17 @@
 //    
 //}
 
-- (void)setTest:(XCTestCase *)testCase {
-//    self.networkInfo = [[self class] pathForFileMatchingTest:testCase];
-    if (!testCase) {
-        self.networkInfoPath = nil;
-        self.networkInfo = nil;
-        return;
-    }
-    self.networkInfoPath = [self pathForFileMatchingTest:testCase];
-    NSAssert(self.networkInfoPath, @"No path found for testCase: %@", testCase);
-    self.networkInfo = [[NSArray alloc] initWithContentsOfFile:self.networkInfoPath];
-}
+//- (void)setTest:(XCTestCase *)testCase {
+////    self.networkInfo = [[self class] pathForFileMatchingTest:testCase];
+//    if (!testCase) {
+//        self.networkInfoPath = nil;
+//        self.networkInfo = nil;
+//        return;
+//    }
+//    self.networkInfoPath = [self pathForFileMatchingTest:testCase];
+//    NSAssert(self.networkInfoPath, @"No path found for testCase: %@", testCase);
+//    self.networkInfo = [[NSArray alloc] initWithContentsOfFile:self.networkInfoPath];
+//}
 
 - (void)setResourceBundle:(NSString *)bundleName containingClass:(__unsafe_unretained Class)classInBundle {
     self.bundle = [self bundleWithName:bundleName containingClass:classInBundle];

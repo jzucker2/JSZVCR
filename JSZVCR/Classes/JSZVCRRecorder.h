@@ -14,7 +14,7 @@
 
 + (instancetype)sharedInstance;
 
-+ (void)swizzleNSURLSessionClasses;
+
 
 - (void)recordTask:(NSURLSessionTask *)task redirectRequest:(NSURLRequest *)arg1 redirectResponse:(NSURLResponse *)arg2;
 - (void)recordTask:(NSURLSessionTask *)task didReceiveData:(NSData *)data;

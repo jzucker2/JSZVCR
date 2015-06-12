@@ -6,10 +6,6 @@
 //
 //
 
-#import <objc/runtime.h>
-#import <objc/message.h>
-#import <dispatch/queue.h>
-
 #import "JSZVCRRecorder.h"
 #import "JSZVCRRecording.h"
 #import "JSZVCRNSURLSessionConnection.h"
@@ -21,6 +17,7 @@
 
 @interface JSZVCRRecorder ()
 @property (nonatomic) NSMutableDictionary *recordings;
+@property (nonatomic) dispatch_queue_t recordingQueue;
 @end
 
 @implementation JSZVCRRecorder
@@ -39,6 +36,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        _recordingQueue = dispatch_queue_create("com.JSZ.recordingQueue", DISPATCH_QUEUE_SERIAL);
         _recordings = [NSMutableDictionary dictionary];
         _enabled = YES;
     }
@@ -53,92 +51,64 @@
 //    return _enabled;
 //}
 
-+ (void)swizzleNSURLSessionClasses
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self _swizzleNSURLSessionClasses];
-    });
-}
-
-+ (void)_swizzleNSURLSessionClasses;
-{
-    Class cfURLSessionConnectionClass = NSClassFromString(@"__NSCFURLSessionConnection");
-    if (!cfURLSessionConnectionClass) {
-        NSLog(@"Could not find __NSCFURLSessionConnection");
-        return;
-    }
-    
-    unsigned int outCount = 0;
-    Method *methods = class_copyMethodList([JSZVCRNSURLSessionConnection class], &outCount);
-    //    Method *methods = class_copyMethodList(cfURLSessionConnectionClass, &outCount);
-    
-    for (int i = 0; i < outCount; i++) {
-        Method m = methods[i];
-        SEL sourceMethod = method_getName(m);
-        const char *encoding = method_getTypeEncoding(m);
-        NSString *sourceMethodName = NSStringFromSelector(sourceMethod);
-        //        NSLog(@"%@", sourceMethodName);
-        NSAssert([sourceMethodName hasPrefix:@"JSZ_"], @"Expecting swizzle methods only");
-        NSString *originalMethodName = [sourceMethodName substringFromIndex:4];
-        SEL originalMethod = NSSelectorFromString(originalMethodName);
-        NSAssert(originalMethod, @"Must find selector");
-        
-        IMP sourceImp = method_getImplementation(m);
-        
-        IMP originalImp = class_getMethodImplementation(cfURLSessionConnectionClass, originalMethod);
-        
-        NSAssert(originalImp, @"Must find imp");
-        
-        __unused BOOL success = class_addMethod(cfURLSessionConnectionClass, sourceMethod, originalImp, encoding);
-        NSAssert(success, @"Should be successful");
-        __unused IMP replacedImp = class_replaceMethod(cfURLSessionConnectionClass, originalMethod, sourceImp, encoding);
-        NSAssert(replacedImp, @"Expected original method to have been replaced");
-    }
-    
-    if (methods) {
-        free(methods);
-    }
-}
-
 #pragma mark - NSURLSession recording
 
 - (void)recordTask:(NSURLSessionTask *)task redirectRequest:(NSURLRequest *)arg1 redirectResponse:(NSURLResponse *)arg2 {
-    if (!_enabled) {
+    if (!self.enabled) {
         return;
     }
     
 }
 
 - (void)recordTask:(NSURLSessionTask *)task didReceiveData:(NSData *)data {
-    if (!_enabled) {
+    if (!self.enabled) {
         return;
     }
-    JSZVCRRecording *recording = [self storedRecordingFromTask:task];
-    if (recording.data) {
-        NSLog(@"already had data: %@", recording.data);
-    }
-    recording.data = [JSZVCRData dataWithData:data];
+    __typeof (self) wself = self;
+    dispatch_async(self.recordingQueue, ^{
+        __typeof (wself) sself = wself;
+        if (!sself) {
+            return;
+        }
+        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
+        if (recording.data) {
+            NSLog(@"already had data: %@", recording.data);
+        }
+        recording.data = [JSZVCRData dataWithData:data];
+    });
 }
 
 - (void)recordTask:(NSURLSessionTask *)task didReceiveResponse:(NSURLResponse *)response {
-    if (!_enabled) {
+    if (!self.enabled) {
         return;
     }
-    JSZVCRRecording *recording = [self storedRecordingFromTask:task];
-    if (recording.response) {
-        NSLog(@"already had response: %@", recording.response);
-    }
-    recording.response = [JSZVCRResponse responseWithResponse:response];
-    
+    __typeof (self) wself = self;
+    dispatch_async(self.recordingQueue, ^{
+        __typeof (wself) sself = wself;
+        if (!sself) {
+            return;
+        }
+        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
+        if (recording.response) {
+            NSLog(@"already had response: %@", recording.response);
+        }
+        recording.response = [JSZVCRResponse responseWithResponse:response];
+    });
 }
 
 - (void)recordTask:(NSURLSessionTask *)task didFinishWithError:(NSError *)error {
-    if (!_enabled) {
+    if (!self.enabled) {
         return;
     }
-    JSZVCRRecording *recording = [self storedRecordingFromTask:task];
-    recording.error = error;
+    __typeof (self) wself = self;
+    dispatch_async(self.recordingQueue, ^{
+        __typeof (wself) sself = wself;
+        if (!sself) {
+            return;
+        }
+        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
+        recording.error = error;
+    });
 }
 
 - (JSZVCRRecording *)storedRecordingFromTask:(NSURLSessionTask *)task {

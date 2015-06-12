@@ -44,8 +44,9 @@
 
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request;
 - (NSDictionary *)responseForRequest:(NSURLRequest *)request;
-- (void)setTest:(XCTestCase *)testCase;
+//- (void)setTest:(XCTestCase *)testCase;
 - (void)setResourceBundle:(NSString *)bundleName containingClass:(Class)classInBundle;
+@property (nonatomic) XCTestCase *currentTestCase;
 
 //- (id)resourceForFilePath:(NSString *)filePath;
 //- (id)resourceForBundle:(NSBundle *)bundle;

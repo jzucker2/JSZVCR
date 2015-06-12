@@ -8,6 +8,7 @@
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
 #import "JSZVCRTestCase.h"
+#import "JSZVCR.h"
 #import "JSZVCRResourceLoader.h"
 #import "JSZVCRRecorder.h"
 
@@ -34,7 +35,8 @@
 + (instancetype)testCaseWithInvocation:(NSInvocation *)invocation {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     JSZVCRTestCase *testCase = [super testCaseWithInvocation:invocation];
-    [[JSZVCRResourceLoader sharedInstance] setTest:testCase];
+    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
+//    [[JSZVCRResourceLoader sharedInstance] setTest:testCase];
     return testCase;
 }
 
@@ -57,18 +59,21 @@
 }
 
 + (NSString *)bundleNameContainingResponses {
-    return [NSString stringWithFormat:@"%s", __FILE__];
+//    NSString *fullFilePathString = [NSString stringWithFormat:@"%s", __FILE__];
+//    return [[fullFilePathString lastPathComponent] stringByDeletingPathExtension];
+    return NSStringFromClass(self);
 }
 
-+ (void)setUp {
-    [super setUp];
-    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
-}
+//+ (void)setUp {
+//    [super setUp];
+//    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
+//}
 
 - (void)setUp {
     [super setUp];
     if (self.recording) {
-        [JSZVCRRecorder swizzleNSURLSessionClasses];
+        // only swizzle if you have to
+        [[JSZVCR sharedInstance] swizzleNSURLSessionClasses];
         [[JSZVCRRecorder sharedInstance] setEnabled:YES];
     } else {
         [[JSZVCRRecorder sharedInstance] setEnabled:NO];
@@ -92,7 +97,7 @@
 - (void)tearDown {
     [OHHTTPStubs removeAllStubs];
     [[JSZVCRRecorder sharedInstance] dumpRecordingsToFile:@"test"];
-    [[JSZVCRResourceLoader sharedInstance] setTest:nil];
+//    [[JSZVCRResourceLoader sharedInstance] setTest:nil];
     [super tearDown];
 }
 
