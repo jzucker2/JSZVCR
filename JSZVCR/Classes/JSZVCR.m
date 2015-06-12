@@ -27,9 +27,16 @@
     static JSZVCR *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[JSZVCR alloc] initWithResourceLoader:[[JSZVCRResourceLoader alloc] init] player:[[JSZVCRPlayer alloc] init] recorder:[[JSZVCRRecorder alloc] init]];
+        JSZVCRResourceLoader *resourceLoader = [[JSZVCRResourceLoader alloc] init];
+        sharedInstance = [JSZVCR vcrWithResourceLoader:resourceLoader];
     });
     return sharedInstance;
+}
+
++ (instancetype)vcrWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader {
+    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] initWithResourceLoader:resourceLoader];
+    JSZVCRRecorder *recorder = [JSZVCRRecorder sharedInstance];
+    return [[self alloc] initWithResourceLoader:resourceLoader player:player recorder:recorder];
 }
 
 - (instancetype)initWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader

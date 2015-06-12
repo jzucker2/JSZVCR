@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) XCTestCase *currentTestCase;
 
 + (instancetype)sharedInstance;
-
++ (instancetype)vcrWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader;
 - (instancetype)initWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader
                         player:(JSZVCRPlayer *)player
                       recorder:(JSZVCRRecorder *)recorder;
