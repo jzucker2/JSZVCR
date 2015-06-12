@@ -50,11 +50,11 @@
     
     XCTestExpectation *networkExpectation = [self expectationWithDescription:@"network"];
     NSURLSessionDataTask *basicGetTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"data: %@", data);
-        NSLog(@"response: %@", response);
-        NSLog(@"error: %@", error);
-        [networkExpectation fulfill];
+//        NSLog(@"data: %@", data);
+//        NSLog(@"response: %@", response);
+//        NSLog(@"error: %@", error);
         XCTAssertNil(error);
+        [networkExpectation fulfill];
     }];
     [basicGetTask resume];
     [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {

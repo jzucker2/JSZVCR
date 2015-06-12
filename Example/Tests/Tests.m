@@ -27,16 +27,31 @@
 }
 
 - (void)testSimpleNoMockingNetworkCall {
+    [self performVerifiedNetworkCall];
+}
+
+- (void)testSimpleNoMockingPerformanceNetworkCall {
+    __weak typeof(self) wself = self;
+    [self measureBlock:^{
+        __strong typeof(wself) sself = wself;
+        if (!sself) {
+            return;
+        }
+        [sself performVerifiedNetworkCall];
+    }];
+}
+
+- (void)performVerifiedNetworkCall {
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://pubsub.pubnub.com/publish/demo/demo/0/hello_world/0/%22Hello%20World%22"]];
     
     XCTestExpectation *networkExpectation = [self expectationWithDescription:@"network"];
     NSURLSessionDataTask *basicGetTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"data: %@", data);
-        NSLog(@"response: %@", response);
-        NSLog(@"error: %@", error);
-        [networkExpectation fulfill];
+//        NSLog(@"data: %@", data);
+//        NSLog(@"response: %@", response);
+//        NSLog(@"error: %@", error);
         XCTAssertNil(error);
+        [networkExpectation fulfill];
     }];
     [basicGetTask resume];
     [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
