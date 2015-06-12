@@ -22,8 +22,8 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness) {
 - (BOOL)recording;
 + (NSString *)bundleNameContainingResponses;
 - (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector;
-- (NSDictionary *)responseForRequest:(NSURLRequest *)request;
-- (NSArray *)responsesForSelector:(SEL)testCaseSelector;
+//- (NSDictionary *)responseForRequest:(NSURLRequest *)request;
+//- (NSArray *)responsesForSelector:(SEL)testCaseSelector;
 
 
 @end

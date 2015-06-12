@@ -35,7 +35,7 @@
 + (instancetype)testCaseWithInvocation:(NSInvocation *)invocation {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     JSZVCRTestCase *testCase = [super testCaseWithInvocation:invocation];
-    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
+//    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
 //    [[JSZVCRResourceLoader sharedInstance] setTest:testCase];
     return testCase;
 }
@@ -77,26 +77,26 @@
         [[JSZVCRRecorder sharedInstance] setEnabled:YES];
     } else {
         [[JSZVCRRecorder sharedInstance] setEnabled:NO];
-        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-            return [[JSZVCRResourceLoader sharedInstance] hasResponseForRequest:request];
-        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-            // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
-            NSDictionary *responseDict = [[JSZVCRResourceLoader sharedInstance] responseForRequest:request];
-            return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
-                                              statusCode:[responseDict[@"statusCode"] intValue]
-                                                 headers:responseDict[@"httpHeaders"]];
-        }];
+//        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+//            return [[JSZVCRResourceLoader sharedInstance] hasResponseForRequest:request];
+//        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+//            // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
+//            NSDictionary *responseDict = [[JSZVCRResourceLoader sharedInstance] responseForRequest:request];
+//            return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
+//                                              statusCode:[responseDict[@"statusCode"] intValue]
+//                                                 headers:responseDict[@"httpHeaders"]];
+//        }];
     }
 }
 
 + (void)tearDown {
-    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:nil containingClass:self.class];
+//    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:nil containingClass:self.class];
     [super tearDown];
 }
 
 - (void)tearDown {
     [OHHTTPStubs removeAllStubs];
-    [[JSZVCRRecorder sharedInstance] dumpRecordingsToFile:@"test"];
+//    [[JSZVCRRecorder sharedInstance] dumpRecordingsToFile:@"test"];
 //    [[JSZVCRResourceLoader sharedInstance] setTest:nil];
     [super tearDown];
 }

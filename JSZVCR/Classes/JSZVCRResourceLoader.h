@@ -29,27 +29,21 @@
 //}
 
 @class XCTestCase;
+@class JSZVCRRecorder;
 
 @interface JSZVCRResourceLoader : NSObject
 
-+ (instancetype)sharedInstance;
+//+ (instancetype)sharedInstance;
 
 - (NSString *)pathForFile:(NSString *)fileName bundleForClass:(Class)classInBundle;
 - (NSString *)pathForFile:(NSString *)fileName inBundle:(NSBundle *)bundle;
 - (NSString *)pathForFileMatchingTest:(XCTestCase *)testCase inBundle:(NSBundle *)bundle;
 - (NSString *)pathForFileMatchingTest:(XCTestCase *)testCase;
 - (NSBundle *)bundleWithName:(NSString *)bundleName containingClass:(Class)classInBundle;
-
-//+ (NSDictionary *)responseForOHHTTPStubs:(id)networkInfo;
-
-- (BOOL)hasResponseForRequest:(NSURLRequest *)request;
-- (NSDictionary *)responseForRequest:(NSURLRequest *)request;
-//- (void)setTest:(XCTestCase *)testCase;
 - (void)setResourceBundle:(NSString *)bundleName containingClass:(Class)classInBundle;
+- (void)saveToDisk:(JSZVCRRecorder *)recorder;
 @property (nonatomic) XCTestCase *currentTestCase;
 
-//- (id)resourceForFilePath:(NSString *)filePath;
-//- (id)resourceForBundle:(NSBundle *)bundle;
-//- (id)resourceForTest:(XCTestCase *)testCase;
+- (NSArray *)networkInfo;
 
 @end

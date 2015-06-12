@@ -15,25 +15,17 @@
 #import <XCTest/XCTest.h>
 
 #import "JSZVCRResourceLoader.h"
+#import "JSZVCRRecorder.h"
+#import "JSZVCRRecording.h"
 
 @interface JSZVCRResourceLoader ()
 @property (nonatomic) NSString *networkInfoPath;
 @property (nonatomic) NSBundle *bundle;
 @property (nonatomic) NSArray *networkInfo;
-//@property (nonatomic) XCTestCase *currentTestCase;
 
 @end
 
 @implementation JSZVCRResourceLoader
-
-+ (instancetype)sharedInstance {
-    static JSZVCRResourceLoader *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[JSZVCRResourceLoader alloc] init];
-    });
-    return sharedInstance;
-}
 
 - (NSString *)pathForFile:(NSString *)fileName bundleForClass:(Class)classInBundle {
     NSBundle *bundle = [NSBundle bundleForClass:classInBundle];
@@ -62,65 +54,25 @@
     return [NSBundle bundleWithPath:[classBundle pathForResource:bundleName ofType:@"bundle"]];
 }
 
-//+ (NSDictionary *)responseForOHHTTPStubsWith:(id)networkInfo forRequest:(NSURLRequest *)request {
-//    
-//}
-
-//- (void)setTest:(XCTestCase *)testCase {
-////    self.networkInfo = [[self class] pathForFileMatchingTest:testCase];
-//    if (!testCase) {
-//        self.networkInfoPath = nil;
-//        self.networkInfo = nil;
-//        return;
-//    }
-//    self.networkInfoPath = [self pathForFileMatchingTest:testCase];
-//    NSAssert(self.networkInfoPath, @"No path found for testCase: %@", testCase);
-//    self.networkInfo = [[NSArray alloc] initWithContentsOfFile:self.networkInfoPath];
-//}
-
 - (void)setResourceBundle:(NSString *)bundleName containingClass:(__unsafe_unretained Class)classInBundle {
     self.bundle = [self bundleWithName:bundleName containingClass:classInBundle];
 }
 
-//- (void)setNetworkResponses:(id)networkResponses {
-//    _networkInfo = networkResponses;
-//}
-
-- (BOOL)hasResponseForRequest:(NSURLRequest *)request {
-    NSDictionary *info = [self infoForRequest:request];
-    return (info != nil);
-}
-
-- (NSDictionary *)infoForRequest:(NSURLRequest *)request {
-    for (NSDictionary *info in self.networkInfo) {
-        NSString *currentRequestURLString = info[@"request"][@"currentRequest"][@"URL"];
-        NSString *originalRequestURLString = info[@"request"][@"originalRequest"][@"URL"];
-        if ([request.URL.absoluteString isEqualToString:currentRequestURLString] ||
-            [request.URL.absoluteString isEqualToString:originalRequestURLString]) {
-            return info;
-        }
+- (void)saveToDisk:(JSZVCRRecorder *)recorder {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *filePathComponent = [NSString stringWithFormat:@"%@.plist", [NSUUID UUID].UUIDString];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:filePathComponent];
+    NSLog(@"filePath = %@", filePath);
+    NSMutableArray *dumpArray = [NSMutableArray array];
+    for (JSZVCRRecording *recording in recorder.allRecordings) {
+        [dumpArray addObject:recording.dictionaryRepresentation];
     }
-    return nil;
+    [dumpArray writeToFile:filePath atomically:YES];
 }
 
-- (NSDictionary *)responseForRequest:(NSURLRequest *)request {
-    NSDictionary *info = [self infoForRequest:request];
-    
-    if (!info) {
-        return nil;
-    }
-    
-    NSDictionary *responseDictionary = info[@"response"][@"response"];
-    NSNumber *responseCode = responseDictionary[@"statusCode"];
-    NSDictionary *headersDict = responseDictionary[@"allHeaderFields"];
-    NSData *data = info[@"data"][@"data"];
-    return @{
-             @"statusCode" : responseCode,
-             @"httpHeaders" : headersDict,
-             @"data" : data
-             };
+- (NSArray *)networkInfo {
+    return @{};
 }
-
-
 
 @end

@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-//@class JSZVCRRecorder;
-
 @interface NSURLSessionTask (JSZVCRAdditions)
 
 @property (nonatomic, copy) NSString *globallyUniqueIdentifier;
-//@property (nonatomic, weak) JSZVCRRecorder *recorder;
 
 @end

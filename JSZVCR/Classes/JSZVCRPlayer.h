@@ -15,7 +15,9 @@
 - (instancetype)initWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader;
 
 @property (nonatomic, readonly) JSZVCRResourceLoader *resourceLoader;
-@property (nonatomic, readonly) NSBundle *bundle;
 @property (nonatomic, readonly) NSArray *networkResponses;
+
+- (BOOL)hasResponseForRequest:(NSURLRequest *)request;
+- (NSDictionary *)responseForRequest:(NSURLRequest *)request;
 
 @end

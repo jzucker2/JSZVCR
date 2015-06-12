@@ -43,13 +43,9 @@
     return self;
 }
 
-//- (void)setEnabled:(BOOL)enabled {
-//    _enabled = enabled;
-//}
-//
-//- (BOOL)isEnabled {
-//    return _enabled;
-//}
+- (void)reset {
+    self.recordings = [NSMutableDictionary dictionary];
+}
 
 #pragma mark - NSURLSession recording
 
@@ -125,19 +121,6 @@
 
 - (NSArray *)allRecordings {
     return [self.recordings allValues];
-}
-
-- (void)dumpRecordingsToFile:(NSString *)aPathFile {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-    NSString *filePathComponent = [NSString stringWithFormat:@"%@.plist", [NSUUID UUID].UUIDString];
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:filePathComponent];
-    NSLog(@"filePath = %@", filePath);
-    NSMutableArray *dumpArray = [NSMutableArray array];
-    for (JSZVCRRecording *recording in self.recordings.allValues) {
-        [dumpArray addObject:recording.dictionaryRepresentation];
-    }
-    [dumpArray writeToFile:filePath atomically:YES];
 }
 
 @end

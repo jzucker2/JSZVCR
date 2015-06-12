@@ -65,7 +65,8 @@
 }
 
 - (void)dumpRecordingsToFile:(NSString *)filePath {
-    [self.recorder dumpRecordingsToFile:filePath];
+    [self.resourceLoader saveToDisk:self.recorder];
+    [self.recorder reset];
 }
 
 
