@@ -1,18 +1,21 @@
 //
-//  JSZVCRTests.m
-//  JSZVCRTests
+//  JSZUnmockedTestCase.m
+//  JSZVCR
 //
-//  Created by Jordan Zucker on 06/11/2015.
+//  Created by Jordan Zucker on 6/11/15.
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
+
 @import XCTest;
 
-@interface Tests : XCTestCase
+@interface JSZUnmockedTestCase : XCTestCase
 
 @end
 
-@implementation Tests
+@implementation JSZUnmockedTestCase
 
 - (void)setUp
 {
@@ -47,9 +50,9 @@
     
     XCTestExpectation *networkExpectation = [self expectationWithDescription:@"network"];
     NSURLSessionDataTask *basicGetTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-//        NSLog(@"data: %@", data);
-//        NSLog(@"response: %@", response);
-//        NSLog(@"error: %@", error);
+        //        NSLog(@"data: %@", data);
+        //        NSLog(@"response: %@", response);
+        //        NSLog(@"error: %@", error);
         XCTAssertNil(error);
         [networkExpectation fulfill];
     }];
