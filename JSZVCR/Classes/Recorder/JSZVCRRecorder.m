@@ -44,7 +44,8 @@
 }
 
 - (void)reset {
-    self.recordings = [NSMutableDictionary dictionary];
+//    self.recordings = [NSMutableDictionary dictionary];
+    [self.recordings removeAllObjects];
 }
 
 #pragma mark - NSURLSession recording
