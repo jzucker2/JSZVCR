@@ -27,7 +27,7 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     self = [super initWithInvocation:invocation];
     if (self) {
-        _vcr = [JSZVCR vcrWithResourceManager:[[JSZVCRResourceManager alloc] init]];
+        _vcr = [JSZVCR vcr];
         _vcr.currentTestCase = self;
     }
     return self;

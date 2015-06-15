@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "JSZVCRTestCase.h"
 
-@class JSZVCRResourceManager;
 @class JSZVCRPlayer;
 @class JSZVCRRecorder;
 @interface JSZVCR : NSObject
@@ -18,10 +17,9 @@
 @property (nonatomic) XCTestCase *currentTestCase;
 
 //+ (instancetype)sharedInstance;
-+ (instancetype)vcrWithResourceManager:(JSZVCRResourceManager *)resourceManager;
-- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager
-                                 player:(JSZVCRPlayer *)player
-                               recorder:(JSZVCRRecorder *)recorder;
++ (instancetype)vcr;
+- (instancetype)initWithPlayer:(JSZVCRPlayer *)player
+                      recorder:(JSZVCRRecorder *)recorder;
 
 
 - (void)swizzleNSURLSessionClasses;

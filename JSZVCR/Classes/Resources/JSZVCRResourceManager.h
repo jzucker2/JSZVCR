@@ -19,8 +19,10 @@
 + (NSBundle *)bundleWithName:(NSString *)bundleName containingClass:(Class)classInBundle;
 + (NSString *)pathForFileMatchingTest:(XCTestCase *)testCase; // look in default bundle
 
-@property (nonatomic) NSMutableArray *networkInfo;
++ (NSArray *)networkResponsesForFilePath:(NSString *)filePath;
++ (NSArray *)networkResponsesForTest:(XCTestCase *)testCase;
 
-- (void)saveToDisk:(JSZVCRRecorder *)recorder;
+
++ (void)saveToDisk:(JSZVCRRecorder *)recorder;
 
 @end

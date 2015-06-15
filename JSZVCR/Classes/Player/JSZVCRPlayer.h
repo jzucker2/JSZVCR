@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class JSZVCRResourceManager;
+@class XCTestCase;
 
 @interface JSZVCRPlayer : NSObject
 
-- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager;
 
-@property (nonatomic, readonly) JSZVCRResourceManager *resourceManager;
+@property (nonatomic) XCTestCase *currentTestCase;
 @property (nonatomic, readonly) NSArray *networkResponses;
 
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request;

@@ -41,7 +41,17 @@
     return [self pathForFileMatchingTest:testCase inBundle:[self bundleWithName:currentTestCaseMethod containingClass:testCase.class]];
 }
 
-- (void)saveToDisk:(JSZVCRRecorder *)recorder {
++ (NSArray *)networkResponsesForFilePath:(NSString *)filePath {
+    NSParameterAssert(filePath);
+    return [[NSArray alloc] initWithContentsOfFile:filePath];
+}
+
++ (NSArray *)networkResponsesForTest:(XCTestCase *)testCase {
+    NSParameterAssert(testCase);
+    return [self networkResponsesForFilePath:[self pathForFileMatchingTest:testCase]];
+}
+
++ (void)saveToDisk:(JSZVCRRecorder *)recorder {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
     NSString *filePathComponent = [NSString stringWithFormat:@"%@.plist", [NSUUID UUID].UUIDString];

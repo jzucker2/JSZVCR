@@ -13,10 +13,8 @@
 #import "JSZVCRNSURLSessionConnection.h"
 
 @interface JSZVCR ()
-//@property (nonatomic, readwrite) XCTestCase *currentTestCase;
 @property (nonatomic) JSZVCRRecorder *recorder;
 @property (nonatomic) JSZVCRPlayer *player;
-@property (nonatomic) JSZVCRResourceManager *resourceManager;
 @end
 
 @implementation JSZVCR
@@ -33,20 +31,17 @@
 //    return sharedInstance;
 //}
 
-+ (instancetype)vcrWithResourceManager:(JSZVCRResourceManager *)resourceManager {
-    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] initWithResourceManager:resourceManager];
++ (instancetype)vcr {
+    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] init];
     JSZVCRRecorder *recorder = [JSZVCRRecorder sharedInstance];
     // should probably reset recorder for every VCR instance, just in case it already had data
     [recorder reset];
-    return [[self alloc] initWithResourceManager:resourceManager player:player recorder:recorder];
+    return [[self alloc] initWithPlayer:player recorder:recorder];
 }
 
-- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager
-                                 player:(JSZVCRPlayer *)player
-                               recorder:(JSZVCRRecorder *)recorder {
+- (instancetype)initWithPlayer:(JSZVCRPlayer *)player recorder:(JSZVCRRecorder *)recorder {
     self = [super init];
     if (self) {
-        _resourceManager = resourceManager;
         _player = player;
         _recorder = recorder;
     }
@@ -71,7 +66,7 @@
 }
 
 - (void)dumpRecordingsToFile:(NSString *)filePath {
-    [self.resourceManager saveToDisk:self.recorder];
+    [JSZVCRResourceManager saveToDisk:self.recorder];
     [self.recorder reset];
 }
 

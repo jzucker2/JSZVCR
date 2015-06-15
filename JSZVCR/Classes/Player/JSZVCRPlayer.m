@@ -5,23 +5,15 @@
 //  Created by Jordan Zucker on 6/11/15.
 //
 //
+#import <XCTest/XCTest.h>
 
 #import "JSZVCRPlayer.h"
 #import "JSZVCRResourceManager.h"
 
 @interface JSZVCRPlayer ()
-@property (nonatomic, readwrite) JSZVCRResourceManager *resourceManager;
 @end
 
 @implementation JSZVCRPlayer
-
-- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager {
-    self = [super init];
-    if (self) {
-        _resourceManager = resourceManager;
-    }
-    return self;
-}
 
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request {
     NSDictionary *info = [self infoForRequest:request];
@@ -29,7 +21,7 @@
 }
 
 - (NSDictionary *)infoForRequest:(NSURLRequest *)request {
-    for (NSDictionary *info in self.resourceManager.networkInfo) {
+    for (NSDictionary *info in self.networkResponses) {
         NSString *currentRequestURLString = info[@"request"][@"currentRequest"][@"URL"];
         NSString *originalRequestURLString = info[@"request"][@"originalRequest"][@"URL"];
         if ([request.URL.absoluteString isEqualToString:currentRequestURLString] ||
@@ -57,7 +49,7 @@
 }
 
 - (NSArray *)networkResponses {
-    return self.resourceManager.networkInfo;
+    return [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
 }
 
 @end
