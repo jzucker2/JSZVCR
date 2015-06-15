@@ -19,7 +19,7 @@
 
 @implementation JSZVCR
 
-@synthesize enabled = _enabled;
+@synthesize recording = _recording;
 
 //+ (instancetype)sharedInstance {
 //    static JSZVCR *sharedInstance = nil;
@@ -48,13 +48,13 @@
     return self;
 }
 
-- (void)setEnabled:(BOOL)enabled {
-    _enabled = enabled;
-    self.recorder.enabled = enabled;
+- (void)setRecording:(BOOL)recording {
+    _recording = recording;
+    self.recorder.enabled = recording;
 }
 
-- (BOOL)isEnabled {
-    return _enabled;
+- (BOOL)isRecording {
+    return _recording;
 }
 
 - (void)swizzleNSURLSessionClasses {
@@ -63,11 +63,16 @@
 
 - (void)setCurrentTestCase:(XCTestCase *)currentTestCase {
     _currentTestCase = currentTestCase;
+    self.player.currentTestCase = _currentTestCase;
 }
 
 - (void)dumpRecordingsToFile:(NSString *)filePath {
     [JSZVCRResourceManager saveToDisk:self.recorder];
     [self.recorder reset];
+}
+
+- (void)removeAllNetworkResponses {
+    
 }
 
 

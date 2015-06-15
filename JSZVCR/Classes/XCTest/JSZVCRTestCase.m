@@ -29,6 +29,7 @@
     if (self) {
         _vcr = [JSZVCR vcr];
         _vcr.currentTestCase = self;
+        _vcr.recording = [self recording];
     }
     return self;
 }
@@ -52,9 +53,9 @@
 //    return [super testCaseWithSelector:selector];
 //}
 
-- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector {
-    return JSZVCRTestingStrictnessNone;
-}
+//- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector {
+//    return JSZVCRTestingStrictnessNone;
+//}
 
 //- (NSDictionary *)responseForReqeust:(NSURLRequest *)request {
 //    return nil;
@@ -75,36 +76,37 @@
 ////    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
 ////}
 //
-//- (void)setUp {
-//    [super setUp];
-//    if (self.recording) {
-//        // only swizzle if you have to
-////        [[JSZVCR sharedInstance] swizzleNSURLSessionClasses];
-//        [[JSZVCRRecorder sharedInstance] setEnabled:YES];
-//    } else {
-//        [[JSZVCRRecorder sharedInstance] setEnabled:NO];
-////        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-////            return [[JSZVCRResourceLoader sharedInstance] hasResponseForRequest:request];
-////        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-////            // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
-////            NSDictionary *responseDict = [[JSZVCRResourceLoader sharedInstance] responseForRequest:request];
-////            return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
-////                                              statusCode:[responseDict[@"statusCode"] intValue]
-////                                                 headers:responseDict[@"httpHeaders"]];
-////        }];
-//    }
-//}
+- (void)setUp {
+    [super setUp];
+    if (self.vcr.isRecording) {
+        // only swizzle if you have to
+        [self.vcr swizzleNSURLSessionClasses];
+        [self.vcr setRecording:YES];
+    } else {
+        [[JSZVCRRecorder sharedInstance] setEnabled:NO];
+        [self.vcr setRecording:NO];
+        
+//        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+//            return [[JSZVCRResourceLoader sharedInstance] hasResponseForRequest:request];
+//        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+//            // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
+//            NSDictionary *responseDict = [[JSZVCRResourceLoader sharedInstance] responseForRequest:request];
+//            return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
+//                                              statusCode:[responseDict[@"statusCode"] intValue]
+//                                                 headers:responseDict[@"httpHeaders"]];
+//        }];
+    }
+}
 //
 //+ (void)tearDown {
 ////    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:nil containingClass:self.class];
 //    [super tearDown];
 //}
 //
-//- (void)tearDown {
-//    [OHHTTPStubs removeAllStubs];
-////    [[JSZVCRRecorder sharedInstance] dumpRecordingsToFile:@"test"];
-////    [[JSZVCRResourceLoader sharedInstance] setTest:nil];
-//    [super tearDown];
-//}
+- (void)tearDown {
+    [OHHTTPStubs removeAllStubs];
+    [self.vcr dumpRecordingsToFile:@"test"];
+    [super tearDown];
+}
 
 @end

@@ -13,7 +13,7 @@
 @class JSZVCRRecorder;
 @interface JSZVCR : NSObject
 
-@property (nonatomic, getter=isEnabled) BOOL enabled;
+@property (nonatomic, getter=isRecording) BOOL recording;
 @property (nonatomic) XCTestCase *currentTestCase;
 
 //+ (instancetype)sharedInstance;
@@ -24,12 +24,8 @@
 
 - (void)swizzleNSURLSessionClasses;
 
-//- (void)recordTask:(NSURLSessionTask *)task redirectRequest:(NSURLRequest *)arg1 redirectResponse:(NSURLResponse *)arg2;
-//- (void)recordTask:(NSURLSessionTask *)task didReceiveData:(NSData *)data;
-//- (void)recordTask:(NSURLSessionTask *)task didReceiveResponse:(NSURLResponse *)response;
-//- (void)recordTask:(NSURLSessionTask *)task didFinishWithError:(NSError *)arg1;
-//
-//- (NSArray *)allRecordings;
+- (void)removeAllNetworkResponses;
+
 - (void)dumpRecordingsToFile:(NSString *)filePath;
 
 @end
