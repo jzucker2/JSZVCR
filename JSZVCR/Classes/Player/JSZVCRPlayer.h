@@ -19,4 +19,8 @@
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request;
 - (NSDictionary *)responseForRequest:(NSURLRequest *)request;
 
+- (void)removeAllNetworkResponses;
+
+-
+
 @end

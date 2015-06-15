@@ -72,7 +72,7 @@
 }
 
 - (void)removeAllNetworkResponses {
-    
+    [self.player removeAllNetworkResponses];
 }
 
 

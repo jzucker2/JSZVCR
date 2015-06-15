@@ -6,6 +6,7 @@
 //
 //
 #import <XCTest/XCTest.h>
+#import <OHHTTPStubs/OHHTTPStubs.h>
 
 #import "JSZVCRPlayer.h"
 #import "JSZVCRResourceManager.h"
@@ -50,6 +51,10 @@
 
 - (NSArray *)networkResponses {
     return [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+}
+
+- (void)removeAllNetworkResponses {
+    [OHHTTPStubs removeAllStubs];
 }
 
 @end

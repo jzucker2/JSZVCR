@@ -104,7 +104,7 @@
 //}
 //
 - (void)tearDown {
-    [OHHTTPStubs removeAllStubs];
+    [self.vcr removeAllNetworkResponses];
     [self.vcr dumpRecordingsToFile:@"test"];
     [super tearDown];
 }
