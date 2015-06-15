@@ -21,6 +21,4 @@
 
 - (void)removeAllNetworkResponses;
 
--
-
 @end
