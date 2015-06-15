@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class JSZVCRResourceLoader;
+@class JSZVCRResourceManager;
 
 @interface JSZVCRPlayer : NSObject
 
-- (instancetype)initWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader;
+- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager;
 
-@property (nonatomic, readonly) JSZVCRResourceLoader *resourceLoader;
+@property (nonatomic, readonly) JSZVCRResourceManager *resourceManager;
 @property (nonatomic, readonly) NSArray *networkResponses;
 
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request;

@@ -7,18 +7,18 @@
 //
 
 #import "JSZVCRPlayer.h"
-#import "JSZVCRResourceLoader.h"
+#import "JSZVCRResourceManager.h"
 
 @interface JSZVCRPlayer ()
-@property (nonatomic, readwrite) JSZVCRResourceLoader *resourceLoader;
+@property (nonatomic, readwrite) JSZVCRResourceManager *resourceManager;
 @end
 
 @implementation JSZVCRPlayer
 
-- (instancetype)initWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader {
+- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager {
     self = [super init];
     if (self) {
-        _resourceLoader = resourceLoader;
+        _resourceManager = resourceManager;
     }
     return self;
 }
@@ -29,7 +29,7 @@
 }
 
 - (NSDictionary *)infoForRequest:(NSURLRequest *)request {
-    for (NSDictionary *info in self.resourceLoader.networkInfo) {
+    for (NSDictionary *info in self.resourceManager.networkInfo) {
         NSString *currentRequestURLString = info[@"request"][@"currentRequest"][@"URL"];
         NSString *originalRequestURLString = info[@"request"][@"originalRequest"][@"URL"];
         if ([request.URL.absoluteString isEqualToString:currentRequestURLString] ||
@@ -57,7 +57,7 @@
 }
 
 - (NSArray *)networkResponses {
-    return self.resourceLoader.networkInfo;
+    return self.resourceManager.networkInfo;
 }
 
 @end

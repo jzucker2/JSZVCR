@@ -8,43 +8,45 @@
 
 #import "JSZVCR.h"
 #import "JSZVCRRecorder.h"
-#import "JSZVCRResourceLoader.h"
+#import "JSZVCRResourceManager.h"
 #import "JSZVCRPlayer.h"
 #import "JSZVCRNSURLSessionConnection.h"
 
 @interface JSZVCR ()
-@property (nonatomic, readwrite) XCTestCase *currentTestCase;
+//@property (nonatomic, readwrite) XCTestCase *currentTestCase;
 @property (nonatomic) JSZVCRRecorder *recorder;
 @property (nonatomic) JSZVCRPlayer *player;
-@property (nonatomic) JSZVCRResourceLoader *resourceLoader;
+@property (nonatomic) JSZVCRResourceManager *resourceManager;
 @end
 
 @implementation JSZVCR
 
 @synthesize enabled = _enabled;
 
-+ (instancetype)sharedInstance {
-    static JSZVCR *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        JSZVCRResourceLoader *resourceLoader = [[JSZVCRResourceLoader alloc] init];
-        sharedInstance = [JSZVCR vcrWithResourceLoader:resourceLoader];
-    });
-    return sharedInstance;
-}
+//+ (instancetype)sharedInstance {
+//    static JSZVCR *sharedInstance = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        JSZVCRResourceLoader *resourceLoader = [[JSZVCRResourceLoader alloc] init];
+//        sharedInstance = [JSZVCR vcrWithResourceLoader:resourceLoader];
+//    });
+//    return sharedInstance;
+//}
 
-+ (instancetype)vcrWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader {
-    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] initWithResourceLoader:resourceLoader];
++ (instancetype)vcrWithResourceManager:(JSZVCRResourceManager *)resourceManager {
+    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] initWithResourceManager:resourceManager];
     JSZVCRRecorder *recorder = [JSZVCRRecorder sharedInstance];
-    return [[self alloc] initWithResourceLoader:resourceLoader player:player recorder:recorder];
+    // should probably reset recorder for every VCR instance, just in case it already had data
+    [recorder reset];
+    return [[self alloc] initWithResourceManager:resourceManager player:player recorder:recorder];
 }
 
-- (instancetype)initWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader
-                        player:(JSZVCRPlayer *)player
-                      recorder:(JSZVCRRecorder *)recorder {
+- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager
+                                 player:(JSZVCRPlayer *)player
+                               recorder:(JSZVCRRecorder *)recorder {
     self = [super init];
     if (self) {
-        _resourceLoader = resourceLoader;
+        _resourceManager = resourceManager;
         _player = player;
         _recorder = recorder;
     }
@@ -64,8 +66,12 @@
     [JSZVCRNSURLSessionConnection swizzleNSURLSessionClasses];
 }
 
+- (void)setCurrentTestCase:(XCTestCase *)currentTestCase {
+    _currentTestCase = currentTestCase;
+}
+
 - (void)dumpRecordingsToFile:(NSString *)filePath {
-    [self.resourceLoader saveToDisk:self.recorder];
+    [self.resourceManager saveToDisk:self.recorder];
     [self.recorder reset];
 }
 

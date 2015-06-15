@@ -7,23 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "JSZVCRRecorder.h"
-//#import "JSZVCRResourceLoader.h"
 #import "JSZVCRTestCase.h"
 
-@class JSZVCRResourceLoader;
+@class JSZVCRResourceManager;
 @class JSZVCRPlayer;
 @class JSZVCRRecorder;
 @interface JSZVCR : NSObject
 
 @property (nonatomic, getter=isEnabled) BOOL enabled;
-@property (nonatomic, readonly) XCTestCase *currentTestCase;
+@property (nonatomic) XCTestCase *currentTestCase;
 
-+ (instancetype)sharedInstance;
-+ (instancetype)vcrWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader;
-- (instancetype)initWithResourceLoader:(JSZVCRResourceLoader *)resourceLoader
-                        player:(JSZVCRPlayer *)player
-                      recorder:(JSZVCRRecorder *)recorder;
+//+ (instancetype)sharedInstance;
++ (instancetype)vcrWithResourceManager:(JSZVCRResourceManager *)resourceManager;
+- (instancetype)initWithResourceManager:(JSZVCRResourceManager *)resourceManager
+                                 player:(JSZVCRPlayer *)player
+                               recorder:(JSZVCRRecorder *)recorder;
 
 
 - (void)swizzleNSURLSessionClasses;

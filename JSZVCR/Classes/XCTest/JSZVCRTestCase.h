@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-
-//@class XCTestCase;
 
 typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness) {
     JSZVCRTestingStrictnessNone = 0,
@@ -20,8 +17,8 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness) {
 @interface JSZVCRTestCase : XCTestCase
 
 - (BOOL)recording;
-+ (NSString *)bundleNameContainingResponses;
-- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector;
+//+ (NSString *)bundleNameContainingResponses;
+//- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector;
 //- (NSDictionary *)responseForRequest:(NSURLRequest *)request;
 //- (NSArray *)responsesForSelector:(SEL)testCaseSelector;
 
