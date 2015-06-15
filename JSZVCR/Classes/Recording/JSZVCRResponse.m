@@ -27,9 +27,11 @@
                                    @"URL" : response.URL.absoluteString,
                                    @"MIMEType" : response.MIMEType,
                                    @"expectedContentLength" : @(response.expectedContentLength),
-                                   @"textEncodingName" : response.textEncodingName,
                                    @"suggestedFileName" : response.suggestedFilename,
                                    } mutableCopy];
+    if (response.textEncodingName) {
+        [dict setObject:response.textEncodingName forKey:@"textEncodingName"];
+    }
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         dict[@"statusCode"] = @(httpResponse.statusCode);
