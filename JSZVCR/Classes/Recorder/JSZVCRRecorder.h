@@ -22,5 +22,6 @@
 - (void)recordTask:(NSURLSessionTask *)task didFinishWithError:(NSError *)arg1;
 
 - (NSArray *)allRecordings;
+- (NSArray *)allRecordingsForPlist;
 
 @end

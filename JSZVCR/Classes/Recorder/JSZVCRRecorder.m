@@ -124,4 +124,12 @@
     return [self.recordings allValues];
 }
 
+- (NSArray *)allRecordingsForPlist {
+    NSMutableArray *dumpArray = [NSMutableArray array];
+    for (JSZVCRRecording *recording in self.allRecordings) {
+        [dumpArray addObject:recording.dictionaryRepresentation];
+    }
+    return [dumpArray copy];
+}
+
 @end

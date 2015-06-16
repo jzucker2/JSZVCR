@@ -67,13 +67,13 @@
     self.player.currentTestCase = _currentTestCase;
 }
 
-- (void)dumpRecordingsToFile:(NSString *)filePath {
-    [JSZVCRResourceManager saveToDisk:self.recorder];
-    [self.recorder reset];
-}
-
 - (void)removeAllNetworkResponses {
     [self.player removeAllNetworkResponses];
+}
+
+- (void)saveTestRecordings {
+    [JSZVCRResourceManager saveToDisk:self.recorder forTest:self.currentTestCase];
+    [self.recorder reset];
 }
 
 

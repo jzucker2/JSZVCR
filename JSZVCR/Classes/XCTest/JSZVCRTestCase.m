@@ -46,7 +46,7 @@
 - (void)tearDown {
     [self.vcr removeAllNetworkResponses];
     if (self.vcr.isRecording) {
-        [self.vcr dumpRecordingsToFile:@"test"];
+        [self.vcr saveTestRecordings];
     }
     [super tearDown];
 }

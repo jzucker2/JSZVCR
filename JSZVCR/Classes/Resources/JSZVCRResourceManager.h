@@ -22,7 +22,10 @@
 + (NSArray *)networkResponsesForFilePath:(NSString *)filePath;
 + (NSArray *)networkResponsesForTest:(XCTestCase *)testCase;
 
++ (NSBundle *)bundleForTestInDocumentsDirectory:(XCTestCase *)testCase;
+
 
 + (void)saveToDisk:(JSZVCRRecorder *)recorder;
++ (void)saveToDisk:(JSZVCRRecorder *)recorder forTest:(XCTestCase *)testCase;
 
 @end

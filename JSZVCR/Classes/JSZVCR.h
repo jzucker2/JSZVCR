@@ -26,6 +26,6 @@
 
 - (void)removeAllNetworkResponses;
 
-- (void)dumpRecordingsToFile:(NSString *)filePath;
+- (void)saveTestRecordings;
 
 @end

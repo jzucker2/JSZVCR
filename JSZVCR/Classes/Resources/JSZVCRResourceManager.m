@@ -50,16 +50,38 @@
     return [self networkResponsesForFilePath:[self pathForFileMatchingTest:testCase]];
 }
 
++ (NSBundle *)bundleForTestInDocumentsDirectory:(XCTestCase *)testCase {
+    NSParameterAssert(testCase);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", NSStringFromClass(testCase.class)];
+    NSString *bundlePath = [documentsPath stringByAppendingPathComponent:bundleName];
+    BOOL isDir;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:bundlePath isDirectory:&isDir]) {
+        NSError *bundleCreationError = nil;
+        [[NSFileManager defaultManager] createDirectoryAtPath:bundlePath withIntermediateDirectories:YES attributes:nil error:&bundleCreationError];
+        NSLog(@"bundleCreationError: %@", bundleCreationError);
+    }
+    return [NSBundle bundleWithPath:bundlePath];
+}
+
 + (void)saveToDisk:(JSZVCRRecorder *)recorder {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
     NSString *filePathComponent = [NSString stringWithFormat:@"%@.plist", [NSUUID UUID].UUIDString];
     NSString *filePath = [documentsPath stringByAppendingPathComponent:filePathComponent];
     NSLog(@"filePath = %@", filePath);
-    NSMutableArray *dumpArray = [NSMutableArray array];
-    for (JSZVCRRecording *recording in recorder.allRecordings) {
-        [dumpArray addObject:recording.dictionaryRepresentation];
-    }
+    NSArray *dumpArray = recorder.allRecordingsForPlist;
+    [dumpArray writeToFile:filePath atomically:YES];
+}
+
++ (void)saveToDisk:(JSZVCRRecorder *)recorder forTest:(XCTestCase *)testCase {
+    NSBundle *documentsBundle = [self bundleForTestInDocumentsDirectory:testCase];
+    NSString *currentTestCaseMethod = NSStringFromSelector(testCase.invocation.selector);
+    NSString *fileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
+    NSString *filePath = [documentsBundle.bundlePath stringByAppendingPathComponent:fileName];
+    NSLog(@"filePath = %@", filePath);
+    NSArray *dumpArray = recorder.allRecordingsForPlist;
     [dumpArray writeToFile:filePath atomically:YES];
 }
 
