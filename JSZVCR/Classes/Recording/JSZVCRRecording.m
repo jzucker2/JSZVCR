@@ -20,6 +20,7 @@
 //        _originalRequest = task.originalRequest;
         _taskIdentifier = @(task.taskIdentifier);
         _taskDescription = task.description;
+        _cancelled = NO;
         if (task.response) {
             _response = [JSZVCRResponse responseWithResponse:task.response];
         }
@@ -45,9 +46,14 @@
 - (NSDictionary *)dictionaryRepresentation {
     NSMutableDictionary *dict = [@{
                                    @"request" : self.request.dictionaryRepresentation,
-                                   @"response" : self.response.dictionaryRepresentation,
-                                   @"data" : self.data.dictionaryRepresentation
+                                   @"cancelled" : @(self.isCancelled)
                                    } mutableCopy];
+    if (self.response) {
+        dict[@"response"] = self.response.dictionaryRepresentation;
+    }
+    if (self.data) {
+        dict[@"data"] = self.data.dictionaryRepresentation;
+    }
     if (self.error) {
         dict[@"error"] = self.error.localizedDescription;
     }

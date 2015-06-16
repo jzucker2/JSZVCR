@@ -108,6 +108,21 @@
     });
 }
 
+- (void)recordTaskCancellation:(NSURLSessionTask *)task {
+    if (!self.enabled) {
+        return;
+    }
+    __typeof (self) wself = self;
+    dispatch_async(self.recordingQueue, ^{
+        __typeof (wself) sself = wself;
+        if (!sself) {
+            return;
+        }
+        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
+        recording.cancelled = YES;
+    });
+}
+
 - (JSZVCRRecording *)storedRecordingFromTask:(NSURLSessionTask *)task {
     NSString *globallyUniqueIdentifier = task.globallyUniqueIdentifier;
     JSZVCRRecording *recordingToReturn = nil;

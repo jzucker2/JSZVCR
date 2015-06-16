@@ -21,6 +21,7 @@
 @property (nonatomic) JSZVCRRequest *request;
 @property (nonatomic) JSZVCRData *data;
 @property (nonatomic, copy) NSError *error;
+@property (nonatomic, getter=isCancelled) BOOL cancelled;
 
 - (instancetype)initWithTask:(NSURLSessionTask *)task;
 + (instancetype)recordingWithTask:(NSURLSessionTask *)task;

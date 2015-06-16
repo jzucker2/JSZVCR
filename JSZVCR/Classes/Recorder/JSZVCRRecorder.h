@@ -20,6 +20,7 @@
 - (void)recordTask:(NSURLSessionTask *)task didReceiveData:(NSData *)data;
 - (void)recordTask:(NSURLSessionTask *)task didReceiveResponse:(NSURLResponse *)response;
 - (void)recordTask:(NSURLSessionTask *)task didFinishWithError:(NSError *)arg1;
+- (void)recordTaskCancellation:(NSURLSessionTask *)task;
 
 - (NSArray *)allRecordings;
 - (NSArray *)allRecordingsForPlist;

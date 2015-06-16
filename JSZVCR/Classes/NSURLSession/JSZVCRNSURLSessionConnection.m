@@ -47,14 +47,14 @@
     
     unsigned int outCount = 0;
     Method *methods = class_copyMethodList([self class], &outCount);
-    //    Method *methods = class_copyMethodList(cfURLSessionConnectionClass, &outCount);
+//    Method *methods = class_copyMethodList(cfURLSessionConnectionClass, &outCount);
     
     for (int i = 0; i < outCount; i++) {
         Method m = methods[i];
         SEL sourceMethod = method_getName(m);
         const char *encoding = method_getTypeEncoding(m);
         NSString *sourceMethodName = NSStringFromSelector(sourceMethod);
-        //        NSLog(@"%@", sourceMethodName);
+//        NSLog(@"%@", sourceMethodName);
         NSAssert([sourceMethodName hasPrefix:@"JSZ_"], @"Expecting swizzle methods only");
         NSString *originalMethodName = [sourceMethodName substringFromIndex:4];
         SEL originalMethod = NSSelectorFromString(originalMethodName);
@@ -78,7 +78,17 @@
 }
 
 - (void)JSZ_setTask:(NSURLSessionTask *)task {
+    if (!task.globallyUniqueIdentifier) {
+        task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
+    }
     [self JSZ_setTask:task];
+}
+
+- (void)JSZ_cancel {
+    if (!self.task.globallyUniqueIdentifier) {
+        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
+    }
+    [[JSZVCRRecorder sharedInstance] recordTaskCancellation:self.task];
 }
 
 - (instancetype)JSZ_initWithTask:(NSURLSessionTask *)task delegate:(id <NSURLSessionDelegate>)delegate delegateQueue:(NSOperationQueue *)queue {
