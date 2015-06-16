@@ -1,8 +1,8 @@
 //
-//  JSZTestTestCase.m
+//  JSZPlayerTestCase.m
 //  JSZVCR
 //
-//  Created by Jordan Zucker on 6/11/15.
+//  Created by Jordan Zucker on 6/15/15.
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
@@ -11,13 +11,13 @@
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
-@interface JSZTestTestCase : JSZVCRTestCase
+@interface JSZPlayerTestCase : JSZVCRTestCase
 @end
 
-@implementation JSZTestTestCase
+@implementation JSZPlayerTestCase
 
 - (BOOL)recording {
-    return YES;
+    return NO;
 }
 
 - (void)setUp {
@@ -34,7 +34,7 @@
     [self performVerifiedNetworkCall];
 }
 
-- (void)testPerformanceNetworkCall {
+- (void)testPerformanceRecordedNetworkCall {
     __weak typeof(self) wself = self;
     [self measureBlock:^{
         // Put the code you want to measure the time of here.

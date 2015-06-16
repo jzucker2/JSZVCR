@@ -51,6 +51,7 @@
 - (void)setRecording:(BOOL)recording {
     _recording = recording;
     self.recorder.enabled = recording;
+    self.player.enabled = (!recording);
 }
 
 - (BOOL)isRecording {

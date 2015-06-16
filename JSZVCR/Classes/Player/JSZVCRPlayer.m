@@ -16,6 +16,24 @@
 
 @implementation JSZVCRPlayer
 
+- (void)setEnabled:(BOOL)enabled {
+    _enabled = enabled;
+    [OHHTTPStubs removeAllStubs];
+    if (_enabled) {
+        [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
+            return [self hasResponseForRequest:request];
+        } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
+            // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
+            NSDictionary *responseDict = [self infoForRequest:request];
+            return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
+                                              statusCode:[responseDict[@"statusCode"] intValue]
+                                                 headers:responseDict[@"httpHeaders"]];
+        }];
+    } else {
+        [OHHTTPStubs removeAllStubs];
+    }
+}
+
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request {
     NSDictionary *info = [self infoForRequest:request];
     return (info != nil);

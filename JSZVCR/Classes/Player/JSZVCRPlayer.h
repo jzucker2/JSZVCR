@@ -13,6 +13,7 @@
 @interface JSZVCRPlayer : NSObject
 
 
+@property (nonatomic, getter=isEnabled) BOOL enabled;
 @property (nonatomic) XCTestCase *currentTestCase;
 @property (nonatomic, readonly) NSArray *networkResponses;
 
