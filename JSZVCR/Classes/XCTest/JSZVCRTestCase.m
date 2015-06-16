@@ -39,7 +39,6 @@
         [self.vcr swizzleNSURLSessionClasses];
         [self.vcr setRecording:YES];
     } else {
-        [[JSZVCRRecorder sharedInstance] setEnabled:NO];
         [self.vcr setRecording:NO];
     }
 }
