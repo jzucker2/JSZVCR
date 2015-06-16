@@ -23,8 +23,20 @@
     return NO;
 }
 
+//+ (instancetype)testCaseWithInvocation:(NSInvocation *)invocation {
+//    NSLog(@"%s", __PRETTY_FUNCTION__);
+//    JSZVCRTestCase *testCase = [super testCaseWithInvocation:invocation];
+//    NSLog(@"invocation: %@", invocation);
+//    NSLog(@"self: %@", self);
+//    //    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
+//    //    [[JSZVCRResourceLoader sharedInstance] setTest:testCase];
+//    return testCase;
+//}
+
 - (instancetype)initWithInvocation:(NSInvocation *)invocation {
     NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"invocation: %@", invocation);
+    NSLog(@"self: %@", self);
     self = [super initWithInvocation:invocation];
     if (self) {
         _vcr = [JSZVCR vcr];
@@ -37,14 +49,6 @@
 //- (instancetype)initWithSelector:(SEL)selector {
 //    NSLog(@"%s", __PRETTY_FUNCTION__);
 //    return [super initWithSelector:selector];
-//}
-
-//+ (instancetype)testCaseWithInvocation:(NSInvocation *)invocation {
-//    NSLog(@"%s", __PRETTY_FUNCTION__);
-//    JSZVCRTestCase *testCase = [super testCaseWithInvocation:invocation];
-////    [[JSZVCRResourceLoader sharedInstance] setResourceBundle:[self bundleNameContainingResponses] containingClass:self.class];
-////    [[JSZVCRResourceLoader sharedInstance] setTest:testCase];
-//    return testCase;
 //}
 
 //+ (instancetype)testCaseWithSelector:(SEL)selector {
