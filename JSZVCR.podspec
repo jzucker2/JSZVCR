@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "JSZVCR"
-  s.version          = "0.3.0"
+  s.version          = "0.3.1"
   s.summary          = "A simple way to record network requests for testing"
   s.description      = <<-DESC
                        Provides an easy-to-use XCTestCase subclass for recording
