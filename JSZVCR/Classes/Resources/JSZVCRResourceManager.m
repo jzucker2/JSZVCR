@@ -37,8 +37,7 @@
 }
 
 + (NSString *)pathForFileMatchingTest:(XCTestCase *)testCase {
-    NSString *currentTestCaseMethod = NSStringFromSelector(testCase.invocation.selector);
-    return [self pathForFileMatchingTest:testCase inBundle:[self bundleWithName:currentTestCaseMethod containingClass:testCase.class]];
+    return [self pathForFileMatchingTest:testCase inBundle:[self bundleWithName:NSStringFromClass(testCase.class) containingClass:testCase.class]];
 }
 
 + (NSArray *)networkResponsesForFilePath:(NSString *)filePath {

@@ -24,7 +24,7 @@
             return [self hasResponseForRequest:request];
         } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
             // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
-            NSDictionary *responseDict = [self infoForRequest:request];
+            NSDictionary *responseDict = [self responseForRequest:request];
             return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
                                               statusCode:[responseDict[@"statusCode"] intValue]
                                                  headers:responseDict[@"httpHeaders"]];
