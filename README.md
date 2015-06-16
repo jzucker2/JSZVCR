@@ -27,3 +27,14 @@ Jordan Zucker, jordan.zucker@gmail.com
 ## License
 
 JSZVCR is available under the MIT license. See the LICENSE file for more info.
+
+## Release criteria
+* script to move responses into project
+* clean up responses logging
+* separate out xctest dependency
+* separate out recorder
+* change name? (Be kind rewind)
+* return obj instead of dict for responses
+* handle multiple responses
+* get fuzzy for request matching
+* don't save file unless recording
