@@ -56,6 +56,10 @@
     if (!info) {
         return nil;
     }
+    // TODO: should handle better than just returning nil for cancelled requests
+    if (info[@"cancelled"]) {
+        return nil;
+    }
     NSDictionary *responseDictionary = info[@"response"][@"response"];
     NSNumber *responseCode = responseDictionary[@"statusCode"];
     NSDictionary *headersDict = responseDictionary[@"allHeaderFields"];
