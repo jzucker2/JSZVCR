@@ -48,3 +48,4 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * fail tests if too many or too few requests, (level option for this)
 * better tests!
 * speed tests
+* add CI!!
