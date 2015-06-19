@@ -1,4 +1,7 @@
-A# JSZVCR
+# JSZVCR
+
+## Description
+This is a simple testing framework for recording and replaying network calls for automated integration testing. In order to reduce stubbing, it records live network requests and responses and then replays them in subsequent runs, stubbing the network requests (thanks to the fabulous https://github.com/AliSoftware/OHHTTPStubs) so that your software can run in peace.
 
 [![CI Status](http://img.shields.io/travis/Jordan Zucker/JSZVCR.svg?style=flat)](https://travis-ci.org/Jordan Zucker/JSZVCR)
 [![Version](https://img.shields.io/cocoapods/v/JSZVCR.svg?style=flat)](http://cocoapods.org/pods/JSZVCR)
@@ -20,6 +23,8 @@ it, simply add the following line to your Podfile:
 pod "JSZVCR"
 ```
 
+## 
+
 ## Author
 
 Jordan Zucker, jordan.zucker@gmail.com
@@ -31,11 +36,15 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 ## Release criteria
 * script to move responses into project
 * clean up responses logging
-* separate out xctest dependency
-* separate out recorder
+* add logging in general
+* separate out xctest dependency (separate subspec, categories for all the extra methods)
+* separate out recorder (separate subspec)
 * change name? (Be kind rewind)
 * return obj instead of dict for responses
 * handle multiple responses
+* Separate class for matching requests with responses (used by JSZPlayer)
 * get fuzzy for request matching
-* don't save file unless recording
+* don't save file unless something was recorded
+* fail tests if too many or too few requests, (level option for this)
 * better tests!
+* speed tests
