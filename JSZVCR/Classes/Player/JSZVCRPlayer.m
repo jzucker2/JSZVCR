@@ -10,21 +10,33 @@
 
 #import "JSZVCRPlayer.h"
 #import "JSZVCRResourceManager.h"
+#import "JSZVCRMatcher.h"
 
 @interface JSZVCRPlayer ()
 @end
 
 @implementation JSZVCRPlayer
 
++ (instancetype)playerWithMatcher:(JSZVCRMatcher *)matcher {
+    return [[self alloc] initWithMatcher:matcher];
+}
+
+- (instancetype)initWithMatcher:(JSZVCRMatcher *)matcher {
+    self = [super init];
+    if (self) {
+        _matcher = matcher;
+    }
+    return self;
+}
+
 - (void)setEnabled:(BOOL)enabled {
     _enabled = enabled;
     [OHHTTPStubs removeAllStubs];
     if (_enabled) {
         [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-            return [self hasResponseForRequest:request];
+            return [self.matcher hasResponseForRequest:request inRecordings:self.networkResponses];
         } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
-            // Stub it with our "wsresponse.json" stub file (which is in same bundle as self)
-            NSDictionary *responseDict = [self responseForRequest:request];
+            NSDictionary *responseDict = [self.matcher responseForRequest:request inRecordings:self.networkResponses];
             return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
                                               statusCode:[responseDict[@"statusCode"] intValue]
                                                  headers:responseDict[@"httpHeaders"]];
@@ -32,43 +44,6 @@
     } else {
         [OHHTTPStubs removeAllStubs];
     }
-}
-
-- (BOOL)hasResponseForRequest:(NSURLRequest *)request {
-    NSDictionary *info = [self infoForRequest:request];
-    return (info != nil);
-}
-
-- (NSDictionary *)infoForRequest:(NSURLRequest *)request {
-    for (NSDictionary *info in self.networkResponses) {
-        NSString *currentRequestURLString = info[@"request"][@"currentRequest"][@"URL"];
-        NSString *originalRequestURLString = info[@"request"][@"originalRequest"][@"URL"];
-        if ([request.URL.absoluteString isEqualToString:currentRequestURLString] ||
-            [request.URL.absoluteString isEqualToString:originalRequestURLString]) {
-            return info;
-        }
-    }
-    return nil;
-}
-
-- (NSDictionary *)responseForRequest:(NSURLRequest *)request {
-    NSDictionary *info = [self infoForRequest:request];
-    if (!info) {
-        return nil;
-    }
-    // TODO: should handle better than just returning nil for cancelled requests
-    if ([info[@"cancelled"] boolValue] == YES) {
-        return nil;
-    }
-    NSDictionary *responseDictionary = info[@"response"][@"response"];
-    NSNumber *responseCode = responseDictionary[@"statusCode"];
-    NSDictionary *headersDict = responseDictionary[@"allHeaderFields"];
-    NSData *data = info[@"data"][@"data"];
-    return @{
-             @"statusCode" : responseCode,
-             @"httpHeaders" : headersDict,
-             @"data" : data
-             };
 }
 
 - (NSArray *)networkResponses {

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JSZVCRMatching.h"
 
 @class XCTestCase;
 
@@ -16,9 +17,11 @@
 @property (nonatomic, getter=isEnabled) BOOL enabled;
 @property (nonatomic) XCTestCase *currentTestCase;
 @property (nonatomic, readonly) NSArray *networkResponses;
+@property (nonatomic) id<JSZVCRMatching> matcher; // might not be safe to change this during a test run if there's lots of async network calls
 
-- (BOOL)hasResponseForRequest:(NSURLRequest *)request;
-- (NSDictionary *)responseForRequest:(NSURLRequest *)request;
+
+- (instancetype)initWithMatcher:(id<JSZVCRMatching>)matcher;
++ (instancetype)playerWithMatcher:(id<JSZVCRMatching>)matcher;
 
 - (void)removeAllNetworkResponses;
 

@@ -7,6 +7,7 @@
 //
 
 #import "JSZVCR.h"
+#import "JSZVCRMatcher.h"
 #import "JSZVCRRecorder.h"
 #import "JSZVCRResourceManager.h"
 #import "JSZVCRPlayer.h"
@@ -21,18 +22,8 @@
 
 @synthesize recording = _recording;
 
-//+ (instancetype)sharedInstance {
-//    static JSZVCR *sharedInstance = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        JSZVCRResourceLoader *resourceLoader = [[JSZVCRResourceLoader alloc] init];
-//        sharedInstance = [JSZVCR vcrWithResourceLoader:resourceLoader];
-//    });
-//    return sharedInstance;
-//}
-
 + (instancetype)vcr {
-    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] init];
+    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] initWithMatcher:[JSZVCRMatcher matcher]];
     JSZVCRRecorder *recorder = [JSZVCRRecorder sharedInstance];
     // should probably reset recorder for every VCR instance, just in case it already had data
     [recorder reset];
