@@ -7,7 +7,8 @@
 //
 
 #import "JSZVCRMatcher.h"
+#import "JSZVCRMatching.h"
 
-@interface JSZVCRSimpleURLMatcher : JSZVCRMatcher
+@interface JSZVCRSimpleURLMatcher : JSZVCRMatcher <JSZVCRMatching>
 
 @end

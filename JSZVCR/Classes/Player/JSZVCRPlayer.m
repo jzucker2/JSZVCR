@@ -17,11 +17,11 @@
 
 @implementation JSZVCRPlayer
 
-+ (instancetype)playerWithMatcher:(JSZVCRMatcher *)matcher {
++ (instancetype)playerWithMatcher:(id<JSZVCRMatching>)matcher {
     return [[self alloc] initWithMatcher:matcher];
 }
 
-- (instancetype)initWithMatcher:(JSZVCRMatcher *)matcher {
+- (instancetype)initWithMatcher:(id<JSZVCRMatching>)matcher {
     self = [super init];
     if (self) {
         _matcher = matcher;

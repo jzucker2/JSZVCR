@@ -9,9 +9,8 @@
 // Suggested subclass
 
 #import <Foundation/Foundation.h>
-#import "JSZVCRMatching.h"
 
-@interface JSZVCRMatcher : NSObject <JSZVCRMatching>
+@interface JSZVCRMatcher : NSObject
 
 + (instancetype)matcher;
 

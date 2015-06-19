@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "JSZVCR"
-  s.version          = "0.4.1"
+  s.version          = "0.4.2"
   s.summary          = "A simple way to record network requests"
 #  s.description      = <<-DESC
 #                       An optional longer description of JSZVCR
