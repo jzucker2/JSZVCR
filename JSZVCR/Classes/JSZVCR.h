@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "JSZVCRTestCase.h"
+#import "JSZVCRMatching.h"
 
-@class JSZVCRPlayer;
 @class JSZVCRRecorder;
 @interface JSZVCR : NSObject
 
@@ -17,9 +17,9 @@
 @property (nonatomic) XCTestCase *currentTestCase;
 
 //+ (instancetype)sharedInstance;
-+ (instancetype)vcr;
-- (instancetype)initWithPlayer:(JSZVCRPlayer *)player
-                      recorder:(JSZVCRRecorder *)recorder;
++ (instancetype)vcrWithMatcher:(id<JSZVCRMatching>)matcher;
+- (instancetype)initWithMatcher:(id<JSZVCRMatching>)matcher
+                       recorder:(JSZVCRRecorder *)recorder;
 
 
 - (void)swizzleNSURLSessionClasses;

@@ -22,18 +22,17 @@
 
 @synthesize recording = _recording;
 
-+ (instancetype)vcr {
-    JSZVCRPlayer *player = [[JSZVCRPlayer alloc] initWithMatcher:[JSZVCRMatcher matcher]];
++ (instancetype)vcrWithMatcher:(id<JSZVCRMatching>)matcher {
     JSZVCRRecorder *recorder = [JSZVCRRecorder sharedInstance];
     // should probably reset recorder for every VCR instance, just in case it already had data
     [recorder reset];
-    return [[self alloc] initWithPlayer:player recorder:recorder];
+    return [[self alloc] initWithMatcher:matcher recorder:recorder];
 }
 
-- (instancetype)initWithPlayer:(JSZVCRPlayer *)player recorder:(JSZVCRRecorder *)recorder {
+- (instancetype)initWithMatcher:(id<JSZVCRMatching>)matcher recorder:(JSZVCRRecorder *)recorder {
     self = [super init];
     if (self) {
-        _player = player;
+        _player = [JSZVCRPlayer playerWithMatcher:matcher];
         _recorder = recorder;
     }
     return self;

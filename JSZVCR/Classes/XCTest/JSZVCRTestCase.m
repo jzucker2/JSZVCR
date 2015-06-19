@@ -11,6 +11,7 @@
 #import "JSZVCR.h"
 #import "JSZVCRResourceManager.h"
 #import "JSZVCRRecorder.h"
+#import "JSZVCRMatcher.h"
 
 @interface JSZVCRTestCase ()
 @property (nonatomic) JSZVCR *vcr;
@@ -22,10 +23,14 @@
     return NO;
 }
 
+- (id<JSZVCRMatching>)matcher {
+    return [JSZVCRMatcher matcher];
+}
+
 - (instancetype)initWithInvocation:(NSInvocation *)invocation {
     self = [super initWithInvocation:invocation];
     if (self) {
-        _vcr = [JSZVCR vcr];
+        _vcr = [JSZVCR vcrWithMatcher:self.matcher];
         _vcr.currentTestCase = self;
         _vcr.recording = [self recording];
     }
@@ -40,6 +45,8 @@
         [self.vcr setRecording:YES];
     } else {
         [self.vcr setRecording:NO];
+        // only set matcher if not recording
+        
     }
 }
 

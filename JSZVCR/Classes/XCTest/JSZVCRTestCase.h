@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
+#import "JSZVCRMatching.h"
 
 typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness) {
     JSZVCRTestingStrictnessNone = 0,
@@ -17,10 +18,9 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness) {
 @interface JSZVCRTestCase : XCTestCase
 
 - (BOOL)recording;
+- (id<JSZVCRMatching>)matcher;
 //+ (NSString *)bundleNameContainingResponses;
 //- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector;
-//- (NSDictionary *)responseForRequest:(NSURLRequest *)request;
-//- (NSArray *)responsesForSelector:(SEL)testCaseSelector;
 
 
 @end
