@@ -6,6 +6,8 @@
 //
 //
 
+// Suggested subclass
+
 #import <Foundation/Foundation.h>
 #import "JSZVCRMatching.h"
 

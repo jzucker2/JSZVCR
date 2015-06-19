@@ -14,5 +14,9 @@
 
 - (NSDictionary *)responseForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings;
 
+@optional
+
+- (NSDictionary *)infoForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings;
+
 
 @end

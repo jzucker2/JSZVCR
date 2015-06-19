@@ -11,7 +11,7 @@
 #import "JSZVCR.h"
 #import "JSZVCRResourceManager.h"
 #import "JSZVCRRecorder.h"
-#import "JSZVCRMatcher.h"
+#import "JSZVCRSimpleURLMatcher.h"
 
 @interface JSZVCRTestCase ()
 @property (nonatomic) JSZVCR *vcr;
@@ -24,7 +24,7 @@
 }
 
 - (id<JSZVCRMatching>)matcher {
-    return [JSZVCRMatcher matcher];
+    return [JSZVCRSimpleURLMatcher matcher];
 }
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation {
