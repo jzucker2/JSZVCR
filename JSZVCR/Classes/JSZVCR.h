@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "JSZVCRTestCase.h"
 #import "JSZVCRMatching.h"
+#import "JSZVCRSimpleURLMatcher.h"
+#import "JSZVCRUnorderedQueryMatcher.h"
 
 @class JSZVCRRecorder;
 @interface JSZVCR : NSObject
