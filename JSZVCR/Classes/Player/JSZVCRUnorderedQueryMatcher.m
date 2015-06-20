@@ -59,6 +59,7 @@
 }
 
 - (NSArray *)_queryItemsForComponents:(NSURLComponents *)components {
+    // transforming all queryItems into dicts so this works on iOS 7 and iOS 8
 #ifdef __IPHONE_7_0
     // http://stackoverflow.com/questions/3997976/parse-nsurl-query-property
     if ([components.query length]==0) {
@@ -88,6 +89,7 @@
         NSMutableDictionary *itemDict = [@{
                                            @"name" : item.name
                                            } mutableCopy];
+        // in case the query doesn't have a value
         if (item.value) {
             [itemDict setObject:item.value forKey:@"value"];
         }
