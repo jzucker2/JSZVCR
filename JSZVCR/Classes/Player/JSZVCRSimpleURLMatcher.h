@@ -6,9 +6,8 @@
 //
 //
 
-#import "JSZVCRMatcher.h"
 #import "JSZVCRMatching.h"
 
-@interface JSZVCRSimpleURLMatcher : JSZVCRMatcher <JSZVCRMatching>
+@interface JSZVCRSimpleURLMatcher : NSObject <JSZVCRMatching>
 
 @end

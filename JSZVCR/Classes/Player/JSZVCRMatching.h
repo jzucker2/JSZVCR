@@ -10,6 +10,8 @@
 
 @protocol JSZVCRMatching <NSObject>
 
++ (id<JSZVCRMatching>)matcher;
+
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings;
 
 - (NSDictionary *)responseForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings;

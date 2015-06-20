@@ -17,9 +17,9 @@
 @property (nonatomic) XCTestCase *currentTestCase;
 
 //+ (instancetype)sharedInstance;
-+ (instancetype)vcrWithMatcher:(id<JSZVCRMatching>)matcher;
-- (instancetype)initWithMatcher:(id<JSZVCRMatching>)matcher
-                       recorder:(JSZVCRRecorder *)recorder;
++ (instancetype)vcrWithMatcherClass:(Class<JSZVCRMatching>)matcherClass;
+- (instancetype)initWithMatcherClass:(Class<JSZVCRMatching>)matcherClass
+                            recorder:(JSZVCRRecorder *)recorder;
 
 
 - (void)swizzleNSURLSessionClasses;

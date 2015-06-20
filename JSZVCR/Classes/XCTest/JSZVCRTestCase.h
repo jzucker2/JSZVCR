@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness) {
 @interface JSZVCRTestCase : XCTestCase
 
 - (BOOL)recording;
-- (id<JSZVCRMatching>)matcher;
+- (Class<JSZVCRMatching>)matcherClass;
 //+ (NSString *)bundleNameContainingResponses;
 //- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector;
 

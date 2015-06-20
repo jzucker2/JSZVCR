@@ -10,21 +10,20 @@
 
 #import "JSZVCRPlayer.h"
 #import "JSZVCRResourceManager.h"
-#import "JSZVCRMatcher.h"
 
 @interface JSZVCRPlayer ()
 @end
 
 @implementation JSZVCRPlayer
 
-+ (instancetype)playerWithMatcher:(id<JSZVCRMatching>)matcher {
-    return [[self alloc] initWithMatcher:matcher];
++ (instancetype)playerWithMatcherClass:(Class<JSZVCRMatching>)matcherClass {
+    return [[self alloc] initWithMatcherClass:matcherClass];
 }
 
-- (instancetype)initWithMatcher:(id<JSZVCRMatching>)matcher {
+- (instancetype)initWithMatcherClass:(Class<JSZVCRMatching>)matcherClass {
     self = [super init];
     if (self) {
-        _matcher = matcher;
+        _matcher = [matcherClass matcher];
     }
     return self;
 }

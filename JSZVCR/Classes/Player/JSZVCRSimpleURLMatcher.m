@@ -10,6 +10,10 @@
 
 @implementation JSZVCRSimpleURLMatcher
 
++ (id<JSZVCRMatching>)matcher {
+    return [[self alloc] init];
+}
+
 - (BOOL)hasResponseForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings {
     NSDictionary *info = [self infoForRequest:request inRecordings:recordings];
     return (info != nil);

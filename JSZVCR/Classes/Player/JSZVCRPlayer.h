@@ -20,8 +20,8 @@
 @property (nonatomic) id<JSZVCRMatching> matcher; // might not be safe to change this during a test run if there's lots of async network calls
 
 
-- (instancetype)initWithMatcher:(id<JSZVCRMatching>)matcher;
-+ (instancetype)playerWithMatcher:(id<JSZVCRMatching>)matcher;
+- (instancetype)initWithMatcherClass:(Class<JSZVCRMatching>)matcherClass;
++ (instancetype)playerWithMatcherClass:(Class<JSZVCRMatching>)matcherClass;
 
 - (void)removeAllNetworkResponses;
 

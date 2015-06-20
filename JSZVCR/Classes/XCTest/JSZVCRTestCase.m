@@ -23,14 +23,14 @@
     return NO;
 }
 
-- (id<JSZVCRMatching>)matcher {
-    return [JSZVCRSimpleURLMatcher matcher];
+- (Class<JSZVCRMatching>)matcherClass {
+    return [JSZVCRSimpleURLMatcher class];
 }
 
 - (instancetype)initWithInvocation:(NSInvocation *)invocation {
     self = [super initWithInvocation:invocation];
     if (self) {
-        _vcr = [JSZVCR vcrWithMatcher:self.matcher];
+        _vcr = [JSZVCR vcrWithMatcherClass:self.matcherClass];
         _vcr.currentTestCase = self;
         _vcr.recording = [self recording];
     }
