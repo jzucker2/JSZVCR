@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.framework = 'XCTest'
   s.dependency 'OHHTTPStubs', '~> 4.0'
+  s.dependency 'BlocksKit', '~> 2.2'
 
   s.source_files = 'JSZVCR/Classes/**/*'
 

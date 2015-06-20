@@ -5,6 +5,7 @@
 //  Created by Jordan Zucker on 6/20/15.
 //
 //
+#import <BlocksKit/BlocksKit.h>
 
 #import "JSZVCRUnorderedQueryMatcher.h"
 
@@ -67,16 +68,31 @@
     for(NSString* parameter in [components.query componentsSeparatedByString:@"&"]) {
         NSRange range = [parameter rangeOfString:@"="];
         if(range.location!=NSNotFound) {
-            NSURLQueryItem *item = [NSURLQueryItem queryItemWithName:[[parameter substringToIndex:range.location] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] value:[[parameter substringFromIndex:range.location+range.length] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            NSDictionary *item = @{
+                                   @"name" : [[parameter substringToIndex:range.location] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                   @"value" : [[parameter substringFromIndex:range.location+range.length] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+                                   };
             [parameters addObject:item];
         } else {
-            NSURLQueryItem *item = [NSURLQueryItem queryItemWithName:[parameter stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding] value:@""];
+            NSDictionary *item = @{
+                                   @"name" : [parameter stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                                   @"value" : @""
+                                   };
             [parameters addObject:item];
         }
     }
     return [parameters copy];
 #endif
-    return components.queryItems;
+    return [components.queryItems bk_map:^id(id obj) {
+        NSURLQueryItem *item = (NSURLQueryItem *)obj;
+        NSMutableDictionary *itemDict = [@{
+                                           @"name" : item.name
+                                           } mutableCopy];
+        if (item.value) {
+            [itemDict setObject:item.value forKey:@"value"];
+        }
+        return [itemDict copy];
+    }];
 }
 
 - (NSDictionary *)responseForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings {
