@@ -18,12 +18,13 @@
 		97FA41F11B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */; };
 		97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */; };
 		97FB4DB11B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */; };
-		F4EE0DECCAAEFFA8875944A3 /* Pods_JSZVCR_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E28135F053AA99F90CA674 /* Pods_JSZVCR_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BF006FD6FE69C003EEB4D285 /* Pods_JSZVCR_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4583C1C95602CA428A06AFFF /* Pods_JSZVCR_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47E28135F053AA99F90CA674 /* Pods_JSZVCR_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSZVCR_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4B2B3035627B91B7D91F14A9 /* Pods-JSZVCR_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		0251BC24D39024D842E740FA /* Pods-JSZVCR_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		30B208040E596C4437229C11 /* Pods-JSZVCR_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4583C1C95602CA428A06AFFF /* Pods_JSZVCR_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSZVCR_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+XCTestCase_JSZVCRAdditions.h"; sourceTree = "<group>"; };
 		51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+XCTestCase_JSZVCRAdditions.m"; sourceTree = "<group>"; };
 		590E7CFFA78B3319426E877C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZUnorderedMatcherTestCase.bundle; sourceTree = "<group>"; };
 		A726CD0DEBB911860BD8471D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		CFAE342F883AA7FE20F9A7FA /* JSZVCR.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JSZVCR.podspec; path = ../JSZVCR.podspec; sourceTree = "<group>"; };
-		F15D7D1593F31BA6991CC0A1 /* Pods-JSZVCR_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,22 +54,13 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				F4EE0DECCAAEFFA8875944A3 /* Pods_JSZVCR_Tests.framework in Frameworks */,
+				BF006FD6FE69C003EEB4D285 /* Pods_JSZVCR_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2276BAC647EB8A999F4D7C70 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4B2B3035627B91B7D91F14A9 /* Pods-JSZVCR_Tests.debug.xcconfig */,
-				F15D7D1593F31BA6991CC0A1 /* Pods-JSZVCR_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +68,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				2276BAC647EB8A999F4D7C70 /* Pods */,
+				F0D200F4943AF847090F5D56 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +87,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				47E28135F053AA99F90CA674 /* Pods_JSZVCR_Tests.framework */,
+				4583C1C95602CA428A06AFFF /* Pods_JSZVCR_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -135,6 +126,15 @@
 				590E7CFFA78B3319426E877C /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		F0D200F4943AF847090F5D56 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30B208040E596C4437229C11 /* Pods-JSZVCR_Tests.debug.xcconfig */,
+				0251BC24D39024D842E740FA /* Pods-JSZVCR_Tests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +219,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3388D9579C2B09FA9659FEB /* Copy Pods Resources */ = {
@@ -234,7 +234,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8A40ECBCC091CC424EFAA45 /* Check Pods Manifest.lock */ = {
@@ -355,7 +355,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B2B3035627B91B7D91F14A9 /* Pods-JSZVCR_Tests.debug.xcconfig */;
+			baseConfigurationReference = 30B208040E596C4437229C11 /* Pods-JSZVCR_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -377,7 +377,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F15D7D1593F31BA6991CC0A1 /* Pods-JSZVCR_Tests.release.xcconfig */;
+			baseConfigurationReference = 0251BC24D39024D842E740FA /* Pods-JSZVCR_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
