@@ -43,10 +43,8 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * change name? (Be kind rewind)
 * return obj instead of dict for responses
 * handle multiple responses
-* Separate class for matching requests with responses (used by JSZPlayer)
-* get fuzzy for request matching
 * don't save file unless something was recorded
 * fail tests if too many or too few requests, (level option for this)
 * better tests!
 * speed tests
-* add CI!!
+* add CI for more sim types
