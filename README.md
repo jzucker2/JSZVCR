@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/jzucker2/JSZVCR.svg?branch=real-tests)](https://travis-ci.org/jzucker2/JSZVCR)
 # JSZVCR
 
 ## Description
