@@ -13,21 +13,54 @@
 #import "JSZVCRUnorderedQueryMatcher.h"
 
 @class JSZVCRRecorder;
+/**
+ *  This class is responsible for all recording and playing
+ */
 @interface JSZVCR : NSObject
 
+/**
+ *  reflects whether in recording or playing mode
+ */
 @property (nonatomic, getter=isRecording) BOOL recording;
+
+/**
+ *  Current test case that is being run
+ */
 @property (nonatomic) XCTestCase *currentTestCase;
 
-//+ (instancetype)sharedInstance;
+/**
+ *  Convenience method for creating VCR object with matcherClass
+ *
+ *  @param matcherClass class conforming to protocol JSZVCRMatching
+ *
+ *  @return instancetype
+ */
 + (instancetype)vcrWithMatcherClass:(Class<JSZVCRMatching>)matcherClass;
+
+/**
+ *  Designated initializer for VCR object
+ *
+ *  @param matcherClass class conforming to protocol JSZVCRMatching
+ *  @param recorder     recorder object, should be singleton
+ *
+ *  @return instancetype
+ */
 - (instancetype)initWithMatcherClass:(Class<JSZVCRMatching>)matcherClass
                             recorder:(JSZVCRRecorder *)recorder;
 
-
+/**
+ *  Swizzle all NSURLSession methods with recording on by default
+ */
 - (void)swizzleNSURLSessionClasses;
 
+/**
+ *  Remove all OHHTTP network responses
+ */
 - (void)removeAllNetworkResponses;
 
+/**
+ *  Save all test recordings
+ */
 - (void)saveTestRecordings;
 
 @end
