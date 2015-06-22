@@ -25,8 +25,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
   s.framework = 'XCTest'
-  s.dependency 'OHHTTPStubs', '~> 4.0'
-  s.dependency 'BlocksKit', '~> 2.2'
+  s.dependency 'OHHTTPStubs', '~> 4.0.2'
+  s.dependency 'BlocksKit', '~> 2.2.5'
 
   s.source_files = 'JSZVCR/Classes/**/*'
 
