@@ -10,6 +10,9 @@
 
 @interface NSURLSessionTask (JSZVCRAdditions)
 
+/**
+ *  This globabllyUniqueIdentifier is a NSString of an NSUUID for uniquefying all tasks we are recording.
+ */
 @property (nonatomic, copy) NSString *globallyUniqueIdentifier;
 
 @end

@@ -14,7 +14,7 @@
 
 @class JSZVCRRecorder;
 /**
- *  This class is responsible for all recording and playing
+ *  This class is responsible for coordinating the recording and playing
  */
 @interface JSZVCR : NSObject
 
@@ -29,11 +29,11 @@
 @property (nonatomic) XCTestCase *currentTestCase;
 
 /**
- *  Convenience method for creating VCR object with matcherClass
+ *  Convenience method for creating VCR object with matcherClass, supplies a singleton JSZVCRRecorder
  *
  *  @param matcherClass class conforming to protocol JSZVCRMatching
  *
- *  @return instancetype
+ *  @return a newly intialized VCR instance
  */
 + (instancetype)vcrWithMatcherClass:(Class<JSZVCRMatching>)matcherClass;
 
@@ -43,7 +43,7 @@
  *  @param matcherClass class conforming to protocol JSZVCRMatching
  *  @param recorder     recorder object, should be singleton
  *
- *  @return instancetype
+ *  @return a newly intialized VCR instance
  */
 - (instancetype)initWithMatcherClass:(Class<JSZVCRMatching>)matcherClass
                             recorder:(JSZVCRRecorder *)recorder;
