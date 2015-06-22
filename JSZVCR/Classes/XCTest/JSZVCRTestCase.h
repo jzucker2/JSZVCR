@@ -12,13 +12,7 @@
 
 
 typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
-    /**
-     *  <#Description#>
-     */
     JSZVCRTestingStrictnessNone = 0,
-    /**
-     *  <#Description#>
-     */
     JSZVCRTestingStrictnessFailOnInconsistency
 };
 

@@ -19,7 +19,7 @@
 
 @implementation JSZVCRTestCase
 
-- (BOOL)recording {
+- (BOOL)isRecording {
     return NO;
 }
 
@@ -32,7 +32,7 @@
     if (self) {
         _vcr = [JSZVCR vcrWithMatcherClass:self.matcherClass];
         _vcr.currentTestCase = self;
-        _vcr.recording = [self recording];
+        _vcr.recording = [self isRecording];
     }
     return self;
 }

@@ -18,7 +18,7 @@
 
 @implementation JSZUnorderedMatcherTestCase
 
-- (BOOL)recording {
+- (BOOL)isRecording {
     return NO;
 }
 

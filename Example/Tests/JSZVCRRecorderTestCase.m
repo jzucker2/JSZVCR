@@ -16,7 +16,7 @@
 
 @implementation JSZVCRRecorderTestCase
 
-- (BOOL)recording {
+- (BOOL)isRecording {
     return YES;
 }
 
