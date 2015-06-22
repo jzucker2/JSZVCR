@@ -19,7 +19,8 @@
 @property (nonatomic, getter=isEnabled) BOOL enabled;
 
 /**
- *  Singleton instance is used so we don't have to pass in a reference to every disparate network connection
+ *  Singleton instance is used so we don't have to pass in a 
+ *  reference to every disparate network connection
  *
  *  @return singleton recorder instance
  */
@@ -55,14 +56,16 @@
  */
 - (void)recordTask:(NSURLSessionTask *)task didReceiveResponse:(NSURLResponse *)response;
 /**
- *  Called by JSZVCRNSURLSessionConnection. Error will only be passed if something goes wrong.
+ *  Called by JSZVCRNSURLSessionConnection. Error will only 
+ *  be passed if something goes wrong.
  *
  *  @param task in flight network task
  *  @param arg1 error from network request
  */
 - (void)recordTask:(NSURLSessionTask *)task didFinishWithError:(NSError *)arg1;
 /**
- *  Called by JSZVCRNSURLSessionConnection. This is called when [task cancel] is called.
+ *  Called by JSZVCRNSURLSessionConnection. This is called 
+ *  when [task cancel] is called.
  *
  *  @param task in flight network task
  */
@@ -75,7 +78,8 @@
  */
 - (NSArray *)allRecordings;
 /**
- *  All recordings from this instance as Foundation objects, similar to NSJSONSerialization
+ *  All recordings from this instance as Foundation objects, 
+ *  similar to NSJSONSerialization
  *
  *  @return array of Foundation objects
  */

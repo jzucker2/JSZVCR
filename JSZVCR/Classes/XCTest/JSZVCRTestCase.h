@@ -10,15 +10,50 @@
 #import <XCTest/XCTest.h>
 #import "JSZVCRMatching.h"
 
-typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness) {
+
+typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
+    /**
+     *  <#Description#>
+     */
     JSZVCRTestingStrictnessNone = 0,
+    /**
+     *  <#Description#>
+     */
     JSZVCRTestingStrictnessFailOnInconsistency
 };
 
+/**
+ *  Subclass of XCTestCase for making easy recorded network responses 
+ *  and replaying them for further test runs.
+ */
 @interface JSZVCRTestCase : XCTestCase
 
-- (BOOL)recording;
+/**
+ *  Method should be overriden in subclass so that network 
+ *  requests will be recorded during development. Should be 
+ *  set to YES during development for recoring network 
+ *  responses and NO during CI test runs so that recorded 
+ *  data will be used.
+ *
+ *  @return YES means requests are recording to file in Documents 
+ *  directory of device at path corresponding to current test case. 
+ *  NO means files are read from file matching test case in suite 
+ *  matching bundle in current XCode project.
+ */
+- (BOOL)isRecording;
+
+/**
+ *  Class conforming to @protocol JSZMatching will be used 
+ *  to control matching requests with recorded network responses. 
+ *  This is only called when isRecording is set to NO. If not 
+ *  overridden, then JSZVCRSimpleURLMatcher is returned by default.
+ *
+ *  @return Class conforming to @protocol JSZMatching for use 
+ *  in matching test case requests with responses
+ */
 - (Class<JSZVCRMatching>)matcherClass;
+
+
 //+ (NSString *)bundleNameContainingResponses;
 //- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector;
 

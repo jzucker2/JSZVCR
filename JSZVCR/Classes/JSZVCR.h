@@ -13,6 +13,7 @@
 #import "JSZVCRUnorderedQueryMatcher.h"
 
 @class JSZVCRRecorder;
+
 /**
  *  This class is responsible for coordinating the recording and playing
  */

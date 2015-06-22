@@ -14,9 +14,11 @@
 @protocol JSZVCRSerializer <NSObject>
 
 /**
- *  This is called to provide a serializable foundation object representing a more complex object. Similar to NSJONSerialization
+ *  This is called to provide a serializable foundation object representing 
+ *  a more complex object. Similar to NSJONSerialization
  *
- *  @return a dictionary composed entirely of Foundation objects (NSNumber, NSString, NSArray, NSDictionary, etc.)
+ *  @return a dictionary composed entirely of Foundation objects (NSNumber, 
+ *  NSString, NSArray, NSDictionary, etc.)
  */
 - (NSDictionary *)dictionaryRepresentation;
 
