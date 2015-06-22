@@ -9,16 +9,14 @@
 
 Pod::Spec.new do |s|
   s.name             = "JSZVCR"
-  s.version          = "0.4.4"
-  s.summary          = "A simple way to record network requests"
-#  s.description      = <<-DESC
-#                       An optional longer description of JSZVCR
-#
-#                       * Markdown format.
-#                       * Don't worry about the indent, we strip it!
-#                       DESC
+  s.version          = "0.5.0"
+  s.summary          = "A simple way to record and replay network requests for testing"
+  s.description      = <<-DESC
+                       Provides an XCTestCase subclass for easily
+                       recording and then replaying network requests
+                       and responses during testing and testing development
+                       DESC
   s.homepage         = "https://github.com/jzucker2/JSZVCR"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Jordan Zucker" => "jordan.zucker@gmail.com" }
   s.source           = { :git => "https://github.com/jzucker2/JSZVCR.git", :tag => s.version.to_s }
