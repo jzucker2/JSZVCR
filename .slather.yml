@@ -1,0 +1,5 @@
+xcodeproj: Example/JSZVCR.xcodeproj/
+source_directory: JSZVCR/
+ignore:
+  - Example/*
+

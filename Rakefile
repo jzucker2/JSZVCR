@@ -1,22 +1,49 @@
 namespace :test do
 
-  desc "Run the PubNub Integration Tests for iOS"
+  desc "Run the JSZVCR Tests for iOS"
   task :ios do
     simulators = get_ios_simulators
     destinations = Array.new
-    simulators.each {|version, available_simulators|
-    destinations.push("platform=iOS Simulator,OS=#{available_simulators[:runtime]},name=#{available_simulators[:device_names][0]}")
-    puts "Will run tests for iOS Simulator on iOS #{available_simulators[:runtime]} using #{available_simulators[:device_names][0]}"
+    # collect all sims except for "Resizable sims"
+    simulators.each { |version, available_simulators|
+      # sims for 7.0.3 exist on Travis CI but not on local machines, so remove
+      # because we can't reproduce results locally
+      if available_simulators[:runtime] != '7.0.3'
+        available_simulators[:device_names].each { |device|
+          if !device.match(/^Resizable/)
+            destinations.push("platform=iOS Simulator,OS=#{available_simulators[:runtime]},name=#{device}")
+            puts "Will run tests for iOS Simulator on iOS #{available_simulators[:runtime]} using #{device}"
+          end
+        }
+      end
     }
-
-    run_tests('JSZVCR-Example', 'iphonesimulator', destinations)
+    final_exit_status = 0
+    destinations.each { |destination|
+      puts '**********************************'
+      puts destination
+      puts '**********************************'
+      kill_sim()
+      sleep(5)
+      run_tests('JSZVCR-Example', 'iphonesimulator', destination)
+      current_exit_status = $?.exitstatus
+      if current_exit_status != 0
+        final_exit_status = current_exit_status
+      end
+    }
+    kill_sim()
+    exit final_exit_status
   end
 
 end
 
-desc "Run the PubNub Integration Tests for iOS"
+desc "Run the JSZVCR Tests for iOS"
 task :test do
   Rake::Task['test:ios'].invoke
+end
+
+desc 'Print test coverage of the last test run'
+task :coverage do
+  sh("slather")
 end
 
 task :default => 'test'
@@ -24,9 +51,14 @@ task :default => 'test'
 
 private
 
-def run_tests(scheme, sdk, destinations)
-    destinations = destinations.map! { |destination| "-destination \'#{destination}\'" }.join(' ')
-    sh("xcodebuild -workspace JSZVCR.xcworkspace -scheme '#{scheme}' -sdk '#{sdk}' #{destinations} -configuration 'Debug' test | xcpretty -c")
+def run_tests(scheme, sdk, destination)
+    sim_destination = "-destination \'#{destination}\'"
+    # clean is removed for now, try to get it back in!
+    sh("xcodebuild -workspace JSZVCR.xcworkspace -scheme '#{scheme}' -sdk '#{sdk}' #{sim_destination} -configuration 'Debug' test | xcpretty -c; exit ${PIPESTATUS[0]}") rescue nil
+end
+
+def kill_sim()
+  sh('killall -9 "iOS Simulator" || echo "No matching processes belonging to sim were found"')
 end
 
 def get_ios_simulators
