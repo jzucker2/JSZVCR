@@ -22,8 +22,10 @@ namespace :test do
       puts '**********************************'
       puts destination
       puts '**********************************'
+      puts 'kill sim'
       kill_sim()
-      sleep(5)
+      puts 'reset sim'
+      reset_sim()
       run_tests('JSZVCR-Example', 'iphonesimulator', destination)
       current_exit_status = $?.exitstatus
       if current_exit_status != 0
@@ -59,6 +61,11 @@ end
 
 def kill_sim()
   sh('killall -9 "iOS Simulator" || echo "No matching processes belonging to sim were found"')
+end
+
+# http://stackoverflow.com/questions/5125243/how-can-i-reset-the-ios-simulator-from-the-command-line
+def reset_sim()
+  sh('xcrun simctl list | awk -F "[()]" '{ for (i=2; i<NF; i+=2) print $i }' | grep '^[-A-Z0-9]*$' | xargs -I uuid xcrun simctl erase uuid')
 end
 
 def get_ios_simulators
