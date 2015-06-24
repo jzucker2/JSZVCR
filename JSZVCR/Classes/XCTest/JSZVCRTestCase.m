@@ -20,7 +20,7 @@
 @implementation JSZVCRTestCase
 
 - (BOOL)isRecording {
-    return NO;
+    return YES;
 }
 
 - (Class<JSZVCRMatching>)matcherClass {

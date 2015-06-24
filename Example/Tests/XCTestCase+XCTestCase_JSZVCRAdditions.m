@@ -44,4 +44,17 @@
     }];
 }
 
+- (NSString *)filePathForTestSuiteBundle {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", NSStringFromClass(self.class)];
+    return [documentsPath stringByAppendingPathComponent:bundleName];
+}
+
+- (NSString *)filePathForTestCasePlist {
+    NSString *currentTestCaseMethod = NSStringFromSelector(self.invocation.selector);
+    NSString *plistFileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
+    return [[self filePathForTestSuiteBundle] stringByAppendingPathComponent:plistFileName];
+}
+
 @end

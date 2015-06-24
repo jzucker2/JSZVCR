@@ -14,4 +14,8 @@
 
 - (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *data, NSURLResponse *response, NSError *error))verifications;
 
+- (NSString *)filePathForTestSuiteBundle;
+
+- (NSString *)filePathForTestCasePlist;
+
 @end
