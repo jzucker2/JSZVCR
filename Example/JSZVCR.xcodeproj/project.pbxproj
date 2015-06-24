@@ -103,8 +103,7 @@
 				97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */,
 				51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */,
 				51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */,
-				97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */,
-				971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */,
+				97E143701B3A7B3700E72B17 /* Fixtures */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -129,6 +128,15 @@
 				97CAFA691B36AE180063FCC4 /* Rakefile */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		97E143701B3A7B3700E72B17 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */,
+				971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */,
+			);
+			name = Fixtures;
 			sourceTree = "<group>";
 		};
 		F0D200F4943AF847090F5D56 /* Pods */ = {

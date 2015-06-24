@@ -37,6 +37,11 @@
                BlueprintName = "JSZVCR_Tests"
                ReferencedContainer = "container:JSZVCR.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "JSZVCRBaseTestCase">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

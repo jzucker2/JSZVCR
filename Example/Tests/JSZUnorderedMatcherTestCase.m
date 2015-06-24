@@ -37,7 +37,8 @@
 }
 
 - (void)testRecordedNetworkCall {
-    [self performVerifiedNetworkCall];
+    [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get?foo=foo&bar=bar"];
+    [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get?bar=bar&foo=foo"];
 }
 
 - (void)testPerformanceRecordedNetworkCall {
@@ -48,7 +49,27 @@
         if (!sself) {
             return;
         }
-        [sself performVerifiedNetworkCall];
+        [sself performSimpleVerifiedNetworkCall:nil];
+    }];
+}
+
+- (void)verifiedSimpleNetworkCallWithURLString:(NSString *)URLString {
+    NSParameterAssert(URLString);
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:URLString]];
+    [self performNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertNotNil(data);
+        NSDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        XCTAssertNil(error);
+        NSLog(@"dataDict: %@", dataDict);
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        XCTAssertEqualObjects(httpResponse.allHeaderFields[@"Date"], @"Wed, 24 Jun 2015 06:16:59 GMT");
+        NSDictionary *expectedArgsDict = @{
+                                           @"bar" : @"bar",
+                                           @"foo" : @"foo"
+                                           };
+        XCTAssertEqualObjects(dataDict[@"args"], expectedArgsDict);
     }];
 }
 
