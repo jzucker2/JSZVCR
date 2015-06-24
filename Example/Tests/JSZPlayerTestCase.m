@@ -31,7 +31,7 @@
 }
 
 - (void)testRecordedNetworkCall {
-    [self performVerifiedNetworkCall];
+    [self performSimpleVerifiedNetworkCall:nil];
 }
 
 - (void)testPerformanceRecordedNetworkCall {
@@ -42,7 +42,7 @@
         if (!sself) {
             return;
         }
-        [sself performVerifiedNetworkCall];
+        [sself performSimpleVerifiedNetworkCall:nil];
     }];
 }
 

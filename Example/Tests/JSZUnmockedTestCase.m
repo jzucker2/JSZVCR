@@ -32,7 +32,7 @@
 }
 
 - (void)testSimpleNoMockingNetworkCall {
-    [self performVerifiedNetworkCall];
+    [self performSimpleVerifiedNetworkCall:nil];
 }
 
 - (void)testSimpleNoMockingPerformanceNetworkCall {
@@ -42,7 +42,7 @@
         if (!sself) {
             return;
         }
-        [sself performVerifiedNetworkCall];
+        [sself performSimpleVerifiedNetworkCall:nil];
     }];
 }
 

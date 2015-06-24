@@ -10,6 +10,8 @@
 
 @interface XCTestCase (XCTestCase_JSZVCRAdditions)
 
-- (void)performVerifiedNetworkCall;
+- (void)performSimpleVerifiedNetworkCall:(void (^)(NSData *data, NSURLResponse *response, NSError *error))extraVerifications;
+
+- (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *data, NSURLResponse *response, NSError *error))verifications;
 
 @end

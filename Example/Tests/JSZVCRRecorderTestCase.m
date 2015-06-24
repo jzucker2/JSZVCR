@@ -27,11 +27,23 @@
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
+    if ([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]) {
+        NSError *removeTestRunCodeError;
+        [fileManager removeItemAtPath:expectedFilePathForTestCasePlist error:&removeTestRunCodeError];
+        XCTAssertNil(removeTestRunCodeError);
+    }
     [super tearDown];
 }
 
 - (void)testRecordedNetworkCall {
-    [self performVerifiedNetworkCall];
+    [self performSimpleVerifiedNetworkCall:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
+        XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
+        // TODO: check file contents
+    }];
 }
 
 - (void)testPerformanceRecordedNetworkCall {
@@ -42,8 +54,26 @@
         if (!sself) {
             return;
         }
-        [sself performVerifiedNetworkCall];
+        [sself performSimpleVerifiedNetworkCall:^(NSData *data, NSURLResponse *response, NSError *error) {
+            // TODO: same as above!
+            NSFileManager *fileManager = [NSFileManager defaultManager];
+            NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
+            XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
+        }];
     }];
+}
+
+- (NSString *)filePathForTestSuiteBundle {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", NSStringFromClass(self.class)];
+    return [documentsPath stringByAppendingPathComponent:bundleName];
+}
+
+- (NSString *)filePathForTestCasePlist {
+    NSString *currentTestCaseMethod = NSStringFromSelector(self.invocation.selector);
+    NSString *plistFileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
+    return [[self filePathForTestSuiteBundle] stringByAppendingPathComponent:plistFileName];
 }
 
 @end
