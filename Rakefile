@@ -26,7 +26,7 @@ namespace :test do
       kill_sim()
       puts 'reset sim'
       reset_sim()
-      run_tests('JSZVCR-Example', 'iphonesimulator', destination)
+      #run_tests('JSZVCR-Example', 'iphonesimulator', destination)
       current_exit_status = $?.exitstatus
       if current_exit_status != 0
         final_exit_status = current_exit_status
@@ -65,7 +65,12 @@ end
 
 # http://stackoverflow.com/questions/5125243/how-can-i-reset-the-ios-simulator-from-the-command-line
 def reset_sim()
-  sh('xcrun simctl list | awk -F "[()]" '{ for (i=2; i<NF; i+=2) print $i }' | grep '^[-A-Z0-9]*$' | xargs -I uuid xcrun simctl erase uuid')
+  xcrun_output = `xcrun simctl list`
+  output = xcrun_output.scan(/iOS (.*)/)
+  puts 'output'
+  puts output
+
+  # sh('xcrun simctl list | awk -F "[()]" '{ for (i=2; i<NF; i+=2) print $i }' | grep '^[-A-Z0-9]*$' | xargs -I uuid xcrun simctl erase uuid')
 end
 
 def get_ios_simulators
