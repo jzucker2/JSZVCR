@@ -23,10 +23,6 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
     if ([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]) {
@@ -34,35 +30,19 @@
         [fileManager removeItemAtPath:expectedFilePathForTestCasePlist error:&removeTestRunCodeError];
         XCTAssertNil(removeTestRunCodeError);
     }
+}
+
+- (void)tearDown {
     [super tearDown];
+    // Call file verification after super teardown to ensure file has been saved as expected.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
+    NSLog(@"expectedFilePathForTestCasePlist: %@", expectedFilePathForTestCasePlist);
+    XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
 }
 
-- (void)testRecordedNetworkCall {
-    [self performSimpleVerifiedNetworkCall:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
-        NSLog(@"expectedFilePathForTestCasePlist: %@", expectedFilePathForTestCasePlist);
-        XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
-        // TODO: check file contents
-    }];
-}
-
-- (void)testPerformanceRecordedNetworkCall {
-    __weak typeof(self) wself = self;
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-        __weak typeof(wself) sself = wself;
-        if (!sself) {
-            return;
-        }
-        [sself performSimpleVerifiedNetworkCall:^(NSData *data, NSURLResponse *response, NSError *error) {
-            // TODO: same as above!
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
-            NSLog(@"expectedFilePathForTestCasePlist: %@", expectedFilePathForTestCasePlist);
-            XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
-        }];
-    }];
+- (void)testRecordingNetworkCall {
+    [self performSimpleVerifiedNetworkCall:nil];
 }
 
 - (NSString *)filePathForTestSuiteBundle {
