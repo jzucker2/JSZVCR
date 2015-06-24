@@ -105,23 +105,26 @@
         }
         JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
         recording.error = error;
+        if (task.error) {
+            recording.error = task.error;
+        }
     });
 }
 
-- (void)recordTaskCancellation:(NSURLSessionTask *)task {
-    if (!self.enabled) {
-        return;
-    }
-    __typeof (self) wself = self;
-    dispatch_async(self.recordingQueue, ^{
-        __typeof (wself) sself = wself;
-        if (!sself) {
-            return;
-        }
-        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
-        recording.cancelled = YES;
-    });
-}
+//- (void)recordTaskCancellation:(NSURLSessionTask *)task {
+//    if (!self.enabled) {
+//        return;
+//    }
+//    __typeof (self) wself = self;
+//    dispatch_async(self.recordingQueue, ^{
+//        __typeof (wself) sself = wself;
+//        if (!sself) {
+//            return;
+//        }
+//        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
+//        recording.cancelled = YES;
+//    });
+//}
 
 - (JSZVCRRecording *)storedRecordingFromTask:(NSURLSessionTask *)task {
     NSString *globallyUniqueIdentifier = task.globallyUniqueIdentifier;
@@ -136,7 +139,16 @@
 }
 
 - (NSArray *)allRecordings {
-    return [self.recordings allValues];
+    __block NSArray *recordingsArray;
+    __typeof (self) wself = self;
+    dispatch_async(self.recordingQueue, ^{
+        __typeof (wself) sself = wself;
+        if (!sself) {
+            return;
+        }
+        recordingsArray = [sself.recordings allValues];
+    });
+    return recordingsArray;
 }
 
 - (NSArray *)allRecordingsForPlist {

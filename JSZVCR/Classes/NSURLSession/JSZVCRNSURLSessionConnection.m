@@ -84,12 +84,12 @@
     [self JSZ_setTask:task];
 }
 
-- (void)JSZ_cancel {
-    if (!self.task.globallyUniqueIdentifier) {
-        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
-    [[JSZVCRRecorder sharedInstance] recordTaskCancellation:self.task];
-}
+//- (void)JSZ_cancel {
+//    if (!self.task.globallyUniqueIdentifier) {
+//        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
+//    }
+//    [[JSZVCRRecorder sharedInstance] recordTaskCancellation:self.task];
+//}
 
 - (instancetype)JSZ_initWithTask:(NSURLSessionTask *)task delegate:(id <NSURLSessionDelegate>)delegate delegateQueue:(NSOperationQueue *)queue {
     if (!task.globallyUniqueIdentifier) {
