@@ -41,6 +41,7 @@
     [self performSimpleVerifiedNetworkCall:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSFileManager *fileManager = [NSFileManager defaultManager];
         NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
+        NSLog(@"expectedFilePathForTestCasePlist: %@", expectedFilePathForTestCasePlist);
         XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
         // TODO: check file contents
     }];
@@ -58,6 +59,7 @@
             // TODO: same as above!
             NSFileManager *fileManager = [NSFileManager defaultManager];
             NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
+            NSLog(@"expectedFilePathForTestCasePlist: %@", expectedFilePathForTestCasePlist);
             XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
         }];
     }];
