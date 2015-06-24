@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <JSZVCR/JSZVCR.h>
+#import <JSZVCR/JSZVCRRecorder.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
 @interface JSZVCRRecorderTestCase : JSZVCRTestCase
+@property (nonatomic) NSData *lastData;
+@property (nonatomic) NSURLResponse *lastResponse;
 @end
 
 @implementation JSZVCRRecorderTestCase
@@ -33,16 +36,31 @@
 }
 
 - (void)tearDown {
+    // Copy recordings serialization before we save (save causes a reset)
+    NSArray *allRecordingsAtEndOfRun = [[JSZVCRRecorder sharedInstance].allRecordingsForPlist copy];
     [super tearDown];
+    // verify save caused a reset on recordings
+    XCTAssertFalse([JSZVCRRecorder sharedInstance].allRecordings.count);
     // Call file verification after super teardown to ensure file has been saved as expected.
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
-    NSLog(@"expectedFilePathForTestCasePlist: %@", expectedFilePathForTestCasePlist);
     XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
+    // Now verify contents
+    NSArray *networkResponses = [[NSArray alloc] initWithContentsOfFile:expectedFilePathForTestCasePlist];
+    XCTAssertNotNil(networkResponses);
+    XCTAssertEqualObjects(allRecordingsAtEndOfRun, networkResponses);
 }
 
 - (void)testRecordingNetworkCall {
-    [self performSimpleVerifiedNetworkCall:nil];
+    __weak typeof (self) wself = self;
+    [self performSimpleVerifiedNetworkCall:^(NSData *data, NSURLResponse *response, NSError *error) {
+        __strong typeof (wself) sself = wself;
+        if (!sself) {
+            return;
+        }
+        sself.lastData = data;
+        sself.lastResponse = response;
+    }];
 }
 
 - (NSString *)filePathForTestSuiteBundle {
