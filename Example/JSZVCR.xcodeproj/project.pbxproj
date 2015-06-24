@@ -15,7 +15,6 @@
 		971EF2FC1B2A7A40000720ED /* JSZPlayerTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */; };
 		971EF30C1B2AAFBF000720ED /* JSZUnmockedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */; };
 		97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 97CAFA691B36AE180063FCC4 /* Rakefile */; };
-		97E143751B3A832200E72B17 /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97E143741B3A832200E72B17 /* JSZUnorderedMatcherTestCase.bundle */; };
 		97FA41EF1B2F9CB2003B9B57 /* JSZPlayerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */; };
 		97FA41F11B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */; };
 		97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */; };
@@ -41,7 +40,6 @@
 		971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZPlayerTestCase.bundle; sourceTree = "<group>"; };
 		971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnmockedTestCase.m; sourceTree = "<group>"; };
 		97CAFA691B36AE180063FCC4 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = ../Rakefile; sourceTree = "<group>"; };
-		97E143741B3A832200E72B17 /* JSZUnorderedMatcherTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = JSZUnorderedMatcherTestCase.bundle; path = "../../../objective-c-old/Tests/iOS Tests/JSZUnorderedMatcherTestCase.bundle"; sourceTree = "<group>"; };
 		97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZPlayerTestCase.m; sourceTree = "<group>"; };
 		97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRRecorderTestCase.m; sourceTree = "<group>"; };
 		97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnorderedMatcherTestCase.m; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 		97E143701B3A7B3700E72B17 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				97E143741B3A832200E72B17 /* JSZUnorderedMatcherTestCase.bundle */,
 				97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */,
 				971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */,
 			);
@@ -215,7 +212,6 @@
 				97FB4DB11B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 				971EF2FC1B2A7A40000720ED /* JSZPlayerTestCase.bundle in Resources */,
-				97E143751B3A832200E72B17 /* JSZUnorderedMatcherTestCase.bundle in Resources */,
 				97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
