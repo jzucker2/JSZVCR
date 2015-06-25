@@ -49,6 +49,9 @@
 }
 
 - (void)testNormalTest {
+    XCTAssertEqual([self matchingFailStrictness], JSZVCRTestingStrictnessNone);
+    XCTAssertEqual([self isRecording], YES);
+    XCTAssertEqualObjects([self matcherClass], [JSZVCRSimpleURLMatcher class]);
     // Stubbing tests until I figure out a way to record on iOS 7
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
         return;
