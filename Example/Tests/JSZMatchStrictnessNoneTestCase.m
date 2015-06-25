@@ -28,6 +28,8 @@
 - (void)testMatchingFailStrictnessNone {
     // This is an example of a functional test case.
     [self performSimpleVerifiedNetworkCall:nil];
+    // Unique network call is guaranteed to not match and then this method verifies live expected network results
+    [self performUniqueVerifiedNetworkCall:nil];
 }
 
 @end

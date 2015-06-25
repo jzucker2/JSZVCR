@@ -44,6 +44,6 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * return obj instead of dict for responses
 * handle multiple responses
 * don't save file unless something was recorded
-* fail tests if too many or too few requests, (level option for this)
-* better tests!
 * speed tests
+* add recording for NSURLConnection, NSURLSessionDelegate, NSURLSession on iOS 7
+* add tests for AFNetworking

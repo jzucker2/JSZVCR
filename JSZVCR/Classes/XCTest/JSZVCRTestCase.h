@@ -22,7 +22,7 @@
  *  requests will be recorded during development. Should be 
  *  set to YES during development for recoring network 
  *  responses and NO during CI test runs so that recorded 
- *  data will be used.
+ *  data will be used. Default is YES favoring development.
  *
  *  @return YES means requests are recording to file in Documents 
  *  directory of device at path corresponding to current test case. 

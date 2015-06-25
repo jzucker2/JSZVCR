@@ -1,25 +1,22 @@
 //
-//  JSZVCRRecorderTestCase.m
+//  JSZDefaultTestCase.m
 //  JSZVCR
 //
-//  Created by Jordan Zucker on 6/15/15.
+//  Created by Jordan Zucker on 6/24/15.
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
-@interface JSZVCRRecorderTestCase : JSZVCRTestCase
+@interface JSZDefaultTestCase : JSZVCRTestCase
 @end
 
-@implementation JSZVCRRecorderTestCase
-
-- (BOOL)isRecording {
-    return YES;
-}
+@implementation JSZDefaultTestCase
 
 - (void)setUp {
     [super setUp];
@@ -42,23 +39,16 @@
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
         return;
     }
-    // Copy recordings serialization before we save (save causes a reset)
-    NSArray *allRecordingsAtEndOfRun = [[JSZVCRRecorder sharedInstance].allRecordingsForPlist copy];
-    XCTAssertEqual(allRecordingsAtEndOfRun.count, 1);
+    // Make sure nothing was recorded
+    XCTAssertEqual([JSZVCRRecorder sharedInstance].allRecordings.count, 1);
     [super tearDown];
-    // verify save caused a reset on recordings
-    XCTAssertFalse([JSZVCRRecorder sharedInstance].allRecordings.count);
-    // Call file verification after super teardown to ensure file has been saved as expected.
+    // Call file verification after super teardown to ensure file was not saved
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
     XCTAssertTrue([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]);
-    // Now verify contents
-    NSArray *networkResponses = [[NSArray alloc] initWithContentsOfFile:expectedFilePathForTestCasePlist];
-    XCTAssertEqual(networkResponses.count, 1);
-    XCTAssertEqualObjects(allRecordingsAtEndOfRun, networkResponses);
 }
 
-- (void)testRecordingNetworkCall {
+- (void)testNormalTest {
     // Stubbing tests until I figure out a way to record on iOS 7
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
         return;
