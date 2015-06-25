@@ -28,13 +28,7 @@
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
         return;
     }
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
-    if ([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]) {
-        NSError *removeTestRunCodeError;
-        [fileManager removeItemAtPath:expectedFilePathForTestCasePlist error:&removeTestRunCodeError];
-        XCTAssertNil(removeTestRunCodeError);
-    }
+    [self removeExpectedTestCasePlist];
 }
 
 - (void)tearDown {
