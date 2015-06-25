@@ -63,6 +63,16 @@
     }];
 }
 
+- (void)removeExpectedTestCasePlist {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
+    if ([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]) {
+        NSError *removeTestRunCodeError;
+        [fileManager removeItemAtPath:expectedFilePathForTestCasePlist error:&removeTestRunCodeError];
+        XCTAssertNil(removeTestRunCodeError);
+    }
+}
+
 - (NSString *)filePathForTestSuiteBundle {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory

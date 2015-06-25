@@ -19,6 +19,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		971EF2FC1B2A7A40000720ED /* JSZPlayerTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */; };
 		971EF30C1B2AAFBF000720ED /* JSZUnmockedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */; };
+		975E1CA61B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */; };
 		97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 97CAFA691B36AE180063FCC4 /* Rakefile */; };
 		97E143771B3AA50800E72B17 /* JSZDefaultTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */; };
 		97FA41EF1B2F9CB2003B9B57 /* JSZPlayerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */; };
@@ -50,6 +51,7 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZPlayerTestCase.bundle; sourceTree = "<group>"; };
 		971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnmockedTestCase.m; sourceTree = "<group>"; };
+		975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRAFNetworkingRecorderTestCase.m; sourceTree = "<group>"; };
 		97CAFA691B36AE180063FCC4 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = ../Rakefile; sourceTree = "<group>"; };
 		97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZDefaultTestCase.m; sourceTree = "<group>"; };
 		97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZPlayerTestCase.m; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */,
+				975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */,
 				97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */,
 				97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */,
 				97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */,
@@ -295,6 +298,7 @@
 				971EF30C1B2AAFBF000720ED /* JSZUnmockedTestCase.m in Sources */,
 				97E143771B3AA50800E72B17 /* JSZDefaultTestCase.m in Sources */,
 				97FA41F11B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m in Sources */,
+				975E1CA61B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m in Sources */,
 				51D21DE01B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */,
 				97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */,
 				17B4A7751B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */,

@@ -16,6 +16,8 @@
 
 - (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *data, NSURLResponse *response, NSError *error))verifications;
 
+- (void)removeExpectedTestCasePlist;
+
 - (NSString *)filePathForTestSuiteBundle;
 
 - (NSString *)filePathForTestCasePlist;
