@@ -25,6 +25,25 @@
     }];
 }
 
+- (void)performUniqueVerifiedNetworkCall:(void (^)(NSData *, NSURLResponse *, NSError *))extraVerifications {
+    NSString *UUIDString = [NSUUID UUID].UUIDString;
+    NSString *uniqueRequest = [NSString stringWithFormat:@"https://httpbin.org/get?%@", UUIDString];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:uniqueRequest]];
+    [self performNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertNotNil(data);
+        NSDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        XCTAssertNil(error);
+        XCTAssertNotNil(dataDict);
+        XCTAssertNotNil(dataDict[@"args"]);
+        XCTAssertEqualObjects(dataDict[@"args"], @{ UUIDString : @"" });
+        if (extraVerifications) {
+            extraVerifications(data, response, error);
+        }
+    }];
+}
+
 - (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *, NSURLResponse *, NSError *))verifications {
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     

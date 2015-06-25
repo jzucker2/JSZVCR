@@ -36,12 +36,13 @@
     if (self.vcr.isRecording) {
         [self.vcr saveTestRecordings];
     }
+    self.vcr.playerDelegate = nil;
+    self.vcr = nil;
     self.currentRequest = nil;
     [super tearDown];
 }
 
 - (void)testSucceedsWhenMatch {
-    // This is an example of a functional test case.
     self.currentRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://httpbin.org/get?strictness"]];
     [self performNetworkRequest:self.currentRequest withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         XCTAssertNil(error);
@@ -56,27 +57,12 @@
 }
 
 - (void)testFailsWhenNoMatch {
-    NSString *UUIDString = [NSUUID UUID].UUIDString;
-    NSString *uniqueRequest = [NSString stringWithFormat:@"https://httpbin.org/get?%@", UUIDString];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:uniqueRequest]];
-    [self performNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
-        XCTAssertNil(error);
-        XCTAssertNotNil(response);
-        XCTAssertNotNil(data);
-        NSDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        XCTAssertNil(error);
-        XCTAssertNotNil(dataDict);
-        XCTAssertNotNil(dataDict[@"args"]);
-        XCTAssertEqualObjects(dataDict[@"args"], @{ UUIDString : @"" });
-    }];
+    [self performUniqueVerifiedNetworkCall:nil];
 }
 
 #pragma mark - JSZVCRPlayerDelegate
 
 - (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail {
-//    NSLog(@"testCase: %@", testCase);
-//    NSLog(@"request: %@", request);
-//    NSLog(@"shouldFail: %@", @(shouldFail));
     XCTAssertEqualObjects(self.currentRequest, request);
     XCTAssertEqualObjects(self, testCase);
     if (self.invocation.selector == @selector(testSucceedsWhenMatch)) {
