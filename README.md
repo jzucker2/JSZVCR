@@ -46,3 +46,4 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * don't save file unless something was recorded
 * speed tests
 * add recording for NSURLConnection, NSURLSessionDelegate, NSURLSession on iOS 7
+* add tests for AFNetworking
