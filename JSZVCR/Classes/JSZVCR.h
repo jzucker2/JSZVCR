@@ -30,6 +30,16 @@
 @property (nonatomic) XCTestCase *currentTestCase;
 
 /**
+ *  Set the response matching strictness during a playback test run
+ */
+@property (nonatomic) JSZVCRTestingStrictness matchFailStrictness;
+
+/**
+ *  Delegate handles feedback for JSZVCRPlayer during a playback run
+ */
+@property (nonatomic) id<JSZVCRPlayerDelegate> playerDelegate;
+
+/**
  *  Convenience method for creating VCR object with matcherClass, supplies a singleton JSZVCRRecorder
  *
  *  @param matcherClass class conforming to protocol JSZVCRMatching
