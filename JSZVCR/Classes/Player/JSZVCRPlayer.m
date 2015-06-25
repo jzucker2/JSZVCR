@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         _matcher = [matcherClass matcher];
+        _matchFailStrictness = JSZVCRTestingStrictnessNone;
     }
     return self;
 }
@@ -33,7 +34,23 @@
     [OHHTTPStubs removeAllStubs];
     if (_enabled) {
         [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
-            return [self.matcher hasResponseForRequest:request inRecordings:self.networkResponses];
+            BOOL matched = [self.matcher hasResponseForRequest:request inRecordings:self.networkResponses];
+            if (matched) {
+                return matched;
+            }
+            switch (self.matchFailStrictness) {
+                case JSZVCRTestingStrictnessNone:
+                {
+                    [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:NO];
+                }
+                    break;
+                case JSZVCRTestingStrictnessFailWhenNoMatch:
+                {
+                    [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:YES];
+                }
+                    break;
+            }
+            return matched;
         } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
             NSDictionary *responseDict = [self.matcher responseForRequest:request inRecordings:self.networkResponses];
             return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]

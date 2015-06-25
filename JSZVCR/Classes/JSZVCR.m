@@ -47,6 +47,11 @@
     return _recording;
 }
 
+- (void)setMatchFailStrictness:(JSZVCRTestingStrictness)matchFailStrictness {
+    _matchFailStrictness = matchFailStrictness;
+    self.player.matchFailStrictness = _matchFailStrictness;
+}
+
 - (void)swizzleNSURLSessionClasses {
     [JSZVCRNSURLSessionConnection swizzleNSURLSessionClasses];
 }

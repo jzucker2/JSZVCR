@@ -13,7 +13,7 @@
 #import "JSZVCRRecorder.h"
 #import "JSZVCRSimpleURLMatcher.h"
 
-@interface JSZVCRTestCase ()
+@interface JSZVCRTestCase () <JSZVCRPlayerDelegate>
 @property (nonatomic) JSZVCR *vcr;
 @end
 
@@ -21,6 +21,10 @@
 
 - (BOOL)isRecording {
     return NO;
+}
+
+- (JSZVCRTestingStrictness)matchingFailStrictness {
+    return JSZVCRTestingStrictnessNone;
 }
 
 - (Class<JSZVCRMatching>)matcherClass {
@@ -31,8 +35,10 @@
     self = [super initWithInvocation:invocation];
     if (self) {
         _vcr = [JSZVCR vcrWithMatcherClass:self.matcherClass];
+        _vcr.playerDelegate = self;
         _vcr.currentTestCase = self;
         _vcr.recording = [self isRecording];
+        _vcr.matchFailStrictness = [self matchingFailStrictness];
     }
     return self;
 }
@@ -56,6 +62,14 @@
         [self.vcr saveTestRecordings];
     }
     [super tearDown];
+}
+
+#pragma mark - JSZVCRPlayerDelegate
+
+- (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail {
+    if (shouldFail) {
+        XCTFail(@"Unmatched request: %@", request);
+    }
 }
 
 @end
