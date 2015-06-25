@@ -34,6 +34,13 @@
     [self performSimpleVerifiedNetworkCall:nil];
 }
 
+- (void)DISABLED_testRedirectedRecordedNetworkCall {
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://httpbin.org/redirect/6"]];
+    [self performNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSLog(@"");
+    }];
+}
+
 - (void)testPerformanceRecordedNetworkCall {
     __weak typeof(self) wself = self;
     [self measureBlock:^{

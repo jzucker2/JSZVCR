@@ -47,3 +47,5 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * speed tests
 * add recording for NSURLConnection, NSURLSessionDelegate, NSURLSession on iOS 7
 * add tests for AFNetworking
+* better support for cancelling and errored network connects
+* proper support for redirects
