@@ -14,7 +14,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - JSZVCR (0.5.0):
+  - JSZVCR (0.5.1):
     - BlocksKit (~> 2.2.5)
     - OHHTTPStubs (~> 4.0.2)
   - OHHTTPStubs (4.0.2)
@@ -28,7 +28,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  JSZVCR: 583ec729f6e0785eeb0350b06c5b600cebe1f240
+  JSZVCR: 954abb82cbdbcafe53bfc310befbdbd035002a9d
   OHHTTPStubs: dbd1957d414659783e07b49c961940b7564c23d9
 
 COCOAPODS: 0.37.2
