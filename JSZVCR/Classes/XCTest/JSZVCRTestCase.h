@@ -9,12 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
 #import "JSZVCRMatching.h"
-
-
-typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
-    JSZVCRTestingStrictnessNone = 0,
-    JSZVCRTestingStrictnessFailOnInconsistency
-};
+#import "JSZVCRPlayer.h"
 
 /**
  *  Subclass of XCTestCase for making easy recorded network responses 
@@ -47,9 +42,20 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  */
 - (Class<JSZVCRMatching>)matcherClass;
 
+/**
+ *  Override in subclass so that tests can be failed if network
+ *  requests are made during a playback test run that don't 
+ *  match any recorded network requests
+ *
+ *  @return enum level determines strictness for passing tests,
+ *  default is JSZVCRTestingStrictnessNone. The enum value
+ *  JSZVCRTestingStrictnessFailWhenNoMatch will cause a test to fail
+ *  if a network request occurs that does not match a recorded request.
+ */
+- (JSZVCRTestingStrictness)matchingFailStrictness;
+
 
 //+ (NSString *)bundleNameContainingResponses;
-//- (JSZVCRTestingStrictness)testingStrictnessForSelector:(SEL)testCaseSelector;
 
 
 @end

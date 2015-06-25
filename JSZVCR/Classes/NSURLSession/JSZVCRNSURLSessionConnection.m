@@ -89,6 +89,7 @@
         self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
     }
     [[JSZVCRRecorder sharedInstance] recordTaskCancellation:self.task];
+    [self JSZ_cancel];
 }
 
 - (instancetype)JSZ_initWithTask:(NSURLSessionTask *)task delegate:(id <NSURLSessionDelegate>)delegate delegateQueue:(NSOperationQueue *)queue {
