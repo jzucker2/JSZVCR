@@ -15,4 +15,9 @@
  */
 @property (nonatomic, copy) NSString *globallyUniqueIdentifier;
 
+/**
+ *  Sets a globallyUniqueIdentifier for correlating recordings if one was not already set
+ */
+- (void)uniqueify;
+
 @end

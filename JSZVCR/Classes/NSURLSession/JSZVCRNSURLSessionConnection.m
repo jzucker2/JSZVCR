@@ -78,50 +78,38 @@
 }
 
 - (void)JSZ_setTask:(NSURLSessionTask *)task {
-    if (!task.globallyUniqueIdentifier) {
-        task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
+    [task uniqueify];
     [self JSZ_setTask:task];
 }
 
 - (void)JSZ_cancel {
-    if (!self.task.globallyUniqueIdentifier) {
-        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
+    [self.task uniqueify];
     [[JSZVCRRecorder sharedInstance] recordTaskCancellation:self.task];
     [self JSZ_cancel];
 }
 
 - (instancetype)JSZ_initWithTask:(NSURLSessionTask *)task delegate:(id <NSURLSessionDelegate>)delegate delegateQueue:(NSOperationQueue *)queue {
-    if (!task.globallyUniqueIdentifier) {
-        task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
+    [task uniqueify];
     return [self JSZ_initWithTask:task delegate:delegate delegateQueue:queue];
 }
 
 - (void)JSZ__redirectRequest:(NSURLRequest *)arg1 redirectResponse:(NSURLResponse *)arg2 completion:(id)arg3;
 {
-    if (!self.task.globallyUniqueIdentifier) {
-        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
+    [self.task uniqueify];
     [[JSZVCRRecorder sharedInstance] recordTask:self.task redirectRequest:arg1 redirectResponse:arg2];
     [self JSZ__redirectRequest:arg1 redirectResponse:arg2 completion:arg3];
 }
 
 - (void)JSZ__didReceiveData:(id)data;
 {
-    if (!self.task.globallyUniqueIdentifier) {
-        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
+    [self.task uniqueify];
     [[JSZVCRRecorder sharedInstance] recordTask:self.task didReceiveData:data];
     [self JSZ__didReceiveData:data];
 }
 
 - (void)JSZ__didReceiveResponse:(NSURLResponse *)response sniff:(BOOL)sniff;
 {
-    if (!self.task.globallyUniqueIdentifier) {
-        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
+    [self.task uniqueify];
     // This can be called multiple times for the same request. Make sure it doesn't
     [[JSZVCRRecorder sharedInstance] recordTask:self.task didReceiveResponse:response];
     [self JSZ__didReceiveResponse:response sniff:sniff];
@@ -129,9 +117,7 @@
 
 - (void)JSZ__didFinishWithError:(NSError *)error;
 {
-    if (!self.task.globallyUniqueIdentifier) {
-        self.task.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
-    }
+    [self.task uniqueify];
     [[JSZVCRRecorder sharedInstance] recordTask:self.task didFinishWithError:error];
     [self JSZ__didFinishWithError:error];
 }

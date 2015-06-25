@@ -24,4 +24,10 @@ static const void *JSZVCRTaskUniqueIDKey = &JSZVCRTaskUniqueIDKey;
     return objc_getAssociatedObject(self, JSZVCRTaskUniqueIDKey);
 }
 
+- (void)uniqueify {
+    if (!self.globallyUniqueIdentifier) {
+        self.globallyUniqueIdentifier = [NSUUID UUID].UUIDString;
+    }
+}
+
 @end

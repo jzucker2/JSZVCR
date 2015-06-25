@@ -44,7 +44,6 @@
 }
 
 - (void)reset {
-//    self.recordings = [NSMutableDictionary dictionary];
     [self.recordings removeAllObjects];
 }
 
