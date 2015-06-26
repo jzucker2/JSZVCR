@@ -68,7 +68,6 @@
     [self waitForExpectationsWithTimeout:5 handler:^(NSError *error) {
         if (error) {
             XCTAssertNil(error);
-            [networkExpectation fulfill];
         }
     }];
 }

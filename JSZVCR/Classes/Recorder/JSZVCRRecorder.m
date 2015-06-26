@@ -63,9 +63,6 @@
     __typeof (self) wself = self;
     dispatch_async(self.recordingQueue, ^{
         __typeof (wself) sself = wself;
-        if (!sself) {
-            return;
-        }
         JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
         if (recording.data) {
             NSLog(@"already had data: %@", recording.data);
@@ -81,9 +78,6 @@
     __typeof (self) wself = self;
     dispatch_async(self.recordingQueue, ^{
         __typeof (wself) sself = wself;
-        if (!sself) {
-            return;
-        }
         JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
         if (recording.response) {
             NSLog(@"already had response: %@", recording.response);
@@ -99,9 +93,6 @@
     __typeof (self) wself = self;
     dispatch_async(self.recordingQueue, ^{
         __typeof (wself) sself = wself;
-        if (!sself) {
-            return;
-        }
         JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
         recording.error = error;
     });
@@ -114,9 +105,6 @@
     __typeof (self) wself = self;
     dispatch_async(self.recordingQueue, ^{
         __typeof (wself) sself = wself;
-        if (!sself) {
-            return;
-        }
         JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
         recording.cancelled = YES;
     });
