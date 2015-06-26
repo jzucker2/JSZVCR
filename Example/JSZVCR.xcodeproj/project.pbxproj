@@ -21,6 +21,7 @@
 		971EF30C1B2AAFBF000720ED /* JSZUnmockedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */; };
 		975E1CA61B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */; };
 		97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 97CAFA691B36AE180063FCC4 /* Rakefile */; };
+		97DD8B871B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DD8B861B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m */; };
 		97E143771B3AA50800E72B17 /* JSZDefaultTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */; };
 		97FA41EF1B2F9CB2003B9B57 /* JSZPlayerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */; };
 		97FA41F11B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */; };
@@ -53,6 +54,7 @@
 		971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnmockedTestCase.m; sourceTree = "<group>"; };
 		975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRAFNetworkingRecorderTestCase.m; sourceTree = "<group>"; };
 		97CAFA691B36AE180063FCC4 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = ../Rakefile; sourceTree = "<group>"; };
+		97DD8B861B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRRecordingCancelledTask.m; sourceTree = "<group>"; };
 		97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZDefaultTestCase.m; sourceTree = "<group>"; };
 		97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZPlayerTestCase.m; sourceTree = "<group>"; };
 		97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRRecorderTestCase.m; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */,
+				97DD8B861B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m */,
 				975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */,
 				97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */,
 				97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */,
@@ -297,6 +300,7 @@
 			files = (
 				971EF30C1B2AAFBF000720ED /* JSZUnmockedTestCase.m in Sources */,
 				97E143771B3AA50800E72B17 /* JSZDefaultTestCase.m in Sources */,
+				97DD8B871B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m in Sources */,
 				97FA41F11B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m in Sources */,
 				975E1CA61B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m in Sources */,
 				51D21DE01B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */,
