@@ -21,6 +21,7 @@
 		971EF30C1B2AAFBF000720ED /* JSZUnmockedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */; };
 		972B05DF1B3D221C0037FE84 /* JSZSimpleMatcherTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 972B05DE1B3D221C0037FE84 /* JSZSimpleMatcherTestCase.m */; };
 		972B05E11B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 972B05E01B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle */; };
+		972B05E31B3D3AEC0037FE84 /* JSZVCRResponseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 972B05E21B3D3AEC0037FE84 /* JSZVCRResponseTestCase.m */; };
 		975E1CA61B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */; };
 		978B268B1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 978B268A1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m */; };
 		978B268D1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */; };
@@ -58,6 +59,7 @@
 		971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnmockedTestCase.m; sourceTree = "<group>"; };
 		972B05DE1B3D221C0037FE84 /* JSZSimpleMatcherTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZSimpleMatcherTestCase.m; sourceTree = "<group>"; };
 		972B05E01B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZSimpleMatcherTestCase.bundle; sourceTree = "<group>"; };
+		972B05E21B3D3AEC0037FE84 /* JSZVCRResponseTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRResponseTestCase.m; sourceTree = "<group>"; };
 		975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRAFNetworkingRecorderTestCase.m; sourceTree = "<group>"; };
 		978B268A1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRResourceManagerTestCase.m; sourceTree = "<group>"; };
 		978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSZVCRResourceManagerTestCase.txt; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */,
 				97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */,
 				97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */,
+				972B05E21B3D3AEC0037FE84 /* JSZVCRResponseTestCase.m */,
 				972B05DE1B3D221C0037FE84 /* JSZSimpleMatcherTestCase.m */,
 				17B4A7721B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m */,
 				17B4A7741B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m */,
@@ -319,6 +322,7 @@
 				975E1CA61B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m in Sources */,
 				978B268B1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m in Sources */,
 				972B05DF1B3D221C0037FE84 /* JSZSimpleMatcherTestCase.m in Sources */,
+				972B05E31B3D3AEC0037FE84 /* JSZVCRResponseTestCase.m in Sources */,
 				51D21DE01B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */,
 				97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */,
 				17B4A7751B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */,
