@@ -65,24 +65,21 @@
     return [NSBundle bundleWithPath:bundlePath];
 }
 
-+ (void)saveToDisk:(JSZVCRRecorder *)recorder {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-    NSString *filePathComponent = [NSString stringWithFormat:@"%@.plist", [NSUUID UUID].UUIDString];
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:filePathComponent];
++ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder withFilePath:(NSString *)filePath {
+    // should assert that documents directory isn't automatically appended!
+    NSParameterAssert(filePath);
+    NSAssert([filePath.pathExtension isEqualToString:@"plist"], @"filePath extension must be .plist not %@", filePath.pathExtension);
     NSLog(@"filePath = %@", filePath);
     NSArray *dumpArray = recorder.allRecordingsForPlist;
-    [dumpArray writeToFile:filePath atomically:YES];
+    return [dumpArray writeToFile:filePath atomically:YES];
 }
 
-+ (void)saveToDisk:(JSZVCRRecorder *)recorder forTest:(XCTestCase *)testCase {
++ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder forTest:(XCTestCase *)testCase {
     NSBundle *documentsBundle = [self bundleForTestInDocumentsDirectory:testCase];
     NSString *currentTestCaseMethod = NSStringFromSelector(testCase.invocation.selector);
     NSString *fileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
     NSString *filePath = [documentsBundle.bundlePath stringByAppendingPathComponent:fileName];
-    NSLog(@"filePath = %@", filePath);
-    NSArray *dumpArray = recorder.allRecordingsForPlist;
-    [dumpArray writeToFile:filePath atomically:YES];
+    return [self saveToDisk:recorder withFilePath:filePath];
 }
 
 @end
