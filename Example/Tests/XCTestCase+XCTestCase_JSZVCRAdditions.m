@@ -11,7 +11,7 @@
 @implementation XCTestCase (XCTestCase_JSZVCRAdditions)
 
 - (NSURLSessionTask *)taskForNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *, NSURLResponse *, NSError *))verifications {
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+    NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *basicGetTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (verifications) {
             verifications(data, response, error);

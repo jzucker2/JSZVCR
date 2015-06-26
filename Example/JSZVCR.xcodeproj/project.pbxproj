@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17AED04D1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AED04C1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m */; };
 		17B4A7731B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4A7721B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m */; };
 		17B4A7751B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4A7741B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m */; };
 		17B4A7781B3B808E00699888 /* JSZVCRRecorderTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0251BC24D39024D842E740FA /* Pods-JSZVCR_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		17AED04C1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m; sourceTree = "<group>"; };
 		17B4A7721B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZMatchStrictnessNoneTestCase.m; sourceTree = "<group>"; };
 		17B4A7741B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRStrictnessFailWhenNoMatchTestCase.m; sourceTree = "<group>"; };
 		17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZVCRRecorderTestCase.bundle; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */,
 				97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */,
 				97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */,
+				17AED04C1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m */,
 				97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */,
 				972B05E21B3D3AEC0037FE84 /* JSZVCRResponseTestCase.m */,
 				972B05E61B3D43E10037FE84 /* JSZVCRDataTestCase.m */,
@@ -334,6 +337,7 @@
 				51D21DE01B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */,
 				97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */,
 				17B4A7751B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */,
+				17AED04D1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m in Sources */,
 				97FA41EF1B2F9CB2003B9B57 /* JSZPlayerTestCase.m in Sources */,
 				17B4A7731B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m in Sources */,
 			);

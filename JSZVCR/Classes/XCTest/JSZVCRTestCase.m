@@ -37,7 +37,7 @@
         _vcr = [JSZVCR vcrWithMatcherClass:self.matcherClass];
         _vcr.playerDelegate = self;
         _vcr.currentTestCase = self;
-        _vcr.recording = [self isRecording];
+        _vcr.recording = YES;
         _vcr.matchFailStrictness = [self matchingFailStrictness];
     }
     return self;
@@ -45,18 +45,12 @@
 
 - (void)setUp {
     [super setUp];
-    if (self.vcr.isRecording) {
-        // only swizzle if you have to
-        [self.vcr swizzleNSURLSessionClasses];
-        [self.vcr setRecording:YES];
-    } else {
-        [self.vcr setRecording:NO];
-        // only set matcher if not recording
-        
-    }
+    [self.vcr removeAllUnsavedRecordings];
+    self.vcr.recording = [self isRecording];
 }
 
 - (void)tearDown {
+    self.vcr.disabled = YES;
     [self.vcr removeAllNetworkResponses];
     if (self.vcr.isRecording) {
         [self.vcr saveTestRecordings];

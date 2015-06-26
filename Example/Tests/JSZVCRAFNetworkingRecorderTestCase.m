@@ -26,13 +26,17 @@
 }
 
 - (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
     // Stubbing tests until I figure out a way to record on iOS 7
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
         return;
     }
+    [[NSURLSession sharedSession] invalidateAndCancel];
+    [[NSURLSession sharedSession] getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+        NSLog(@"dataTasks: %@", dataTasks);
+    }];
+    [super setUp];
     [self removeExpectedTestCasePlist];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {

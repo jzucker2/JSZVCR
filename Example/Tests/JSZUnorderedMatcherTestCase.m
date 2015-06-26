@@ -34,16 +34,6 @@
     return JSZVCRTestingStrictnessFailWhenNoMatch;
 }
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testSimpleUnorderedQueryNetworkCallWithQueryParameters {
     // ensure there is only one recording
     XCTAssertNotNil(self.recordings);
@@ -85,23 +75,23 @@
         NSDictionary *expectedArgsDict;
         NSString *headerFieldsDate;
         if (self.invocation.selector == @selector(testSimpleUnorderedQueryNetworkCallWithQueryParameters)) {
-            headerFieldsDate = @"Fri, 26 Jun 2015 09:43:02 GMT";
+            headerFieldsDate = @"Fri, 26 Jun 2015 20:36:55 GMT";
             expectedArgsDict = @{
                                  @"bar" : @"bar",
                                  @"foo" : @"foo"
                                  };
         } else if (self.invocation.selector == @selector(testAlternateUnorderedQueryNetworkCallWithNoQueryParameters)) {
-            headerFieldsDate = @"Fri, 26 Jun 2015 09:43:01 GMT";
+            headerFieldsDate = @"Fri, 26 Jun 2015 20:36:53 GMT";
             expectedArgsDict = @{
                                  @"bar" : @"",
                                  @"foo" : @""
                                  };
         } else if (self.invocation.selector == @selector(testSimpleNetworkCallWithNoQuery)) {
-            headerFieldsDate = @"Fri, 26 Jun 2015 09:43:02 GMT";
+            headerFieldsDate = @"Fri, 26 Jun 2015 20:36:54 GMT";
             expectedArgsDict = @{
                                  };
         }
-
+        NSLog(@"%@", httpResponse.allHeaderFields[@"Date"]);
         XCTAssertEqualObjects(httpResponse.allHeaderFields[@"Date"], headerFieldsDate);
         XCTAssertEqualObjects(dataDict[@"args"], expectedArgsDict);
     }];

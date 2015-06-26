@@ -25,6 +25,12 @@
 @property (nonatomic, getter=isRecording) BOOL recording;
 
 /**
+ *  Default is NO, when isDisabled == YES, recording and playback are both 
+ *  turned off. This typically only be called during tearDown
+ */
+@property (nonatomic, getter=isDisabled) BOOL disabled;
+
+/**
  *  Current test case that is being run
  */
 @property (nonatomic) XCTestCase *currentTestCase;
@@ -70,9 +76,14 @@
 - (void)swizzleNSURLSessionClasses;
 
 /**
- *  Remove all OHHTTP network responses
+ *  Remove all OHHTTP stubbed network responses
  */
 - (void)removeAllNetworkResponses;
+
+/**
+ *  Removes all recordings from memory of JSZVCRRecorder instance
+ */
+- (void)removeAllUnsavedRecordings;
 
 /**
  *  Save all test recordings

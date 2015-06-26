@@ -9,13 +9,126 @@
 		<dict>
 			<key>data</key>
 			<data>
+			ewogICJhcmdzIjogewogICAgInRlc3QiOiAidGVzdCIKICB9LCAK
+			ICAiaGVhZGVycyI6IHsKICAgICJBY2NlcHQiOiAiKi8qIiwgCiAg
+			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
+			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
+			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
+			MS4xLjEyIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
+			ICI3Ni4xNC44MC4yMjQiLCAKICAidXJsIjogImh0dHBzOi8vaHR0
+			cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
+			</data>
+			<key>json</key>
+			<dict>
+				<key>args</key>
+				<dict>
+					<key>test</key>
+					<string>test</string>
+				</dict>
+				<key>headers</key>
+				<dict>
+					<key>Accept</key>
+					<string>*/*</string>
+					<key>Accept-Encoding</key>
+					<string>gzip, deflate</string>
+					<key>Accept-Language</key>
+					<string>en-us</string>
+					<key>Host</key>
+					<string>httpbin.org</string>
+					<key>User-Agent</key>
+					<string>xctest (unknown version) CFNetwork/711.1.12 Darwin/14.3.0</string>
+				</dict>
+				<key>origin</key>
+				<string>76.14.80.224</string>
+				<key>url</key>
+				<string>https://httpbin.org/get?test=test</string>
+			</dict>
+		</dict>
+		<key>request</key>
+		<dict>
+			<key>currentRequest</key>
+			<dict>
+				<key>HTTPMethod</key>
+				<string>GET</string>
+				<key>HTTPShouldHandleCookies</key>
+				<true/>
+				<key>URL</key>
+				<string>https://httpbin.org/get?test=test</string>
+				<key>allHTTPHeaderFields</key>
+				<dict>
+					<key>Accept</key>
+					<string>*/*</string>
+					<key>Accept-Encoding</key>
+					<string>gzip, deflate</string>
+					<key>Accept-Language</key>
+					<string>en-us</string>
+				</dict>
+				<key>allowsCellularAccess</key>
+				<true/>
+				<key>timeoutInterval</key>
+				<real>60</real>
+			</dict>
+			<key>originalRequest</key>
+			<dict>
+				<key>HTTPMethod</key>
+				<string>GET</string>
+				<key>HTTPShouldHandleCookies</key>
+				<true/>
+				<key>URL</key>
+				<string>https://httpbin.org/get?test=test</string>
+				<key>allowsCellularAccess</key>
+				<true/>
+				<key>timeoutInterval</key>
+				<real>60</real>
+			</dict>
+		</dict>
+		<key>response</key>
+		<dict>
+			<key>response</key>
+			<dict>
+				<key>MIMEType</key>
+				<string>application/json</string>
+				<key>URL</key>
+				<string>https://httpbin.org/get?test=test</string>
+				<key>allHeaderFields</key>
+				<dict>
+					<key>Access-Control-Allow-Origin</key>
+					<string>*</string>
+					<key>Content-Length</key>
+					<string>338</string>
+					<key>Content-Type</key>
+					<string>application/json</string>
+					<key>Date</key>
+					<string>Fri, 26 Jun 2015 20:26:28 GMT</string>
+					<key>Server</key>
+					<string>nginx</string>
+					<key>access-control-allow-credentials</key>
+					<string>true</string>
+				</dict>
+				<key>expectedContentLength</key>
+				<integer>338</integer>
+				<key>statusCode</key>
+				<integer>200</integer>
+				<key>suggestedFileName</key>
+				<string>get</string>
+			</dict>
+		</dict>
+	</dict>
+	<dict>
+		<key>cancelled</key>
+		<false/>
+		<key>data</key>
+		<dict>
+			<key>data</key>
+			<data>
 			ewogICJhcmdzIjogewogICAgInN0cmljdG5lc3MiOiAiIgogIH0s
 			IAogICJoZWFkZXJzIjogewogICAgIkFjY2VwdCI6ICIqLyoiLCAK
 			ICAgICJBY2NlcHQtRW5jb2RpbmciOiAiZ3ppcCwgZGVmbGF0ZSIs
 			IAogICAgIkFjY2VwdC1MYW5ndWFnZSI6ICJlbi11cyIsIAogICAg
 			Ikhvc3QiOiAiaHR0cGJpbi5vcmciLCAKICAgICJVc2VyLUFnZW50
 			IjogInhjdGVzdCAodW5rbm93biB2ZXJzaW9uKSBDRk5ldHdvcmsv
-			NzExLjIuMjMgRGFyd2luLzE0LjMuMCIKICB9LCAKICAib3JpZ2lu
+			NzExLjEuMTIgRGFyd2luLzE0LjMuMCIKICB9LCAKICAib3JpZ2lu
 			IjogIjc2LjE0LjgwLjIyNCIsIAogICJ1cmwiOiAiaHR0cHM6Ly9o
 			dHRwYmluLm9yZy9nZXQ/c3RyaWN0bmVzcyIKfQo=
 			</data>
@@ -37,7 +150,7 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/711.1.12 Darwin/14.3.0</string>
 				</dict>
 				<key>origin</key>
 				<string>76.14.80.224</string>
@@ -100,7 +213,7 @@
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Thu, 25 Jun 2015 00:17:50 GMT</string>
+					<string>Fri, 26 Jun 2015 20:26:29 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>

@@ -101,7 +101,7 @@ Then on subsequent runs, the tests will use the recorded files to respond to mat
 
 ## JSZVCRTestCase Defaults
 
-These are set automatically. Feel free to override with appropriate values but it is not necessary if these will suffice. It is possible these defaults will change until version 1.0 lands.
+These are set automatically. Feel free to override with appropriate values but it is not necessary if these will suffice. It is possible these defaults will change until version 1.0 lands. A note about recording and playback, they are only valid during test run, not during set up and tear down.
 
 ```objective-c
 - (BOOL)isRecording {

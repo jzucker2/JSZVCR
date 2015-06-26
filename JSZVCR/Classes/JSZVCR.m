@@ -33,12 +33,22 @@
     if (self) {
         _player = [JSZVCRPlayer playerWithMatcherClass:matcherClass];
         _recorder = recorder;
+        _disabled = NO;
     }
     return self;
 }
 
+- (void)setDisabled:(BOOL)disabled {
+    _disabled = disabled;
+    self.recorder.enabled = _disabled;
+    self.player.enabled = _disabled;
+}
+
 - (void)setRecording:(BOOL)recording {
     _recording = recording;
+    if (_recording) {
+        [self swizzleNSURLSessionClasses];
+    }
     self.recorder.enabled = _recording;
     self.player.enabled = (!_recording);
 }
@@ -71,6 +81,10 @@
 
 - (void)removeAllNetworkResponses {
     [self.player removeAllNetworkResponses];
+}
+
+- (void)removeAllUnsavedRecordings {
+    [self.recorder reset];
 }
 
 - (void)saveTestRecordings {
