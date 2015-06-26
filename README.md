@@ -96,6 +96,24 @@ Then flip the `isRecording` value to NO:
 
 Then on subsequent runs, the tests will use the recorded files to respond to matched network requests.
 
+## JSZVCRTestCase Defaults
+
+These are set automatically. Feel free to override with appropriate values but it is not necessary if these will suffice. It is possible these defaults will change until version 1.0 lands.
+
+```objective-c
+- (BOOL)isRecording {
+    return YES;
+}
+
+- (JSZVCRTestingStrictness)matchingFailStrictness {
+    return JSZVCRTestingStrictnessNone;
+}
+
+- (Class<JSZVCRMatching>)matcherClass {
+    return [JSZVCRSimpleURLMatcher class];
+}
+```
+
 ## Author
 
 Jordan Zucker, jordan.zucker@gmail.com
