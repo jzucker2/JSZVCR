@@ -35,6 +35,7 @@
 
 - (void)testNonJSONSerializableData {
     NSData *randomData = [self randomData];
+    XCTAssertFalse([NSJSONSerialization isValidJSONObject:randomData]);
     JSZVCRData *recording = [JSZVCRData dataWithData:randomData];
     XCTAssertNotNil(recording);
     XCTAssertEqualObjects(recording.data, randomData);
