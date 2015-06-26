@@ -64,6 +64,10 @@
     [super tearDown];
 }
 
+- (NSArray *)recordings {
+    return self.vcr.currentStoredRecordings;
+}
+
 #pragma mark - JSZVCRPlayerDelegate
 
 - (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail {

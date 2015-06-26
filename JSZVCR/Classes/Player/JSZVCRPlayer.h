@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
 /**
  *  Delegate provides feedback for status of run during execution
  */
-@property (nonatomic) id<JSZVCRPlayerDelegate>delegate;
+@property (nonatomic, weak) id<JSZVCRPlayerDelegate>delegate;
 
 /**
  *  Initialize a player with a type of matcher class

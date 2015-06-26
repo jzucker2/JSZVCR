@@ -12,9 +12,9 @@
 
 - (NSURLSessionTask *)taskForNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *data, NSURLResponse *response, NSError *error))verifications;
 
-- (void)performSimpleVerifiedNetworkCall:(void (^)(NSData *data, NSURLResponse *response, NSError *error))extraVerifications;
+- (NSURLRequest *)performSimpleVerifiedNetworkCall:(void (^)(NSData *data, NSURLResponse *response, NSError *error))extraVerifications;
 
-- (void)performUniqueVerifiedNetworkCall:(void (^)(NSData *data, NSURLResponse *response, NSError *error))extraVerifications;
+- (NSURLRequest *)performUniqueVerifiedNetworkCall:(void (^)(NSURLRequest *request, NSData *data, NSURLResponse *response, NSError *error))extraVerifications;
 
 - (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *data, NSURLResponse *response, NSError *error))verifications;
 

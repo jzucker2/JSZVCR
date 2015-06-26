@@ -20,7 +20,7 @@
     return basicGetTask;
 }
 
-- (void)performSimpleVerifiedNetworkCall:(void (^)(NSData *, NSURLResponse *, NSError *))extraVerifications {
+- (NSURLRequest *)performSimpleVerifiedNetworkCall:(void (^)(NSData *, NSURLResponse *, NSError *))extraVerifications {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://httpbin.org/get?test=test"]];
     [self performNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         XCTAssertNil(error);
@@ -33,9 +33,10 @@
             extraVerifications(data, response, error);
         }
     }];
+    return request;
 }
 
-- (void)performUniqueVerifiedNetworkCall:(void (^)(NSData *, NSURLResponse *, NSError *))extraVerifications {
+- (NSURLRequest *)performUniqueVerifiedNetworkCall:(void (^)(NSURLRequest *request, NSData *, NSURLResponse *, NSError *))extraVerifications {
     NSString *UUIDString = [NSUUID UUID].UUIDString;
     NSString *uniqueRequest = [NSString stringWithFormat:@"https://httpbin.org/get?%@", UUIDString];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:uniqueRequest]];
@@ -49,14 +50,15 @@
         XCTAssertNotNil(dataDict[@"args"]);
         XCTAssertEqualObjects(dataDict[@"args"], @{ UUIDString : @"" });
         if (extraVerifications) {
-            extraVerifications(data, response, error);
+            extraVerifications(request, data, response, error);
         }
     }];
+    return request;
 }
 
 - (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *, NSURLResponse *, NSError *))verifications {
     XCTestExpectation *networkExpectation = [self expectationWithDescription:@"network"];
-    NSURLSessionDataTask *basicGetTask = [self taskForNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionTask *basicGetTask = [self taskForNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (verifications) {
             verifications(data, response, error);
         }

@@ -57,13 +57,15 @@
 }
 
 - (void)testFailsWhenNoMatch {
-    [self performUniqueVerifiedNetworkCall:nil];
+    self.currentRequest = [self performUniqueVerifiedNetworkCall:nil];
 }
 
 #pragma mark - JSZVCRPlayerDelegate
 
 - (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail {
-    XCTAssertEqualObjects(self.currentRequest, request);
+    if (self.invocation.selector == @selector(testSucceedsWhenMatch)) {
+        XCTAssertEqualObjects(self.currentRequest, request);
+    }
     XCTAssertEqualObjects(self, testCase);
     if (self.invocation.selector == @selector(testSucceedsWhenMatch)) {
         XCTAssertFalse(shouldFail);
