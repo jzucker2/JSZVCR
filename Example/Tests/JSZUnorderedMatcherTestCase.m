@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCR.h>
+#import <JSZVCR/JSZVCRPlayer.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
@@ -26,6 +27,10 @@
     return [JSZVCRUnorderedQueryMatcher class];
 }
 
+- (JSZVCRTestingStrictness)matchingFailStrictness {
+    return JSZVCRTestingStrictnessFailWhenNoMatch;
+}
+
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -37,20 +42,11 @@
 }
 
 - (void)testRecordedNetworkCall {
+    // ensure there is only one recording
+    XCTAssertNotNil(self.recordings);
+    XCTAssertEqual(self.recordings.count, 1);
     [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get?foo=foo&bar=bar"];
     [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get?bar=bar&foo=foo"];
-}
-
-- (void)testPerformanceRecordedNetworkCall {
-    __weak typeof(self) wself = self;
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-        __weak typeof(wself) sself = wself;
-        if (!sself) {
-            return;
-        }
-        [sself performSimpleVerifiedNetworkCall:nil];
-    }];
 }
 
 - (void)verifiedSimpleNetworkCallWithURLString:(NSString *)URLString {

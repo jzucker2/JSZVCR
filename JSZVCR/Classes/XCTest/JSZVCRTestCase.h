@@ -54,6 +54,11 @@
  */
 - (JSZVCRTestingStrictness)matchingFailStrictness;
 
+/**
+ *  Available default network responses for this test case.
+ */
+@property (nonatomic, readonly) NSArray *recordings;
+
 
 //+ (NSString *)bundleNameContainingResponses;
 

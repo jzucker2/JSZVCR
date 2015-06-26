@@ -43,8 +43,16 @@
     self.player.enabled = (!_recording);
 }
 
+- (void)setPlayerDelegate:(id<JSZVCRPlayerDelegate>)playerDelegate {
+    self.player.delegate = playerDelegate;
+}
+
 - (BOOL)isRecording {
     return _recording;
+}
+
+- (NSArray *)currentStoredRecordings {
+    return self.player.networkResponses;
 }
 
 - (void)setMatchFailStrictness:(JSZVCRTestingStrictness)matchFailStrictness {
