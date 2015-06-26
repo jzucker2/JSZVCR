@@ -17,16 +17,6 @@
 
 @implementation JSZVCRResponseTestCase
 
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testTextEncodingResponse {
     NSURLResponse *response = [[NSURLResponse alloc] initWithURL:[NSURL URLWithString:@"https://httpbin.org/get?test=test"] MIMEType:@"application/json" expectedContentLength:339 textEncodingName:@"UTF-8"];
     XCTAssertNotNil(response);

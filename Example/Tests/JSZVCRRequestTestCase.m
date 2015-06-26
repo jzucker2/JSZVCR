@@ -18,7 +18,7 @@
 
 @implementation JSZVCRRequestTestCase
 
-- (void)testExample {
+- (void)testBasicRequestGeneration {
     // This is an example of a functional test case.
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://httpbin.org/get"]];
     NSError *JSONSerializationError;
@@ -48,13 +48,6 @@
     XCTAssertEqualObjects(requestDictionary[@"HTTPShouldUsePipelining"], @(request.HTTPShouldUsePipelining));
     XCTAssertEqualObjects(requestDictionary[@"HTTPBody"], request.HTTPBody);
     XCTAssertEqualObjects(requestDictionary[@"URL"], request.URL.absoluteString);
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
 }
 
 @end
