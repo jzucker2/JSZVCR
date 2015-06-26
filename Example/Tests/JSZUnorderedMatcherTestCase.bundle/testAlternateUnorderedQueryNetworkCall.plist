@@ -8,15 +8,15 @@
 		<key>data</key>
 		<dict>
 			<key>data</key>
-			<data>ewogICJhcmdzIjogewogICAgImJhciI6ICJiYXIiLCAKICAgICJmb28iOiAiZm9vIgogIH0sIAogICJoZWFkZXJzIjogewogICAgIkFjY2VwdCI6ICIqLyoiLCAKICAgICJBY2NlcHQtRW5jb2RpbmciOiAiZ3ppcCwgZGVmbGF0ZSIsIAogICAgIkFjY2VwdC1MYW5ndWFnZSI6ICJlbi11cyIsIAogICAgIkhvc3QiOiAiaHR0cGJpbi5vcmciLCAKICAgICJVc2VyLUFnZW50IjogInhjdGVzdCAodW5rbm93biB2ZXJzaW9uKSBDRk5ldHdvcmsvNzExLjMuMTggRGFyd2luLzE0LjMuMCIKICB9LCAKICAib3JpZ2luIjogIjY3LjE4MC4xMS4yMzMiLCAKICAidXJsIjogImh0dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P2Zvbz1mb28mYmFyPWJhciIKfQo=</data>
+			<data>ewogICJhcmdzIjogewogICAgImJhciI6ICIiLCAKICAgICJmb28iOiAiIgogIH0sIAogICJoZWFkZXJzIjogewogICAgIkFjY2VwdCI6ICIqLyoiLCAKICAgICJBY2NlcHQtRW5jb2RpbmciOiAiZ3ppcCwgZGVmbGF0ZSIsIAogICAgIkFjY2VwdC1MYW5ndWFnZSI6ICJlbi11cyIsIAogICAgIkhvc3QiOiAiaHR0cGJpbi5vcmciLCAKICAgICJVc2VyLUFnZW50IjogInhjdGVzdCAodW5rbm93biB2ZXJzaW9uKSBDRk5ldHdvcmsvNzExLjMuMTggRGFyd2luLzE0LjMuMCIKICB9LCAKICAib3JpZ2luIjogIjY3LjE4MC4xMS4yMzMiLCAKICAidXJsIjogImh0dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P2JhciZmb28iCn0K</data>
 			<key>json</key>
 			<dict>
 				<key>args</key>
 				<dict>
 					<key>bar</key>
-					<string>bar</string>
+					<string></string>
 					<key>foo</key>
-					<string>foo</string>
+					<string></string>
 				</dict>
 				<key>headers</key>
 				<dict>
@@ -34,7 +34,7 @@
 				<key>origin</key>
 				<string>67.180.11.233</string>
 				<key>url</key>
-				<string>https://httpbin.org/get?foo=foo&amp;bar=bar</string>
+				<string>https://httpbin.org/get?bar&amp;foo</string>
 			</dict>
 		</dict>
 		<key>request</key>
@@ -46,7 +46,7 @@
 				<key>HTTPShouldHandleCookies</key>
 				<true/>
 				<key>URL</key>
-				<string>https://httpbin.org/get?foo=foo&amp;bar=bar</string>
+				<string>https://httpbin.org/get?bar&amp;foo</string>
 				<key>allHTTPHeaderFields</key>
 				<dict>
 					<key>Accept</key>
@@ -68,7 +68,7 @@
 				<key>HTTPShouldHandleCookies</key>
 				<true/>
 				<key>URL</key>
-				<string>https://httpbin.org/get?foo=foo&amp;bar=bar</string>
+				<string>https://httpbin.org/get?bar&amp;foo</string>
 				<key>allowsCellularAccess</key>
 				<true/>
 				<key>timeoutInterval</key>
@@ -82,24 +82,24 @@
 				<key>MIMEType</key>
 				<string>application/json</string>
 				<key>URL</key>
-				<string>https://httpbin.org/get?foo=foo&amp;bar=bar</string>
+				<string>https://httpbin.org/get?bar&amp;foo</string>
 				<key>allHeaderFields</key>
 				<dict>
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>362</string>
+					<string>348</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Fri, 26 Jun 2015 07:09:56 GMT</string>
+					<string>Fri, 26 Jun 2015 07:09:55 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>362</integer>
+				<integer>348</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
