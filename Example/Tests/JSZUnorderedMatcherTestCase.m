@@ -28,6 +28,9 @@
 }
 
 - (JSZVCRTestingStrictness)matchingFailStrictness {
+    if (self.invocation.selector == @selector(testUniqueNetworkCallToProveNotAlwaysMatching)) {
+        return JSZVCRTestingStrictnessNone;
+    }
     return JSZVCRTestingStrictnessFailWhenNoMatch;
 }
 
@@ -41,7 +44,7 @@
     [super tearDown];
 }
 
-- (void)testRecordedNetworkCall {
+- (void)testSimpleUnorderedQueryNetworkCallWithQueryParameters {
     // ensure there is only one recording
     XCTAssertNotNil(self.recordings);
     XCTAssertEqual(self.recordings.count, 1);
@@ -49,12 +52,23 @@
     [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get?bar=bar&foo=foo"];
 }
 
-- (void)testAlternateUnorderedQueryNetworkCall {
+- (void)testAlternateUnorderedQueryNetworkCallWithNoQueryParameters {
     // ensure there is only one recording
     XCTAssertNotNil(self.recordings);
     XCTAssertEqual(self.recordings.count, 1);
     [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get?foo&bar"];
     [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get?bar&foo"];
+}
+
+- (void)testSimpleNetworkCallWithNoQuery {
+    // ensure there is only one recording
+    XCTAssertNotNil(self.recordings);
+    XCTAssertEqual(self.recordings.count, 1);
+    [self verifiedSimpleNetworkCallWithURLString:@"https://httpbin.org/get"];
+}
+
+- (void)testUniqueNetworkCallToProveNotAlwaysMatching {
+    [self performUniqueVerifiedNetworkCall:nil];
 }
 
 - (void)verifiedSimpleNetworkCallWithURLString:(NSString *)URLString {
@@ -70,17 +84,21 @@
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         NSDictionary *expectedArgsDict;
         NSString *headerFieldsDate;
-        if (self.invocation.selector == @selector(testRecordedNetworkCall)) {
-            headerFieldsDate = @"Fri, 26 Jun 2015 07:09:56 GMT";
+        if (self.invocation.selector == @selector(testSimpleUnorderedQueryNetworkCallWithQueryParameters)) {
+            headerFieldsDate = @"Fri, 26 Jun 2015 09:43:02 GMT";
             expectedArgsDict = @{
                                  @"bar" : @"bar",
                                  @"foo" : @"foo"
                                  };
-        } else if (self.invocation.selector == @selector(testAlternateUnorderedQueryNetworkCall)) {
-            headerFieldsDate = @"Fri, 26 Jun 2015 07:09:55 GMT";
+        } else if (self.invocation.selector == @selector(testAlternateUnorderedQueryNetworkCallWithNoQueryParameters)) {
+            headerFieldsDate = @"Fri, 26 Jun 2015 09:43:01 GMT";
             expectedArgsDict = @{
                                  @"bar" : @"",
                                  @"foo" : @""
+                                 };
+        } else if (self.invocation.selector == @selector(testSimpleNetworkCallWithNoQuery)) {
+            headerFieldsDate = @"Fri, 26 Jun 2015 09:43:02 GMT";
+            expectedArgsDict = @{
                                  };
         }
 
