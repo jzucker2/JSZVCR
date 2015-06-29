@@ -59,9 +59,15 @@
             return matched;
         } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
             NSDictionary *responseDict = [self.matcher responseForRequest:request inRecordings:self.networkResponses];
-            return [OHHTTPStubsResponse responseWithData:responseDict[@"data"]
-                                              statusCode:[responseDict[@"statusCode"] intValue]
-                                                 headers:responseDict[@"httpHeaders"]];
+            NSData *data = responseDict[@"data"];
+            int statusCode = [responseDict[@"statusCode"] intValue];
+            NSDictionary *headers = responseDict[@"httpHeaders"];
+            NSAssert(data, @"Data was not loaded: %@", data);
+            NSAssert(statusCode, @"Status code was not loaded: %d", statusCode);
+            NSAssert(headers, @"Headers were not loaded: %@", headers);
+            return [OHHTTPStubsResponse responseWithData:data
+                                              statusCode:statusCode
+                                                 headers:headers];
         }];
     } else {
         [OHHTTPStubs removeAllStubs];
