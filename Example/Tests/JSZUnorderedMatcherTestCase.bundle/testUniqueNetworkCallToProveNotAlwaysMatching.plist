@@ -9,23 +9,23 @@
 		<dict>
 			<key>data</key>
 			<data>
-			ewogICJhcmdzIjogewogICAgIjFGRTJERUQyLTFBMTctNDg2RS1C
-			MzJDLUNBMTkzQ0REMjhERCI6ICIiCiAgfSwgCiAgImhlYWRlcnMi
+			ewogICJhcmdzIjogewogICAgIkIyMzhCMzA2LTE0QjMtNEY1Ni05
+			QTEwLTFDODM2QTE5NjUwMCI6ICIiCiAgfSwgCiAgImhlYWRlcnMi
 			OiB7CiAgICAiQWNjZXB0IjogIiovKiIsIAogICAgIkFjY2VwdC1F
 			bmNvZGluZyI6ICJnemlwLCBkZWZsYXRlIiwgCiAgICAiQWNjZXB0
 			LUxhbmd1YWdlIjogImVuLXVzIiwgCiAgICAiSG9zdCI6ICJodHRw
 			YmluLm9yZyIsIAogICAgIlVzZXItQWdlbnQiOiAieGN0ZXN0ICh1
-			bmtub3duIHZlcnNpb24pIENGTmV0d29yay83MTEuMS4xMiBEYXJ3
-			aW4vMTQuMy4wIgogIH0sIAogICJvcmlnaW4iOiAiNzYuMTQuODAu
-			MjI0IiwgCiAgInVybCI6ICJodHRwczovL2h0dHBiaW4ub3JnL2dl
-			dD8xRkUyREVEMi0xQTE3LTQ4NkUtQjMyQy1DQTE5M0NERDI4REQi
-			Cn0K
+			bmtub3duIHZlcnNpb24pIENGTmV0d29yay83MTEuMy4xOCBEYXJ3
+			aW4vMTQuMy4wIgogIH0sIAogICJvcmlnaW4iOiAiNjcuMTgwLjEx
+			LjIzMyIsIAogICJ1cmwiOiAiaHR0cHM6Ly9odHRwYmluLm9yZy9n
+			ZXQ/QjIzOEIzMDYtMTRCMy00RjU2LTlBMTAtMUM4MzZBMTk2NTAw
+			Igp9Cg==
 			</data>
 			<key>json</key>
 			<dict>
 				<key>args</key>
 				<dict>
-					<key>1FE2DED2-1A17-486E-B32C-CA193CDD28DD</key>
+					<key>B238B306-14B3-4F56-9A10-1C836A196500</key>
 					<string></string>
 				</dict>
 				<key>headers</key>
@@ -39,12 +39,12 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.1.12 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/711.3.18 Darwin/14.3.0</string>
 				</dict>
 				<key>origin</key>
-				<string>76.14.80.224</string>
+				<string>67.180.11.233</string>
 				<key>url</key>
-				<string>https://httpbin.org/get?1FE2DED2-1A17-486E-B32C-CA193CDD28DD</string>
+				<string>https://httpbin.org/get?B238B306-14B3-4F56-9A10-1C836A196500</string>
 			</dict>
 		</dict>
 		<key>request</key>
@@ -56,7 +56,7 @@
 				<key>HTTPShouldHandleCookies</key>
 				<true/>
 				<key>URL</key>
-				<string>https://httpbin.org/get?1FE2DED2-1A17-486E-B32C-CA193CDD28DD</string>
+				<string>https://httpbin.org/get?B238B306-14B3-4F56-9A10-1C836A196500</string>
 				<key>allHTTPHeaderFields</key>
 				<dict>
 					<key>Accept</key>
@@ -78,7 +78,7 @@
 				<key>HTTPShouldHandleCookies</key>
 				<true/>
 				<key>URL</key>
-				<string>https://httpbin.org/get?1FE2DED2-1A17-486E-B32C-CA193CDD28DD</string>
+				<string>https://httpbin.org/get?B238B306-14B3-4F56-9A10-1C836A196500</string>
 				<key>allowsCellularAccess</key>
 				<true/>
 				<key>timeoutInterval</key>
@@ -92,24 +92,24 @@
 				<key>MIMEType</key>
 				<string>application/json</string>
 				<key>URL</key>
-				<string>https://httpbin.org/get?1FE2DED2-1A17-486E-B32C-CA193CDD28DD</string>
+				<string>https://httpbin.org/get?B238B306-14B3-4F56-9A10-1C836A196500</string>
 				<key>allHeaderFields</key>
 				<dict>
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>393</string>
+					<string>394</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Fri, 26 Jun 2015 20:36:55 GMT</string>
+					<string>Mon, 29 Jun 2015 20:44:35 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>393</integer>
+				<integer>394</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
