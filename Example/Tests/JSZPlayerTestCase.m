@@ -32,6 +32,8 @@
 }
 
 - (void)testRecordedNetworkCall {
+    // We should ALWAYS have recordings loaded at the beginning of a test
+    XCTAssertNotEqual(self.recordings.count, 0);
     [self performSimpleVerifiedNetworkCall:nil];
 }
 
