@@ -50,7 +50,7 @@
 }
 
 - (void)tearDown {
-    self.vcr.disabled = YES;
+    [self.vcr tearDown];
     [self.vcr removeAllNetworkResponses];
     if (self.vcr.isRecording) {
         [self.vcr saveTestRecordings];

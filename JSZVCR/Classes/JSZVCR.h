@@ -86,6 +86,11 @@
 - (void)removeAllUnsavedRecordings;
 
 /**
+ *  tearDown recordings for XCTest
+ */
+- (void)tearDown;
+
+/**
  *  Save all test recordings
  */
 - (void)saveTestRecordings;

@@ -80,9 +80,9 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
 + (instancetype)playerWithMatcherClass:(Class<JSZVCRMatching>)matcherClass;
 
 /**
- *  Clean up after each test run
+ *  Clean up after each test run/usage
  */
-- (void)removeAllNetworkResponses;
+- (void)tearDown;
 
 @end
 

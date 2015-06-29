@@ -32,9 +32,9 @@
 
 - (void)setEnabled:(BOOL)enabled {
     _enabled = enabled;
-    NSAssert(self.networkResponses, @"Network responses must be a valid object for playback to be enabled: %@", self.networkResponses);
     [OHHTTPStubs removeAllStubs];
     if (_enabled) {
+        NSAssert(self.networkResponses, @"Network responses must be a valid object for playback to be enabled: %@", self.networkResponses);
         [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
             BOOL matched = [self.matcher hasResponseForRequest:request inRecordings:self.networkResponses];
             if (matched) {
@@ -85,7 +85,8 @@
     return _networkResponses;
 }
 
-- (void)removeAllNetworkResponses {
+- (void)tearDown {
+    _enabled = NO;
     [OHHTTPStubs removeAllStubs];
 }
 
