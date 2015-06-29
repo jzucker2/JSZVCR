@@ -15,6 +15,7 @@
 @end
 
 @implementation JSZVCRPlayer
+@synthesize networkResponses = _networkResponses;
 
 + (instancetype)playerWithMatcherClass:(Class<JSZVCRMatching>)matcherClass {
     return [[self alloc] initWithMatcherClass:matcherClass];
@@ -33,6 +34,7 @@
     _enabled = enabled;
     [OHHTTPStubs removeAllStubs];
     if (_enabled) {
+        NSAssert(self.networkResponses, @"Network responses must be a valid object for playback to be enabled: %@", self.networkResponses);
         [OHHTTPStubs stubRequestsPassingTest:^BOOL(NSURLRequest *request) {
             BOOL matched = [self.matcher hasResponseForRequest:request inRecordings:self.networkResponses];
             if (matched) {
@@ -75,10 +77,16 @@
 }
 
 - (NSArray *)networkResponses {
-    return [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+    
+    if (!_networkResponses) {
+        NSAssert(self.currentTestCase, @"Current test needs to be set to find network responses: %@", self.currentTestCase);
+        _networkResponses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+    }
+    return _networkResponses;
 }
 
-- (void)removeAllNetworkResponses {
+- (void)tearDown {
+    _enabled = NO;
     [OHHTTPStubs removeAllStubs];
 }
 

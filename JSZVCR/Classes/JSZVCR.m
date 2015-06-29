@@ -44,6 +44,11 @@
     self.player.enabled = _disabled;
 }
 
+- (void)tearDown {
+    self.recorder.enabled = NO;
+    [self.player tearDown];
+}
+
 - (void)setRecording:(BOOL)recording {
     _recording = recording;
     if (_recording) {
@@ -80,7 +85,7 @@
 }
 
 - (void)removeAllNetworkResponses {
-    [self.player removeAllNetworkResponses];
+    [self.player tearDown];
 }
 
 - (void)removeAllUnsavedRecordings {
