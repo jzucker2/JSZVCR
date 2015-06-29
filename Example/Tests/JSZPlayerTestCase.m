@@ -20,6 +20,17 @@
     return NO;
 }
 
+- (void)setUp {
+    [super setUp];
+    XCTAssertNotNil(self.recordings);
+    XCTAssertNotEqual(self.recordings.count, 0);
+}
+
+- (void)tearDown {
+    XCTAssertNotEqual(self.recordings.count, 0);
+    [super tearDown];
+}
+
 - (void)testRecordedNetworkCall {
     [self performSimpleVerifiedNetworkCall:nil];
 }
