@@ -81,12 +81,10 @@
 - (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail {
     XCTAssertFalse(self.isSettingUp);
     XCTAssertFalse(self.isTearingDown);
-    if (self.invocation.selector == @selector(testSucceedsWhenMatch)) {
-        XCTAssertEqualObjects(self.currentRequest, request);
-    }
     XCTAssertEqualObjects(self, testCase);
     if (self.invocation.selector == @selector(testSucceedsWhenMatch)) {
         XCTAssertFalse(shouldFail);
+        XCTAssertEqualObjects(self.currentRequest, request);
     }
     if (self.invocation.selector == @selector(testFailsWhenNoMatch)) {
         XCTAssertTrue(shouldFail);

@@ -28,6 +28,8 @@
 		975E1CA61B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */; };
 		978B268B1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 978B268A1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m */; };
 		978B268D1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */; };
+		97A8621A1B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A862191B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m */; };
+		97A8621F1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */; };
 		97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 97CAFA691B36AE180063FCC4 /* Rakefile */; };
 		97DD8B871B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DD8B861B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m */; };
 		97E143771B3AA50800E72B17 /* JSZDefaultTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */; };
@@ -69,6 +71,8 @@
 		975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRAFNetworkingRecorderTestCase.m; sourceTree = "<group>"; };
 		978B268A1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRResourceManagerTestCase.m; sourceTree = "<group>"; };
 		978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSZVCRResourceManagerTestCase.txt; sourceTree = "<group>"; };
+		97A862191B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRUnmatchedRequestsOverrideTestCase.m; sourceTree = "<group>"; };
+		97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZVCRUnmatchedRequestsOverrideTestCase.bundle; sourceTree = "<group>"; };
 		97CAFA691B36AE180063FCC4 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = ../Rakefile; sourceTree = "<group>"; };
 		97DD8B861B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRRecordingCancelledTask.m; sourceTree = "<group>"; };
 		97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZDefaultTestCase.m; sourceTree = "<group>"; };
@@ -143,9 +147,9 @@
 				972B05E41B3D3EFE0037FE84 /* JSZVCRRequestTestCase.m */,
 				972B05DE1B3D221C0037FE84 /* JSZSimpleMatcherTestCase.m */,
 				17B4A7721B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m */,
+				97A862191B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m */,
 				17B4A7741B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m */,
-				51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */,
-				51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */,
+				97A8621B1B41CB7400C07193 /* Helpers */,
 				97E143701B3A7B3700E72B17 /* Fixtures */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
@@ -173,10 +177,20 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		97A8621B1B41CB7400C07193 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */,
+				51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		97E143701B3A7B3700E72B17 /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
 				978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */,
+				97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */,
 				972B05E01B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle */,
 				17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */,
 				17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */,
@@ -260,6 +274,7 @@
 				978B268D1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt in Resources */,
 				97FB4DB11B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle in Resources */,
 				17B4A77B1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */,
+				97A8621F1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 				17B4A7791B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */,
 				971EF2FC1B2A7A40000720ED /* JSZPlayerTestCase.bundle in Resources */,
@@ -338,6 +353,7 @@
 				97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */,
 				17B4A7751B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */,
 				17AED04D1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m in Sources */,
+				97A8621A1B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m in Sources */,
 				97FA41EF1B2F9CB2003B9B57 /* JSZPlayerTestCase.m in Sources */,
 				17B4A7731B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m in Sources */,
 			);

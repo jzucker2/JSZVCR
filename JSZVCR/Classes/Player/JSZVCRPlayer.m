@@ -38,6 +38,12 @@
             if (matched) {
                 return matched;
             }
+            if (
+                [self.matcher respondsToSelector:@selector(shouldAllowUnmatchedRequest:)] &&
+                [self.matcher shouldAllowUnmatchedRequest:request]
+                ) {
+                return matched;
+            }
             switch (self.matchFailStrictness) {
                 case JSZVCRTestingStrictnessNone:
                 {
