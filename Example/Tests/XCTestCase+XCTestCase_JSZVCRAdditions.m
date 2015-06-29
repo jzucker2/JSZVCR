@@ -39,7 +39,7 @@
 - (NSURLRequest *)performUniqueVerifiedNetworkCall:(void (^)(NSURLRequest *request, NSData *, NSURLResponse *, NSError *))extraVerifications {
     NSString *UUIDString = [NSUUID UUID].UUIDString;
     NSString *uniqueRequest = [NSString stringWithFormat:@"https://httpbin.org/get?%@", UUIDString];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:uniqueRequest]];
+    __block NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:uniqueRequest]];
     [self performNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         XCTAssertNil(error);
         XCTAssertNotNil(response);

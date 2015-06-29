@@ -36,5 +36,18 @@
 
 - (NSDictionary *)infoForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings;
 
+/**
+ *  Overrides testCase level JSZVCRTestingStrictness to deal with failure or passing of
+ *  individual requests at a granular level. Useful for whitelisting specific requests
+ *  in your framework during the course of a test run by returning NO
+ *
+ *  @param request request that failed to match
+ *
+ *  @return returning YES allows unmatched request to go to Internet while returning
+ *  NO respects the JSZVCRTestingStrictness value returned by - (JSZVCRTestingStrictness)matchingFailStrictness
+ *  in JSZVCRTestCase
+ */
+- (BOOL)shouldAllowUnmatchedRequest:(NSURLRequest *)request;
+
 
 @end
