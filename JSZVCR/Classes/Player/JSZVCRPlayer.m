@@ -66,9 +66,9 @@
             int statusCode = [responseDict[@"statusCode"] intValue];
             NSDictionary *headers = responseDict[@"httpHeaders"];
             NSAssert(self.networkResponses, @"Network responses do not exist");
-            NSAssert(statusCode, @"Status code was not loaded: %d", statusCode);
-            NSAssert(headers, @"Headers were not loaded: %@", headers);
-            NSAssert(data, @"Data was not loaded: %@", data);
+            NSAssert(statusCode, @"Status code was not loaded: %@", self.networkResponses);
+            NSAssert(headers, @"Headers were not loaded: %@", self.networkResponses);
+            NSAssert(data, @"Data was not loaded: %@", self.networkResponses);
             return [OHHTTPStubsResponse responseWithData:data
                                               statusCode:statusCode
                                                  headers:headers];
