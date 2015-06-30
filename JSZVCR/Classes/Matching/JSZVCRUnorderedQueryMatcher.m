@@ -103,8 +103,15 @@
         return nil;
     }
     // TODO: should handle better than just returning nil for cancelled requests
-    if ([info[@"cancelled"] boolValue] == YES) {
-        return nil;
+//    if ([info[@"cancelled"] boolValue] == YES) {
+//        return @{
+//                 @"error" : info[@"error"]
+//                 };
+//    }
+    if (info[@"error"]) {
+        return @{
+                 @"error" : info[@"error"]
+                 };
     }
     NSDictionary *responseDictionary = info[@"response"][@"response"];
     NSNumber *responseCode = responseDictionary[@"statusCode"];

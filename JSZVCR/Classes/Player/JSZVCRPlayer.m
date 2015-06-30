@@ -62,12 +62,12 @@
             return matched;
         } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
             NSDictionary *responseDict = [self.matcher responseForRequest:request inRecordings:self.networkResponses];
+            if (responseDict[@"error"]) {
+                return [OHHTTPStubsResponse responseWithError:responseDict[@"error"]];
+            }
             NSData *data = responseDict[@"data"];
             int statusCode = [responseDict[@"statusCode"] intValue];
             NSDictionary *headers = responseDict[@"httpHeaders"];
-            if (!data) {
-                [self.matcher responseForRequest:request inRecordings:self.networkResponses];
-            }
             NSAssert(self.networkResponses, @"Network responses do not exist");
             NSAssert(statusCode, @"Status code was not loaded: %@", self.networkResponses);
             NSAssert(headers, @"Headers were not loaded: %@", self.networkResponses);
