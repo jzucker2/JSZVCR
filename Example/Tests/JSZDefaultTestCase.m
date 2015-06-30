@@ -19,9 +19,7 @@
 @implementation JSZDefaultTestCase
 
 - (void)setUp {
-    XCTAssertThrows(self.recordings);
     [super setUp];
-    XCTAssertThrows(self.recordings);
     // Put setup code here. This method is called before the invocation of each test method in the class.
     // Stubbing tests until I figure out a way to record on iOS 7
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
@@ -41,11 +39,9 @@
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
         return;
     }
-    XCTAssertThrows(self.recordings);
     // Make sure nothing was recorded
     XCTAssertEqual([JSZVCRRecorder sharedInstance].allRecordings.count, 1);
     [super tearDown];
-    XCTAssertThrows(self.recordings);
     // Call file verification after super teardown to ensure file was not saved
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
@@ -53,7 +49,6 @@
 }
 
 - (void)testNormalTest {
-    XCTAssertThrows(self.recordings);
     XCTAssertEqual([self matchingFailStrictness], JSZVCRTestingStrictnessNone);
     XCTAssertEqual([self isRecording], YES);
     XCTAssertEqualObjects([self matcherClass], [JSZVCRSimpleURLMatcher class]);

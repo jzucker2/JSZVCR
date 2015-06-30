@@ -5,6 +5,7 @@
 //  Created by Jordan Zucker on 6/11/15.
 //
 //
+#import <libkern/OSAtomic.h>
 #import <XCTest/XCTest.h>
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
@@ -77,10 +78,14 @@
 }
 
 - (NSArray *)networkResponses {
-    
-    if (!_networkResponses) {
-        NSAssert(self.currentTestCase, @"Current test needs to be set to find network responses: %@", self.currentTestCase);
-        _networkResponses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+    if (_networkResponses == nil) {
+        static OSSpinLock lock = OS_SPINLOCK_INIT;
+        OSSpinLockLock(&lock);
+        if (_networkResponses == nil) {
+            NSArray *responses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+            _networkResponses = [responses copy];
+        }
+        OSSpinLockUnlock(&lock);
     }
     return _networkResponses;
 }
