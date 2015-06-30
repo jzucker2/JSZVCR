@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <JSZVCR/JSZVCR.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
