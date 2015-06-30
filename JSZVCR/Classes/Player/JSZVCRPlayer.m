@@ -65,6 +65,9 @@
             NSData *data = responseDict[@"data"];
             int statusCode = [responseDict[@"statusCode"] intValue];
             NSDictionary *headers = responseDict[@"httpHeaders"];
+            if (!data) {
+                [self.matcher responseForRequest:request inRecordings:self.networkResponses];
+            }
             NSAssert(self.networkResponses, @"Network responses do not exist");
             NSAssert(statusCode, @"Status code was not loaded: %@", self.networkResponses);
             NSAssert(headers, @"Headers were not loaded: %@", self.networkResponses);
