@@ -12,6 +12,7 @@
 @class JSZVCRResponse;
 @class JSZVCRRequest;
 @class JSZVCRData;
+@class JSZVCRError;
 
 /**
  *  Represents all the parts of a complete network request 
@@ -37,9 +38,9 @@
  */
 @property (nonatomic) JSZVCRData *data;
 /**
- *  Any errors that can possibly occur during the course of execution
+ *  Error from the network task (can be expanded to be errors from multiple things)
  */
-@property (nonatomic, copy) NSError *error;
+@property (nonatomic) JSZVCRError *error;
 /**
  *  Whether or nor this task has been cancelled
  */

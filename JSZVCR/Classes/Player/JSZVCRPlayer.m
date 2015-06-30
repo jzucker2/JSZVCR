@@ -11,6 +11,7 @@
 
 #import "JSZVCRPlayer.h"
 #import "JSZVCRResourceManager.h"
+#import "JSZVCRError.h"
 
 @interface JSZVCRPlayer ()
 @end
@@ -63,7 +64,8 @@
         } withStubResponse:^OHHTTPStubsResponse*(NSURLRequest *request) {
             NSDictionary *responseDict = [self.matcher responseForRequest:request inRecordings:self.networkResponses];
             if (responseDict[@"error"]) {
-                return [OHHTTPStubsResponse responseWithError:responseDict[@"error"]];
+                JSZVCRError *error = [JSZVCRError errorWithDictionary:responseDict[@"error"]];
+                return [OHHTTPStubsResponse responseWithError:error.networkError];
             }
             NSData *data = responseDict[@"data"];
             int statusCode = [responseDict[@"statusCode"] intValue];

@@ -10,6 +10,7 @@
 #import "JSZVCRRequest.h"
 #import "JSZVCRResponse.h"
 #import "JSZVCRData.h"
+#import "JSZVCRError.h"
 
 @implementation JSZVCRRecording
 
@@ -34,15 +35,6 @@
     return [[self alloc] initWithTask:task];
 }
 
-//- (NSDictionary *)dictionaryRepresentation {
-//    return @{
-////             @"currentRequest" : self.currentRequest.description,
-////             @"originalRequest" : self.originalRequest.description,
-////             @"response" : self.response.description,
-////             @"data" : [NSJSONSerialization JSONObjectWithData:self.data options:kNilOptions error:nil]
-//             };
-//}
-
 - (NSDictionary *)dictionaryRepresentation {
     NSMutableDictionary *dict = [@{
                                    @"request" : self.request.dictionaryRepresentation,
@@ -55,7 +47,7 @@
         dict[@"data"] = self.data.dictionaryRepresentation;
     }
     if (self.error) {
-        dict[@"error"] = self.error.localizedDescription;
+        dict[@"error"] = self.error.dictionaryRepresentation;
     }
     return [dict copy];
 }

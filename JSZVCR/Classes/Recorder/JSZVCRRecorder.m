@@ -12,6 +12,7 @@
 #import "JSZVCRRequest.h"
 #import "JSZVCRData.h"
 #import "JSZVCRResponse.h"
+#import "JSZVCRError.h"
 
 #import "NSURLSessionTask+JSZVCRAdditions.h"
 
@@ -94,7 +95,7 @@
     dispatch_async(self.recordingQueue, ^{
         __typeof (wself) sself = wself;
         JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
-        recording.error = error;
+        recording.error = [JSZVCRError errorWithError:error];
     });
 }
 
