@@ -95,7 +95,7 @@
     dispatch_async(self.recordingQueue, ^{
         __typeof (wself) sself = wself;
         JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
-        if (!error) {
+        if (error) {
             recording.error = [JSZVCRError errorWithError:error];
         }
     });
