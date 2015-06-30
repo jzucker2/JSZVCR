@@ -78,16 +78,22 @@
 }
 
 - (NSArray *)networkResponses {
-    if (_networkResponses == nil) {
-        static OSSpinLock lock = OS_SPINLOCK_INIT;
-        OSSpinLockLock(&lock);
-        if (_networkResponses == nil) {
-            NSArray *responses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
-            _networkResponses = [responses copy];
+//    if (_networkResponses == nil) {
+//        static OSSpinLock lock = OS_SPINLOCK_INIT;
+//        OSSpinLockLock(&lock);
+//        if (_networkResponses == nil) {
+//            NSArray *responses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+//            _networkResponses = [responses copy];
+//        }
+//        OSSpinLockUnlock(&lock);
+//    }
+//    return _networkResponses;
+    @synchronized(_networkResponses) {
+        if (!_networkResponses) {
+            _networkResponses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
         }
-        OSSpinLockUnlock(&lock);
+        return _networkResponses;
     }
-    return _networkResponses;
 }
 
 - (void)tearDown {
