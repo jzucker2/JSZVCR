@@ -11,6 +11,7 @@
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
 #import <JSZVCR/JSZVCRRecording.h>
+#import <JSZVCR/JSZVCRError.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
@@ -42,6 +43,11 @@
         JSZVCRRecording *recording = (JSZVCRRecording *)[JSZVCRRecorder sharedInstance].allRecordings.firstObject;
         XCTAssertNotNil(recording);
         XCTAssertTrue(recording.cancelled);
+        XCTAssertNotNil(recording.error);
+        XCTAssertEqualObjects(recording.error.domain, @"NSURLErrorDomain");
+        XCTAssertEqualObjects(recording.error.code, @(-999));
+        XCTAssertEqualObjects(recording.error.userInfo, @{});
+        XCTAssertEqualObjects(recording.error.errorDescription, @"The operation couldn’t be completed. (NSURLErrorDomain error -999.)");
     }
     [super tearDown];
 }

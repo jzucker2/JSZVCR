@@ -23,6 +23,7 @@
 
 @implementation JSZVCRRecorder
 
+@synthesize recordings = _recordings;
 @synthesize enabled = _enabled;
 
 + (instancetype)sharedInstance {
@@ -37,7 +38,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _recordingQueue = dispatch_queue_create("com.JSZ.recordingQueue", DISPATCH_QUEUE_SERIAL);
+        _recordingQueue = dispatch_queue_create("com.JSZ.recordingQueue", DISPATCH_QUEUE_CONCURRENT);
         _recordings = [NSMutableDictionary dictionary];
         _enabled = YES;
     }
@@ -61,66 +62,68 @@
     if (!self.enabled) {
         return;
     }
-    __typeof (self) wself = self;
-    dispatch_async(self.recordingQueue, ^{
-        __typeof (wself) sself = wself;
-        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
-        if (recording.data) {
-            NSLog(@"already had data: %@", recording.data);
-        }
-        recording.data = [JSZVCRData dataWithData:data];
-    });
+    JSZVCRRecording *recording = [self storedRecordingFromTask:task];
+    if (recording.data) {
+        NSLog(@"already had data: %@", recording.data);
+    }
+    recording.data = [JSZVCRData dataWithData:data];
 }
 
 - (void)recordTask:(NSURLSessionTask *)task didReceiveResponse:(NSURLResponse *)response {
     if (!self.enabled) {
         return;
     }
-    __typeof (self) wself = self;
-    dispatch_async(self.recordingQueue, ^{
-        __typeof (wself) sself = wself;
-        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
-        if (recording.response) {
-            NSLog(@"already had response: %@", recording.response);
-        }
-        recording.response = [JSZVCRResponse responseWithResponse:response];
-    });
+    JSZVCRRecording *recording = [self storedRecordingFromTask:task];
+    if (recording.response) {
+        NSLog(@"already had response: %@", recording.response);
+    }
+    recording.response = [JSZVCRResponse responseWithResponse:response];
 }
 
 - (void)recordTask:(NSURLSessionTask *)task didFinishWithError:(NSError *)error {
     if (!self.enabled) {
         return;
     }
-    __typeof (self) wself = self;
-    dispatch_async(self.recordingQueue, ^{
-        __typeof (wself) sself = wself;
-        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
-        if (error) {
-            recording.error = [JSZVCRError errorWithError:error];
-        }
-    });
+    JSZVCRRecording *recording = [self storedRecordingFromTask:task];
+    if (error) {
+        recording.error = [JSZVCRError errorWithError:error];
+    }
 }
 
 - (void)recordTaskCancellation:(NSURLSessionTask *)task {
     if (!self.enabled) {
         return;
     }
-    __typeof (self) wself = self;
-    dispatch_async(self.recordingQueue, ^{
-        __typeof (wself) sself = wself;
-        JSZVCRRecording *recording = [sself storedRecordingFromTask:task];
-        recording.cancelled = YES;
-    });
+    JSZVCRRecording *recording = [self storedRecordingFromTask:task];
+    recording.cancelled = YES;
 }
 
+//- (id)cacheObjectForKey: (id)key
+//{
+//    __block obj;
+//    dispatch_sync(_queue, ^{
+//        obj = [[_cache objectForKey: key] retain];
+//    });
+//    return [obj autorelease];
+//}
+
 - (JSZVCRRecording *)storedRecordingFromTask:(NSURLSessionTask *)task {
+//    NSString *globallyUniqueIdentifier = task.globallyUniqueIdentifier;
+//    JSZVCRRecording *recordingToReturn = nil;
+//    if (!self.recordings[globallyUniqueIdentifier]) {
+//        recordingToReturn = [JSZVCRRecording recordingWithTask:task];
+//        self.recordings[globallyUniqueIdentifier] = recordingToReturn;
+//    } else {
+//        recordingToReturn = self.recordings[globallyUniqueIdentifier];
+//    }
+//    return recordingToReturn;
     NSString *globallyUniqueIdentifier = task.globallyUniqueIdentifier;
-    JSZVCRRecording *recordingToReturn = nil;
-    if (!self.recordings[globallyUniqueIdentifier]) {
+    JSZVCRRecording *recordingToReturn = [self recordingForKey:globallyUniqueIdentifier];
+    if (!recordingToReturn) {
         recordingToReturn = [JSZVCRRecording recordingWithTask:task];
-        self.recordings[globallyUniqueIdentifier] = recordingToReturn;
+        [self setRecording:recordingToReturn forKey:globallyUniqueIdentifier];
     } else {
-        recordingToReturn = self.recordings[globallyUniqueIdentifier];
+        recordingToReturn = [self recordingForKey:globallyUniqueIdentifier];
     }
     return recordingToReturn;
 }
@@ -135,6 +138,38 @@
         [dumpArray addObject:recording.dictionaryRepresentation];
     }
     return [dumpArray copy];
+}
+
+#pragma mark - Recordings race handling
+
+// https://www.mikeash.com/pyblog/friday-qa-2011-10-14-whats-new-in-gcd.html
+
+//- (id)cacheObjectForKey: (id)key
+//{
+//    __block obj;
+//    dispatch_sync(_queue, ^{
+//        obj = [[_cache objectForKey: key] retain];
+//    });
+//    return [obj autorelease];
+//}
+- (JSZVCRRecording *)recordingForKey:(NSString *)key {
+    __block id obj;
+    dispatch_sync(self.recordingQueue, ^{
+        obj = [_recordings objectForKey:key];
+    });
+    return obj;
+}
+
+//- (void)setCacheObject: (id)obj forKey: (id)key
+//{
+//    dispatch_barrier_async(_queue, ^{
+//        [_cache setObject: obj forKey: key];
+//    });
+//}
+- (void)setRecording:(JSZVCRRecording *)recording forKey:(NSString *)key {
+    dispatch_barrier_async(self.recordingQueue, ^{
+        [_recordings setObject:recording forKey:key];
+    });
 }
 
 @end
