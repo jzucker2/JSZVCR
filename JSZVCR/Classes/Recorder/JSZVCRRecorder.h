@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class XCTestCase;
+
 /**
  *  This records all network activity
  */
@@ -84,5 +86,28 @@
  *  @return array of Foundation objects
  */
 - (NSArray *)allRecordingsForPlist;
+
+/**
+ *  Save contents of recorder to disk with full file path. Creates any intermediary directories.
+ *
+ *  @param recorder instance with network data to serialize to disk
+ *  @param filePath full file path to save information, including file path and
+ *  extension. File won't save if you don't have write permissions
+ *
+ *  @return reflects whether save was successful
+ */
+- (BOOL)saveToDiskWithFilePath:(NSString *)filePath;
+
+/**
+ *  Save contents of recorder to disk with file name corresponding to testCase,
+ *  creating any intermediary directories
+ *
+ *  @param recorder instance with network data collected
+ *  @param testCase used to name corresponding file, placing it in a
+ *  NSBundle named after the test suite
+ *
+ *  @return reflects whether save was successful
+ */
+- (BOOL)saveToDiskForTest:(XCTestCase *)testCase;
 
 @end

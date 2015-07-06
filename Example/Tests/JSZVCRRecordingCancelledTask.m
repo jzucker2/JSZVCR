@@ -12,6 +12,7 @@
 #import <JSZVCR/JSZVCRRecorder.h>
 #import <JSZVCR/JSZVCRRecording.h>
 #import <JSZVCR/JSZVCRError.h>
+#import <JSZVCR/JSZVCRResourceManager.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
@@ -38,18 +39,29 @@
 }
 
 - (void)tearDown {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
     // Stubbing tests until I figure out a way to record on iOS 7
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
-        JSZVCRRecording *recording = (JSZVCRRecording *)[JSZVCRRecorder sharedInstance].allRecordings.firstObject;
-        XCTAssertNotNil(recording);
-        XCTAssertTrue(recording.cancelled);
-        XCTAssertNotNil(recording.error);
-        XCTAssertEqualObjects(recording.error.domain, @"NSURLErrorDomain");
-        XCTAssertEqualObjects(recording.error.code, @(-999));
-        XCTAssertEqualObjects(recording.error.userInfo, @{});
-        XCTAssertEqualObjects(recording.error.errorDescription, @"The operation couldn’t be completed. (NSURLErrorDomain error -999.)");
-    }
+//    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+//        JSZVCRRecording *recording = (JSZVCRRecording *)[JSZVCRRecorder sharedInstance].allRecordings.firstObject;
+//        XCTAssertNotNil(recording);
+//        XCTAssertTrue(recording.cancelled);
+//        XCTAssertNotNil(recording.error);
+//        XCTAssertEqualObjects(recording.error.domain, @"NSURLErrorDomain");
+//        XCTAssertEqualObjects(recording.error.code, @(-999));
+//        XCTAssertEqualObjects(recording.error.userInfo, @{});
+//        XCTAssertEqualObjects(recording.error.errorDescription, @"The operation couldn’t be completed. (NSURLErrorDomain error -999.)");
+//    }
     [super tearDown];
+    NSArray *networkResponses = [JSZVCRResourceManager networkResponsesForTest:self];
+    JSZVCRRecording *recording = (JSZVCRRecording *)networkResponses.firstObject;
+    XCTAssertNotNil(recording);
+    XCTAssertTrue(recording.cancelled);
+    XCTAssertNotNil(recording.error);
+    XCTAssertEqualObjects(recording.error.domain, @"NSURLErrorDomain");
+    XCTAssertEqualObjects(recording.error.code, @(-999));
+    XCTAssertEqualObjects(recording.error.userInfo, @{});
+    XCTAssertEqualObjects(recording.error.errorDescription, @"The operation couldn’t be completed. (NSURLErrorDomain error -999.)");
+    
 }
 
 - (void)testCancelledTask {
@@ -58,7 +70,7 @@
         return;
     }
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://httpbin.org/delay/10"]];
-    XCTestExpectation *cancelExpectation = [self expectationWithDescription:@"cancel"];
+//    XCTestExpectation *cancelExpectation = [self expectationWithDescription:@"cancel"];
     NSURLSessionTask *cancelTask = [self taskForNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSLog(@"cancelTask verification: %@", [NSDate date]);
         NSLog(@"response: %@", response);
@@ -69,7 +81,8 @@
         XCTAssertEqual(error.code, -999);
         XCTAssertEqualObjects(error.localizedDescription, @"cancelled");
         XCTAssertNotNil(error.userInfo);
-        [cancelExpectation fulfill];
+        NSLog(@"%@", cancelTask);
+//        [cancelExpectation fulfill];
     }];
     XCTAssertNotNil(cancelTask);
     XCTAssertEqual(cancelTask.state, NSURLSessionTaskStateSuspended);
@@ -82,6 +95,19 @@
         [cancelTask cancel];
         XCTAssertEqual(cancelTask.state, NSURLSessionTaskStateCanceling);
     });
+//    [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
+//        if (error) {
+//            NSLog(@"what error: %@", error);
+//            XCTFail(@"failed!");
+//        }
+//    }];
+    [self keyValueObservingExpectationForObject:cancelTask keyPath:@"state" handler:^BOOL(id observedObject, NSDictionary *change) {
+        NSLog(@"observedObject: %@", observedObject);
+        NSURLSessionDataTask *task = (NSURLSessionDataTask *)observedObject;
+        NSLog(@"change: %@", change);
+        return (task.state == NSURLSessionTaskStateCompleted);
+    }];
+    
     [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
         if (error) {
             NSLog(@"what error: %@", error);

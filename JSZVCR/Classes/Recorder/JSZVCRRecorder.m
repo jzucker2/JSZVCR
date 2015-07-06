@@ -5,6 +5,7 @@
 //  Created by Jordan Zucker on 6/11/15.
 //
 //
+#import <XCTest/XCTest.h>
 
 #import "JSZVCRRecorder.h"
 #import "JSZVCRRecording.h"
@@ -13,6 +14,7 @@
 #import "JSZVCRData.h"
 #import "JSZVCRResponse.h"
 #import "JSZVCRError.h"
+#import "JSZVCRResourceManager.h"
 
 #import "NSURLSessionTask+JSZVCRAdditions.h"
 
@@ -45,9 +47,9 @@
     return self;
 }
 
-- (void)reset {
-    [self.recordings removeAllObjects];
-}
+//- (void)reset {
+//    [self.recordings removeAllObjects];
+//}
 
 #pragma mark - NSURLSession recording
 
@@ -85,8 +87,12 @@
         return;
     }
     JSZVCRRecording *recording = [self storedRecordingFromTask:task];
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"try to add error");
     if (error) {
+        NSLog(@"begin adding error");
         recording.error = [JSZVCRError errorWithError:error];
+        NSLog(@"added error");
     }
 }
 
@@ -128,10 +134,6 @@
     return recordingToReturn;
 }
 
-- (NSArray *)allRecordings {
-    return [self.recordings allValues];
-}
-
 - (NSArray *)allRecordingsForPlist {
     NSMutableArray *dumpArray = [NSMutableArray array];
     for (JSZVCRRecording *recording in self.allRecordings) {
@@ -141,6 +143,15 @@
 }
 
 #pragma mark - Recordings race handling
+
+- (NSArray *)allRecordings {
+    __block NSArray *cachedRecordings;
+    dispatch_sync(self.recordingQueue, ^{
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+        cachedRecordings = _recordings.allValues;
+    });
+    return cachedRecordings;
+}
 
 // https://www.mikeash.com/pyblog/friday-qa-2011-10-14-whats-new-in-gcd.html
 
@@ -155,6 +166,7 @@
 - (JSZVCRRecording *)recordingForKey:(NSString *)key {
     __block id obj;
     dispatch_sync(self.recordingQueue, ^{
+        NSLog(@"%s", __PRETTY_FUNCTION__);
         obj = [_recordings objectForKey:key];
     });
     return obj;
@@ -168,8 +180,53 @@
 //}
 - (void)setRecording:(JSZVCRRecording *)recording forKey:(NSString *)key {
     dispatch_barrier_async(self.recordingQueue, ^{
+        NSLog(@"%s", __PRETTY_FUNCTION__);
         [_recordings setObject:recording forKey:key];
     });
 }
+
+- (void)reset {
+    dispatch_barrier_async(self.recordingQueue, ^{
+        NSLog(@"%s", __PRETTY_FUNCTION__);
+        [_recordings removeAllObjects];
+    });
+}
+
+#pragma mark - Saving
+
+//+ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder withFilePath:(NSString *)filePath {
+//    // should assert that documents directory isn't automatically appended!
+//    NSParameterAssert(filePath);
+//    NSAssert([filePath.pathExtension isEqualToString:@"plist"], @"filePath extension must be .plist not %@", filePath.pathExtension);
+//    NSLog(@"filePath = %@", filePath);
+//    NSArray *dumpArray = recorder.allRecordingsForPlist;
+//    return [dumpArray writeToFile:filePath atomically:YES];
+//}
+//
+//+ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder forTest:(XCTestCase *)testCase {
+//    NSBundle *documentsBundle = [self bundleForTestInDocumentsDirectory:testCase];
+//    NSString *currentTestCaseMethod = NSStringFromSelector(testCase.invocation.selector);
+//    NSString *fileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
+//    NSString *filePath = [documentsBundle.bundlePath stringByAppendingPathComponent:fileName];
+//    return [self saveToDisk:recorder withFilePath:filePath];
+//}
+- (BOOL)saveToDiskWithFilePath:(NSString *)filePath {
+    // should assert that documents directory isn't automatically appended!
+    NSParameterAssert(filePath);
+    NSAssert([filePath.pathExtension isEqualToString:@"plist"], @"filePath extension must be .plist not %@", filePath.pathExtension);
+    NSLog(@"filePath = %@", filePath);
+    NSArray *dumpArray = self.allRecordingsForPlist;
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    return [dumpArray writeToFile:filePath atomically:YES];
+}
+
+- (BOOL)saveToDiskForTest:(XCTestCase *)testCase {
+    NSBundle *documentsBundle = [JSZVCRResourceManager bundleForTestInDocumentsDirectory:testCase];
+    NSString *currentTestCaseMethod = NSStringFromSelector(testCase.invocation.selector);
+    NSString *fileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
+    NSString *filePath = [documentsBundle.bundlePath stringByAppendingPathComponent:fileName];
+    return [self saveToDiskWithFilePath:filePath];
+}
+
 
 @end

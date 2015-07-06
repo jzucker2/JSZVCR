@@ -65,21 +65,21 @@
     return [NSBundle bundleWithPath:bundlePath];
 }
 
-+ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder withFilePath:(NSString *)filePath {
-    // should assert that documents directory isn't automatically appended!
-    NSParameterAssert(filePath);
-    NSAssert([filePath.pathExtension isEqualToString:@"plist"], @"filePath extension must be .plist not %@", filePath.pathExtension);
-    NSLog(@"filePath = %@", filePath);
-    NSArray *dumpArray = recorder.allRecordingsForPlist;
-    return [dumpArray writeToFile:filePath atomically:YES];
-}
-
-+ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder forTest:(XCTestCase *)testCase {
-    NSBundle *documentsBundle = [self bundleForTestInDocumentsDirectory:testCase];
-    NSString *currentTestCaseMethod = NSStringFromSelector(testCase.invocation.selector);
-    NSString *fileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
-    NSString *filePath = [documentsBundle.bundlePath stringByAppendingPathComponent:fileName];
-    return [self saveToDisk:recorder withFilePath:filePath];
-}
+//+ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder withFilePath:(NSString *)filePath {
+//    // should assert that documents directory isn't automatically appended!
+//    NSParameterAssert(filePath);
+//    NSAssert([filePath.pathExtension isEqualToString:@"plist"], @"filePath extension must be .plist not %@", filePath.pathExtension);
+//    NSLog(@"filePath = %@", filePath);
+//    NSArray *dumpArray = recorder.allRecordingsForPlist;
+//    return [dumpArray writeToFile:filePath atomically:YES];
+//}
+//
+//+ (BOOL)saveToDisk:(JSZVCRRecorder *)recorder forTest:(XCTestCase *)testCase {
+//    NSBundle *documentsBundle = [self bundleForTestInDocumentsDirectory:testCase];
+//    NSString *currentTestCaseMethod = NSStringFromSelector(testCase.invocation.selector);
+//    NSString *fileName = [NSString stringWithFormat:@"%@.plist", currentTestCaseMethod];
+//    NSString *filePath = [documentsBundle.bundlePath stringByAppendingPathComponent:fileName];
+//    return [self saveToDisk:recorder withFilePath:filePath];
+//}
 
 @end

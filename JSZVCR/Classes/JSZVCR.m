@@ -93,7 +93,7 @@
 }
 
 - (void)saveTestRecordings {
-    [JSZVCRResourceManager saveToDisk:self.recorder forTest:self.currentTestCase];
+    [self.recorder saveToDiskForTest:self.currentTestCase];
     [self.recorder reset];
 }
 
