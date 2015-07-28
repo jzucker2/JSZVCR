@@ -67,7 +67,7 @@
 
 + (NSString *)nameFromClass:(Class)cls {
     NSString *className = NSStringFromClass(cls);
-    NSRange dotRange = [className rangeOfString:className options:NSBackwardsSearch];
+    NSRange dotRange = [className rangeOfString:@"." options:NSBackwardsSearch];
     if (dotRange.location == NSNotFound) {
         return className;
     } else {
