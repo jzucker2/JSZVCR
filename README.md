@@ -144,4 +144,5 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * add tests for AFNetworking
 * better support for cancelling and errored network connects
 * proper support for redirects
+* Add Swift tests and Swift testing target
 * add assert for isRecording being set to NO during CI
