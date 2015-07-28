@@ -71,7 +71,7 @@
     if (dotRange.location == NSNotFound) {
         return className;
     } else {
-        return [className substringFromIndex:dotRange.location];
+        return [className substringFromIndex:(dotRange.location + 1)];
     }
 }
 
