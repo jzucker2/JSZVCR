@@ -65,6 +65,16 @@
     return [NSBundle bundleWithPath:bundlePath];
 }
 
++ (NSString *)nameFromClass:(Class)cls {
+    NSString *className = NSStringFromClass(cls);
+    NSRange dotRange = [className rangeOfString:className options:NSBackwardsSearch];
+    if (dotRange.location == NSNotFound) {
+        return className;
+    } else {
+        return [className substringFromIndex:dotRange.location];
+    }
+}
+
 + (BOOL)saveToDisk:(JSZVCRRecorder *)recorder withFilePath:(NSString *)filePath {
     // should assert that documents directory isn't automatically appended!
     NSParameterAssert(filePath);

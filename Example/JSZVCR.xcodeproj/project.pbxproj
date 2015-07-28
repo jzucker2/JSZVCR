@@ -13,6 +13,7 @@
 		17B4A7781B3B808E00699888 /* JSZVCRRecorderTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */; };
 		17B4A7791B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */; };
 		17B4A77B1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */; };
+		3E65E223FD0D46EF97DA9611 /* libPods-JSZVCR_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF51F566D69151188613AD9 /* libPods-JSZVCR_Tests.a */; };
 		51D21DE01B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -37,7 +38,6 @@
 		97FA41F11B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */; };
 		97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */; };
 		97FB4DB11B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */; };
-		BF006FD6FE69C003EEB4D285 /* Pods_JSZVCR_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4583C1C95602CA428A06AFFF /* Pods_JSZVCR_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +49,6 @@
 		17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZVCRStrictnessFailWhenNoMatchTestCase.bundle; sourceTree = "<group>"; };
 		17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZMatchStrictnessNoneTestCase.bundle; sourceTree = "<group>"; };
 		30B208040E596C4437229C11 /* Pods-JSZVCR_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4583C1C95602CA428A06AFFF /* Pods_JSZVCR_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSZVCR_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+XCTestCase_JSZVCRAdditions.h"; sourceTree = "<group>"; };
 		51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+XCTestCase_JSZVCRAdditions.m"; sourceTree = "<group>"; };
 		590E7CFFA78B3319426E877C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnorderedMatcherTestCase.m; sourceTree = "<group>"; };
 		97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZUnorderedMatcherTestCase.bundle; sourceTree = "<group>"; };
 		A726CD0DEBB911860BD8471D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		AAF51F566D69151188613AD9 /* libPods-JSZVCR_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFAE342F883AA7FE20F9A7FA /* JSZVCR.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JSZVCR.podspec; path = ../JSZVCR.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				BF006FD6FE69C003EEB4D285 /* Pods_JSZVCR_Tests.framework in Frameworks */,
+				3E65E223FD0D46EF97DA9611 /* libPods-JSZVCR_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				4583C1C95602CA428A06AFFF /* Pods_JSZVCR_Tests.framework */,
+				AAF51F566D69151188613AD9 /* libPods-JSZVCR_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,7 +221,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				785C45D96A22E1C53A3137CC /* Embed Pods Frameworks */,
 				D3388D9579C2B09FA9659FEB /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -287,21 +286,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		785C45D96A22E1C53A3137CC /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D3388D9579C2B09FA9659FEB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
