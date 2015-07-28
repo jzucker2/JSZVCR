@@ -37,7 +37,7 @@
 }
 
 + (NSString *)pathForFileMatchingTest:(XCTestCase *)testCase {
-    return [self pathForFileMatchingTest:testCase inBundle:[self bundleWithName:NSStringFromClass(testCase.class) containingClass:testCase.class]];
+    return [self pathForFileMatchingTest:testCase inBundle:[self bundleWithName:[self nameFromClass:testCase.class] containingClass:testCase.class]];
 }
 
 + (NSArray *)networkResponsesForFilePath:(NSString *)filePath {
@@ -54,7 +54,7 @@
     NSParameterAssert(testCase);
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-    NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", NSStringFromClass(testCase.class)];
+    NSString *bundleName = [NSString stringWithFormat:@"%@.bundle", [self nameFromClass:testCase.class]];
     NSString *bundlePath = [documentsPath stringByAppendingPathComponent:bundleName];
     BOOL isDir;
     if (![[NSFileManager defaultManager] fileExistsAtPath:bundlePath isDirectory:&isDir]) {
