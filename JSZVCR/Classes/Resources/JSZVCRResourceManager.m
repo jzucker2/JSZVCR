@@ -65,6 +65,9 @@
     return [NSBundle bundleWithPath:bundlePath];
 }
 
+// This is intended for differentiating between Swift and Objective-C
+// runtimes.In Swift, the class name is <Module Name>.<Class Name> whereas
+// in Objective-C the class name is <Class Name>
 + (NSString *)nameFromClass:(Class)cls {
     NSString *className = NSStringFromClass(cls);
     NSRange dotRange = [className rangeOfString:@"." options:NSBackwardsSearch];
