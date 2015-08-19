@@ -24,16 +24,16 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+    // Stubbing tests until I figure out a way to record on iOS 7 or 9
+    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         return;
     }
     [self removeExpectedTestCasePlist];
 }
 
 - (void)tearDown {
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+    // Stubbing tests until I figure out a way to record on iOS 7 or 9
+    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         return;
     }
     // Copy recordings serialization before we save (save causes a reset)
@@ -53,8 +53,8 @@
 }
 
 - (void)testRecordingNetworkCall {
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+    // Stubbing tests until I figure out a way to record on iOS 7 or 9
+    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         return;
     }
     [self performSimpleVerifiedNetworkCall:nil];

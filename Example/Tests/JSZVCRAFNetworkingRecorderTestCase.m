@@ -27,7 +27,7 @@
 
 - (void)setUp {
     // Stubbing tests until I figure out a way to record on iOS 7
-    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         return;
     }
     [[NSURLSession sharedSession] invalidateAndCancel];
@@ -41,7 +41,7 @@
 
 - (void)tearDown {
     // Stubbing tests until I figure out a way to record on iOS 7
-    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         return;
     }
     // Copy recordings serialization before we save (save causes a reset)
@@ -123,7 +123,7 @@
 
 - (void)testAFNetworkingRecordingNetworkCall {
     // Stubbing tests until I figure out a way to record on iOS 7
-    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         return;
     }
     [self performSimpleVerifiedNetworkCall:nil];

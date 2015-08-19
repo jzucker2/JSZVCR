@@ -37,7 +37,7 @@
         _vcr = [JSZVCR vcrWithMatcherClass:self.matcherClass];
         _vcr.playerDelegate = self;
         _vcr.currentTestCase = self;
-        _vcr.recording = YES;
+        _vcr.recording = [self isRecording];
         _vcr.matchFailStrictness = [self matchingFailStrictness];
     }
     return self;
