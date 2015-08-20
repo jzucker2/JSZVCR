@@ -41,7 +41,7 @@ PODS:
   - OHHTTPStubs (4.0.2)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5)
+  - AFNetworking (~> 2.6)
   - JSZVCR (from `.`)
 
 EXTERNAL SOURCES:
