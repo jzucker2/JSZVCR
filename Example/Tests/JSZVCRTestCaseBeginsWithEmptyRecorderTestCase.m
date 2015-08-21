@@ -20,8 +20,8 @@
 @implementation JSZVCRTestCaseBeginsWithEmptyRecorderTestCase
 
 - (void)setUp {
-    // Can't record on iOS 7, so only try and add recordings in iOS 8
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"7"]) {
+    // Can't record on iOS 7 or 9, so only try and add recordings in iOS 8
+    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         [JSZVCRRecorder sharedInstance].enabled = YES;
         [self performUniqueVerifiedNetworkCall:nil];
         XCTAssertTrue([JSZVCRRecorder sharedInstance].allRecordings.count > 0);

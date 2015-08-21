@@ -31,6 +31,11 @@
 
 + (void)swizzleNSURLSessionClasses
 {
+    // Stubbing tests until I figure out a way to record on iOS 7 or 9
+    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
+        NSLog(@"Current system version is not supported for recording: %@", [[UIDevice currentDevice] systemVersion]);
+        return;
+    }
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self _swizzleNSURLSessionClasses];
