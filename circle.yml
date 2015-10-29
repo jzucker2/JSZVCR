@@ -1,0 +1,18 @@
+machine:
+  xcode:
+    version: "7.0"
+  environment:
+    # CocoaPods versions greater than 0.34 require
+    # your terminal to be using UTF-8 encoding.
+    LANG: en_US.UTF-8
+dependencies:
+  pre:
+    - sudo gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+    # CocoaPods sometimes has issues using caches
+    # between different versions of CocoaPods.
+    - pod setup
+    - pod install
+## Customize test commands
+test:
+  - rake test
+
