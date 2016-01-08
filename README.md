@@ -140,7 +140,7 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * handle multiple responses
 * don't save file unless something was recorded
 * speed tests
-* add recording for NSURLConnection, NSURLSessionDelegate, NSURLSession on iOS 7
+* add recording for NSURLConnection, NSURLSessionDelegate, NSURLSession on iOS 9
 * add tests for AFNetworking
 * better support for cancelling and errored network connects
 * proper support for redirects

@@ -5,7 +5,6 @@
 //  Created by Jordan Zucker on 6/20/15.
 //
 //
-#import <BlocksKit/BlocksKit.h>
 
 #import "JSZVCRUnorderedQueryMatcher.h"
 
@@ -59,32 +58,8 @@
 }
 
 - (NSArray *)_queryItemsForComponents:(NSURLComponents *)components {
-    // transforming all queryItems into dicts so this works on iOS 7 and iOS 8
-#ifdef __IPHONE_7_0
-    // http://stackoverflow.com/questions/3997976/parse-nsurl-query-property
-    if ([components.query length]==0) {
-        return nil;
-    }
-    NSMutableArray *parameters = [NSMutableArray array];
-    for(NSString* parameter in [components.query componentsSeparatedByString:@"&"]) {
-        NSRange range = [parameter rangeOfString:@"="];
-        if(range.location!=NSNotFound) {
-            NSDictionary *item = @{
-                                   @"name" : [[parameter substringToIndex:range.location] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                   @"value" : [[parameter substringFromIndex:range.location+range.length] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
-                                   };
-            [parameters addObject:item];
-        } else {
-            NSDictionary *item = @{
-                                   @"name" : [parameter stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                                   @"value" : @""
-                                   };
-            [parameters addObject:item];
-        }
-    }
-    return [parameters copy];
-#endif
-    return [components.queryItems bk_map:^id(id obj) {
+    NSMutableArray *mappedArray = [NSMutableArray array];
+    [components.queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSURLQueryItem *item = (NSURLQueryItem *)obj;
         NSMutableDictionary *itemDict = [@{
                                            @"name" : item.name
@@ -93,8 +68,9 @@
         if (item.value) {
             [itemDict setObject:item.value forKey:@"value"];
         }
-        return [itemDict copy];
+        [mappedArray addObject:[itemDict copy]];
     }];
+    return [mappedArray copy];
 }
 
 - (NSDictionary *)responseForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings {

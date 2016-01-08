@@ -20,23 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - BlocksKit (2.2.5):
-    - BlocksKit/All (= 2.2.5)
-  - BlocksKit/All (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.5)
-  - BlocksKit/DynamicDelegate (2.2.5)
-  - BlocksKit/MessageUI (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - JSZVCR (0.6.1):
-    - BlocksKit (~> 2.2.5)
+  - JSZVCR (0.7.0):
     - OHHTTPStubs (~> 4.0.2)
   - OHHTTPStubs (4.0.2)
 
@@ -50,8 +34,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  JSZVCR: e687dbc45cc68df2f5a55203356acfdd3e50d504
+  JSZVCR: 7df8e14af79a536bcf459809f1ed026f1b0a472d
   OHHTTPStubs: dbd1957d414659783e07b49c961940b7564c23d9
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0
