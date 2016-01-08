@@ -13,7 +13,7 @@
 		17B4A7781B3B808E00699888 /* JSZVCRRecorderTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */; };
 		17B4A7791B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */; };
 		17B4A77B1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */; };
-		3E65E223FD0D46EF97DA9611 /* libPods-JSZVCR_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAF51F566D69151188613AD9 /* libPods-JSZVCR_Tests.a */; };
+		234ACE5945E9D45CBCCF350F /* libPods-JSZVCR_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C1BB51501A927318E85677 /* libPods-JSZVCR_Tests.a */; };
 		51D21DE01B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -80,7 +80,7 @@
 		97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnorderedMatcherTestCase.m; sourceTree = "<group>"; };
 		97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZUnorderedMatcherTestCase.bundle; sourceTree = "<group>"; };
 		A726CD0DEBB911860BD8471D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		AAF51F566D69151188613AD9 /* libPods-JSZVCR_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2C1BB51501A927318E85677 /* libPods-JSZVCR_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFAE342F883AA7FE20F9A7FA /* JSZVCR.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JSZVCR.podspec; path = ../JSZVCR.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				3E65E223FD0D46EF97DA9611 /* libPods-JSZVCR_Tests.a in Frameworks */,
+				234ACE5945E9D45CBCCF350F /* libPods-JSZVCR_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,7 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				AAF51F566D69151188613AD9 /* libPods-JSZVCR_Tests.a */,
+				C2C1BB51501A927318E85677 /* libPods-JSZVCR_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -222,6 +222,7 @@
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
 				D3388D9579C2B09FA9659FEB /* Copy Pods Resources */,
+				16262D525CD086CE18F5F1FF /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +287,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		16262D525CD086CE18F5F1FF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D3388D9579C2B09FA9659FEB /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -426,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
