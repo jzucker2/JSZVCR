@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "JSZVCR"
-  s.version          = "0.7.0"
+  s.version          = "0.7.1"
   s.summary          = "A simple way to record and replay network requests for testing"
   s.description      = <<-DESC
                        Provides an XCTestCase subclass for easily
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.framework = 'XCTest'
-  s.dependency 'OHHTTPStubs', '~> 4.0.2'
+  s.dependency 'OHHTTPStubs', '~> 4.7.0'
 
   s.source_files = 'JSZVCR/Classes/**/*'
 
