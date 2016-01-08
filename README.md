@@ -121,6 +121,10 @@ These are set automatically. Feel free to override with appropriate values but i
 
 Try to avoid writing a test that is dependent upon state. Instead, ensure that when `isRecording == YES` that the test can be fully recorded for playback, including setUp and tearDown. This eases development and ensures that the test isn't written on a condition that wouldn't be recreated when another developer tries to update your test with a new recording.
 
+## Support for iOS 7
+
+Use version 0.6.x or lower if you want to test against iOS 7 or lower.
+
 ## Author
 
 Jordan Zucker, jordan.zucker@gmail.com
