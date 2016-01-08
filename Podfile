@@ -1,10 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
 workspace 'JSZVCR.xcworkspace'
 xcodeproj 'Example/JSZVCR.xcodeproj'
+#use_frameworks!
 
 target 'JSZVCR_Tests', :exclusive => true do
   platform :ios, '8.0'
   xcodeproj 'Example/JSZVCR.xcodeproj'
   pod "JSZVCR", :path => "."
-  pod 'AFNetworking', '< 2.6'
+  pod 'AFNetworking', '~>3.0'
 end
