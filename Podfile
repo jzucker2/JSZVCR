@@ -9,3 +9,10 @@ target 'JSZVCR_Tests', :exclusive => true do
   pod "JSZVCR", :path => "."
   pod 'AFNetworking', '~>3.0'
 end
+
+target 'JSZVCR_Tests-OSX', :exclusive => true do
+    platform :osx, '10.9'
+    xcodeproj 'Example/JSZVCR.xcodeproj'
+    pod "JSZVCR", :path => "."
+    pod 'AFNetworking', '~>3.0'
+end

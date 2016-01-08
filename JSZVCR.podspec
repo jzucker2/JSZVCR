@@ -22,7 +22,10 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/jzucker2/JSZVCR.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/jzucker'
 
-  s.platform     = :ios, '8.0'
+  s.ios.deployment_target = '8.0'
+#s.watchos.deployment_target = '2.0'
+#s.tvos.deployment_target = '9.0'
+  s.osx.deployment_target = '10.9'
   s.requires_arc = true
   s.framework = 'XCTest'
   s.dependency 'OHHTTPStubs', '~> 4.7.0'
