@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
@@ -19,6 +18,7 @@
 
 @implementation JSZVCRTestCaseBeginsWithEmptyRecorderTestCase
 
+#if TARGET_OS_IPHONE
 - (void)setUp {
     // Can't record on iOS 7 or 9, so only try and add recordings in iOS 8
     if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
@@ -37,5 +37,7 @@
     // The real test is in the setUp, just perform a true assert so this class runs and shows in CI logs
     XCTAssert(YES, @"Pass");
 }
+
+#endif
 
 @end

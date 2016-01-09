@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
 
@@ -17,6 +16,7 @@
 
 @implementation JSZVCRRecorderTestCase
 
+#if TARGET_OS_IPHONE
 - (BOOL)isRecording {
     return YES;
 }
@@ -59,5 +59,7 @@
     }
     [self performSimpleVerifiedNetworkCall:nil];
 }
+
+#endif
 
 @end

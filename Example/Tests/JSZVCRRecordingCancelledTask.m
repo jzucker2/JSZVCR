@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
@@ -26,6 +25,7 @@
     return YES;
 }
 
+#if TARGET_OS_IPHONE
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -83,5 +83,6 @@
         }
     }];
 }
+#endif
 
 @end

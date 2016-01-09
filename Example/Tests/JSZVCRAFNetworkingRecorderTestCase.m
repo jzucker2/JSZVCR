@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
@@ -24,6 +23,7 @@
     return YES;
 }
 
+#if TARGET_OS_IPHONE
 - (void)setUp {
     // Stubbing tests until I figure out a way to record on iOS 7
     if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
@@ -152,5 +152,7 @@
         XCTAssertNil(error);
     }];
 }
+
+#endif
 
 @end

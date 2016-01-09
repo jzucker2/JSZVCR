@@ -5,6 +5,9 @@
 //  Created by Jordan Zucker on 6/8/15.
 //
 //
+#if TARGET_OS_IPHONE
+    #import <UIKit/UIKit.h>
+#endif
 #import <objc/runtime.h>
 
 #import "JSZVCRRecorder.h"
@@ -32,6 +35,7 @@
 + (void)swizzleNSURLSessionClasses
 {
     // Stubbing tests until I figure out a way to record on iOS 7 or 9
+#if TARGET_OS_IPHONE
     if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         NSLog(@"Current system version is not supported for recording: %@", [[UIDevice currentDevice] systemVersion]);
         return;
@@ -40,6 +44,10 @@
     dispatch_once(&onceToken, ^{
         [self _swizzleNSURLSessionClasses];
     });
+#else
+    NSLog(@"Current system does not support recording");
+    return;
+#endif
 }
 
 + (void)_swizzleNSURLSessionClasses;

@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCRRequest.h>
 
@@ -47,11 +46,15 @@
     XCTAssertNotNil(requestDictionary);
     XCTAssertEqualObjects(requestDictionary[@"HTTPShouldUsePipelining"], @(request.HTTPShouldUsePipelining));
     XCTAssertEqualObjects(requestDictionary[@"URL"], request.URL.absoluteString);
+#if TARGET_OS_IPHONE
     if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
         return;
     }
     // this is flakey on iOS 7, I think iOS 7 strips the HTTPBody from the originalRequest when it becomes the currentRequest
     XCTAssertEqualObjects(requestDictionary[@"HTTPBody"], request.HTTPBody);
+#else
+    XCTAssertEqualObjects(requestDictionary[@"HTTPBody"], request.HTTPBody);
+#endif
 }
 
 @end
