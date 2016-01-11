@@ -29,20 +29,13 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
-        return;
-    }
     [self removeExpectedTestCasePlist];
 }
 
 - (void)tearDown {
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
-        JSZVCRRecording *recording = (JSZVCRRecording *)[JSZVCRRecorder sharedInstance].allRecordings.firstObject;
-        XCTAssertNotNil(recording);
-        XCTAssertTrue(recording.cancelled);
-    }
+    JSZVCRRecording *recording = (JSZVCRRecording *)[JSZVCRRecorder sharedInstance].allRecordings.firstObject;
+    XCTAssertNotNil(recording);
+    XCTAssertTrue(recording.cancelled);
     [super tearDown];
 }
 
