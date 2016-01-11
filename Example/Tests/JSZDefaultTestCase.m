@@ -17,14 +17,9 @@
 
 @implementation JSZDefaultTestCase
 
-#if TARGET_OS_IPHONE
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    // Stubbing tests until I figure out a way to record on iOS 7 or 9
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
-        return;
-    }
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *expectedFilePathForTestCasePlist = [self filePathForTestCasePlist];
     if ([fileManager fileExistsAtPath:expectedFilePathForTestCasePlist]) {
@@ -50,7 +45,5 @@
     XCTAssertEqualObjects([self matcherClass], [JSZVCRSimpleURLMatcher class]);
     [self performSimpleVerifiedNetworkCall:nil];
 }
-
-#endif
 
 @end

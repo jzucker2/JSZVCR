@@ -18,7 +18,6 @@
 
 @implementation JSZVCRTestCaseBeginsWithEmptyRecorderTestCase
 
-#if TARGET_OS_IPHONE
 - (void)setUp {
     [JSZVCRRecorder sharedInstance].enabled = YES;
     [self performUniqueVerifiedNetworkCall:nil];
@@ -34,7 +33,5 @@
     // The real test is in the setUp, just perform a true assert so this class runs and shows in CI logs
     XCTAssert(YES, @"Pass");
 }
-
-#endif
 
 @end
