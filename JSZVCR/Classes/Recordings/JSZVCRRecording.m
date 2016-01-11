@@ -11,6 +11,7 @@
 #import "JSZVCRResponse.h"
 #import "JSZVCRData.h"
 #import "JSZVCRError.h"
+#import "NSURLSessionTask+JSZVCRAdditions.h"
 
 @implementation JSZVCRRecording
 
@@ -27,6 +28,7 @@
         }
         _request = [JSZVCRRequest requestWithTask:task];
 //        _response = task.response;
+        _globallyUniqueIdentifier = task.globallyUniqueIdentifier;
     }
     return self;
 }
@@ -38,7 +40,8 @@
 - (NSDictionary *)dictionaryRepresentation {
     NSMutableDictionary *dict = [@{
                                    @"request" : self.request.dictionaryRepresentation,
-                                   @"cancelled" : @(self.isCancelled)
+                                   @"cancelled" : @(self.isCancelled),
+                                   @"UUID" : self.globallyUniqueIdentifier
                                    } mutableCopy];
     if (self.response) {
         dict[@"response"] = self.response.dictionaryRepresentation;

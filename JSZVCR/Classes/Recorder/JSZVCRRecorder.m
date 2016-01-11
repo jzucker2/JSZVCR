@@ -18,6 +18,8 @@
 
 @interface JSZVCRRecorder ()
 @property (nonatomic) NSMutableDictionary *recordings;
+@property (nonatomic) NSMutableArray *requestsOrder;
+@property (nonatomic) NSMutableArray *responsesOrder;
 @property (nonatomic) dispatch_queue_t recordingQueue;
 @end
 
@@ -39,6 +41,8 @@
     if (self) {
         _recordingQueue = dispatch_queue_create("com.JSZ.recordingQueue", DISPATCH_QUEUE_SERIAL);
         _recordings = [NSMutableDictionary dictionary];
+        _requestsOrder = [NSMutableArray array];
+        _responsesOrder = [NSMutableArray array];
         _enabled = YES;
     }
     return self;

@@ -20,8 +20,10 @@
  */
 @interface JSZVCRRecording : NSObject <JSZVCRSerializer>
 
+
 @property (nonatomic, copy) NSNumber *taskIdentifier;
 @property (nonatomic, copy) NSString *taskDescription;
+
 /**
  *  Object representing everything involving NSURLResponses
  */
@@ -37,14 +39,21 @@
  *  Object representing data returned by the request.
  */
 @property (nonatomic) JSZVCRData *data;
+
 /**
  *  Error from the network task (can be expanded to be errors from multiple things)
  */
+
 @property (nonatomic) JSZVCRError *error;
 /**
  *  Whether or nor this task has been cancelled
  */
 @property (nonatomic, getter=isCancelled) BOOL cancelled;
+
+/**
+ *  This is used by JSZVCR to match tasks and handle ordering of requests
+ */
+@property (nonatomic, copy) NSString *globallyUniqueIdentifier;
 
 /**
  *  Initializer using NSURLSessionTask

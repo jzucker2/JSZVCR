@@ -16,6 +16,8 @@
 
 - (NSURLRequest *)performUniqueVerifiedNetworkCall:(void (^)(NSURLRequest *request, NSData *data, NSURLResponse *response, NSError *error))extraVerifications;
 
+- (NSURLRequest *)performUniqueDataVerifiedNetworkCall:(void (^)(NSURLRequest *request, NSData *data, NSURLResponse *response, NSError *error))extraVerifications;
+
 - (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *data, NSURLResponse *response, NSError *error))verifications;
 
 - (void)removeExpectedTestCasePlist;

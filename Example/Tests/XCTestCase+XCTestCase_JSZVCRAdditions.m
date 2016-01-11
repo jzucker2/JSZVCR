@@ -56,6 +56,25 @@
     return request;
 }
 
+- (NSURLRequest *)performUniqueDataVerifiedNetworkCall:(void (^)(NSURLRequest *, NSData *, NSURLResponse *, NSError *))extraVerifications {
+    NSString *uniqueRequest = [NSString stringWithFormat:@"https://httpbin.org/bytes/1024"];
+    __block NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:uniqueRequest]];
+    [self performNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
+        XCTAssertNil(error);
+        XCTAssertNotNil(response);
+        XCTAssertNotNil(data);
+        NSDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        XCTAssertNil(error);
+        XCTAssertNotNil(dataDict);
+        XCTAssertNotNil(dataDict[@"args"]);
+//        XCTAssertEqualObjects(dataDict[@"args"], @{ UUIDString : @"" });
+        if (extraVerifications) {
+            extraVerifications(request, data, response, error);
+        }
+    }];
+    return request;
+}
+
 - (void)performNetworkRequest:(NSURLRequest *)request withVerification:(void (^)(NSData *, NSURLResponse *, NSError *))verifications {
     XCTestExpectation *networkExpectation = [self expectationWithDescription:@"network"];
     NSURLSessionTask *basicGetTask = [self taskForNetworkRequest:request withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
