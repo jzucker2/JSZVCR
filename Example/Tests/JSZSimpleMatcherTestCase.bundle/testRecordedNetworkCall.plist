@@ -8,7 +8,134 @@
 		<key>data</key>
 		<dict>
 			<key>data</key>
-			<data>ewogICJhcmdzIjogewogICAgInRlc3QiOiAidGVzdCIKICB9LCAKICAiaGVhZGVycyI6IHsKICAgICJBY2NlcHQiOiAiKi8qIiwgCiAgICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAKICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJIb3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcxMS4zLjE4IERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K</data>
+			<data>
+			ewogICJhcmdzIjogewogICAgIkQ1QkU2OTNDLUMzQjAtNDA0NS05
+			OTk5LTMxQjgzQjdEODREMSI6ICIiCiAgfSwgCiAgImhlYWRlcnMi
+			OiB7CiAgICAiQWNjZXB0IjogIiovKiIsIAogICAgIkFjY2VwdC1F
+			bmNvZGluZyI6ICJnemlwLCBkZWZsYXRlIiwgCiAgICAiQWNjZXB0
+			LUxhbmd1YWdlIjogImVuLXVzIiwgCiAgICAiSG9zdCI6ICJodHRw
+			YmluLm9yZyIsIAogICAgIlVzZXItQWdlbnQiOiAieGN0ZXN0ICh1
+			bmtub3duIHZlcnNpb24pIENGTmV0d29yay83NjAuMi42IERhcndp
+			bi8xNS4yLjAgKHg4Nl82NCkiCiAgfSwgCiAgIm9yaWdpbiI6ICIx
+			OTguMC4yMDkuMjM4IiwgCiAgInVybCI6ICJodHRwczovL2h0dHBi
+			aW4ub3JnL2dldD9ENUJFNjkzQy1DM0IwLTQwNDUtOTk5OS0zMUI4
+			M0I3RDg0RDEiCn0K
+			</data>
+			<key>json</key>
+			<dict>
+				<key>args</key>
+				<dict>
+					<key>D5BE693C-C3B0-4045-9999-31B83B7D84D1</key>
+					<string></string>
+				</dict>
+				<key>headers</key>
+				<dict>
+					<key>Accept</key>
+					<string>*/*</string>
+					<key>Accept-Encoding</key>
+					<string>gzip, deflate</string>
+					<key>Accept-Language</key>
+					<string>en-us</string>
+					<key>Host</key>
+					<string>httpbin.org</string>
+					<key>User-Agent</key>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
+				</dict>
+				<key>origin</key>
+				<string>198.0.209.238</string>
+				<key>url</key>
+				<string>https://httpbin.org/get?D5BE693C-C3B0-4045-9999-31B83B7D84D1</string>
+			</dict>
+		</dict>
+		<key>request</key>
+		<dict>
+			<key>currentRequest</key>
+			<dict>
+				<key>HTTPMethod</key>
+				<string>GET</string>
+				<key>HTTPShouldHandleCookies</key>
+				<true/>
+				<key>URL</key>
+				<string>https://httpbin.org/get?D5BE693C-C3B0-4045-9999-31B83B7D84D1</string>
+				<key>allHTTPHeaderFields</key>
+				<dict>
+					<key>Accept</key>
+					<string>*/*</string>
+					<key>Accept-Encoding</key>
+					<string>gzip, deflate</string>
+					<key>Accept-Language</key>
+					<string>en-us</string>
+				</dict>
+				<key>allowsCellularAccess</key>
+				<true/>
+				<key>timeoutInterval</key>
+				<real>60</real>
+			</dict>
+			<key>originalRequest</key>
+			<dict>
+				<key>HTTPMethod</key>
+				<string>GET</string>
+				<key>HTTPShouldHandleCookies</key>
+				<true/>
+				<key>URL</key>
+				<string>https://httpbin.org/get?D5BE693C-C3B0-4045-9999-31B83B7D84D1</string>
+				<key>allowsCellularAccess</key>
+				<true/>
+				<key>timeoutInterval</key>
+				<real>60</real>
+			</dict>
+		</dict>
+		<key>response</key>
+		<dict>
+			<key>response</key>
+			<dict>
+				<key>MIMEType</key>
+				<string>application/json</string>
+				<key>URL</key>
+				<string>https://httpbin.org/get?D5BE693C-C3B0-4045-9999-31B83B7D84D1</string>
+				<key>allHeaderFields</key>
+				<dict>
+					<key>Access-Control-Allow-Origin</key>
+					<string>*</string>
+					<key>Content-Length</key>
+					<string>402</string>
+					<key>Content-Type</key>
+					<string>application/json</string>
+					<key>Date</key>
+					<string>Tue, 12 Jan 2016 21:45:53 GMT</string>
+					<key>Server</key>
+					<string>nginx</string>
+					<key>access-control-allow-credentials</key>
+					<string>true</string>
+				</dict>
+				<key>expectedContentLength</key>
+				<integer>402</integer>
+				<key>statusCode</key>
+				<integer>200</integer>
+				<key>suggestedFileName</key>
+				<string>get.json</string>
+			</dict>
+		</dict>
+		<key>uniqueIdentifier</key>
+		<string>3B41E1D3-1AE8-4806-A699-485639C9C6DC</string>
+	</dict>
+	<dict>
+		<key>cancelled</key>
+		<false/>
+		<key>data</key>
+		<dict>
+			<key>data</key>
+			<data>
+			ewogICJhcmdzIjogewogICAgInRlc3QiOiAidGVzdCIKICB9LCAK
+			ICAiaGVhZGVycyI6IHsKICAgICJBY2NlcHQiOiAiKi8qIiwgCiAg
+			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
+			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
+			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
+			</data>
 			<key>json</key>
 			<dict>
 				<key>args</key>
@@ -27,10 +154,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.3.18 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -86,24 +213,26 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Fri, 26 Jun 2015 06:23:34 GMT</string>
+					<string>Tue, 12 Jan 2016 21:45:53 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>E4850B68-CC76-452B-840D-14BF38078F0D</string>
 	</dict>
 </array>
 </plist>

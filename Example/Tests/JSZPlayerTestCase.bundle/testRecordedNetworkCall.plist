@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -12,10 +14,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -35,10 +37,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -94,24 +96,26 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:27 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>489DA55B-B9D0-4C56-B2B3-6322802BA357</string>
 	</dict>
 </array>
 </plist>

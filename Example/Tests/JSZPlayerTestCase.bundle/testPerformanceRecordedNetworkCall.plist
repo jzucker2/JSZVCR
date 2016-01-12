@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -12,10 +14,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -35,10 +37,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -94,26 +96,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:24 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>C3EE3DBF-8BC7-4915-80DC-077547281343</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -123,10 +129,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -146,10 +152,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -205,26 +211,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:25 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>6E439AF1-D497-47AC-810E-927CA4317F61</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -234,10 +244,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -257,10 +267,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -316,26 +326,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:24 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:38 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>7A77A084-045E-45F1-956E-A7B40C15C175</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -345,10 +359,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -368,10 +382,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -427,26 +441,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:24 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>869FB67C-2F38-4A1B-B7DA-CA44A63451DA</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -456,10 +474,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -479,10 +497,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -538,26 +556,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:26 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:38 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>7C7C2C1B-917D-46AD-A863-F4438A4612EE</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -567,10 +589,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -590,10 +612,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -649,26 +671,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:26 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>C930B003-9DCB-4B47-B871-C56DC1CEEDE7</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -678,10 +704,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -701,10 +727,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -760,26 +786,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:25 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>B9436B0C-C710-4B2B-89EF-D8F0584A8A61</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -789,10 +819,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -812,10 +842,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -871,26 +901,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:23 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>21C1CFF5-402E-488F-A997-E07269B63B61</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -900,10 +934,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -923,10 +957,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -982,26 +1016,30 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:27 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:38 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>DFD77D5C-23BF-41D2-9C92-6D661C06C29A</string>
 	</dict>
 	<dict>
+		<key>cancelled</key>
+		<false/>
 		<key>data</key>
 		<dict>
 			<key>data</key>
@@ -1011,10 +1049,10 @@
 			ICAiQWNjZXB0LUVuY29kaW5nIjogImd6aXAsIGRlZmxhdGUiLCAK
 			ICAgICJBY2NlcHQtTGFuZ3VhZ2UiOiAiZW4tdXMiLCAKICAgICJI
 			b3N0IjogImh0dHBiaW4ub3JnIiwgCiAgICAiVXNlci1BZ2VudCI6
-			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzcx
-			MS4yLjIzIERhcndpbi8xNC4zLjAiCiAgfSwgCiAgIm9yaWdpbiI6
-			ICI2Ny4xODAuMTEuMjMzIiwgCiAgInVybCI6ICJodHRwczovL2h0
-			dHBiaW4ub3JnL2dldD90ZXN0PXRlc3QiCn0K
+			ICJ4Y3Rlc3QgKHVua25vd24gdmVyc2lvbikgQ0ZOZXR3b3JrLzc2
+			MC4yLjYgRGFyd2luLzE1LjIuMCAoeDg2XzY0KSIKICB9LCAKICAi
+			b3JpZ2luIjogIjE5OC4wLjIwOS4yMzgiLCAKICAidXJsIjogImh0
+			dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P3Rlc3Q9dGVzdCIKfQo=
 			</data>
 			<key>json</key>
 			<dict>
@@ -1034,10 +1072,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.2.23 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?test=test</string>
 			</dict>
@@ -1093,24 +1131,26 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>339</string>
+					<string>347</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 15 Jun 2015 23:45:25 GMT</string>
+					<string>Tue, 12 Jan 2016 21:25:39 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>339</integer>
+				<integer>347</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>CE51EA7A-3F49-4F4C-A133-56674215CB8B</string>
 	</dict>
 </array>
 </plist>

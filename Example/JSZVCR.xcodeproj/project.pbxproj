@@ -10,7 +10,6 @@
 		17AED04D1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AED04C1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m */; };
 		17B4A7731B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4A7721B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m */; };
 		17B4A7751B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4A7741B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m */; };
-		17B4A7781B3B808E00699888 /* JSZVCRRecorderTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */; };
 		17B4A7791B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */; };
 		17B4A77B1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */; };
 		234ACE5945E9D45CBCCF350F /* libPods-JSZVCR_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C1BB51501A927318E85677 /* libPods-JSZVCR_Tests.a */; };
@@ -30,7 +29,6 @@
 		5134E58A1C40841A0073F9C9 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */; };
 		5134E58B1C40841D0073F9C9 /* JSZSimpleMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 972B05E01B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle */; };
 		5134E58C1C40841F0073F9C9 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */; };
-		5134E58D1C4084210073F9C9 /* JSZVCRRecorderTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */; };
 		5134E58E1C4084230073F9C9 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */; };
 		5134E58F1C4084250073F9C9 /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */; };
 		5134E5901C4084270073F9C9 /* JSZPlayerTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */; };
@@ -61,7 +59,6 @@
 		5134E5C51C4088ED0073F9C9 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */; };
 		5134E5C61C4088F10073F9C9 /* JSZSimpleMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 972B05E01B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle */; };
 		5134E5C71C4088F30073F9C9 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */; };
-		5134E5C81C4088F50073F9C9 /* JSZVCRRecorderTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */; };
 		5134E5C91C4088F80073F9C9 /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */; };
 		5134E5CA1C4088FA0073F9C9 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */; };
 		5134E5CB1C4088FD0073F9C9 /* JSZPlayerTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */; };
@@ -71,7 +68,6 @@
 		5184788D1C44D2630024BDDD /* JSZSimpleMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 972B05E01B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle */; };
 		5184788E1C44D2650024BDDD /* JSZMatchStrictnessNoneTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */; };
 		5184788F1C44D2670024BDDD /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */; };
-		518478901C44D2690024BDDD /* JSZVCRRecorderTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */; };
 		518478911C44D26D0024BDDD /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */; };
 		518478921C44D26F0024BDDD /* JSZPlayerTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */; };
 		518478931C44D27F0024BDDD /* JSZVCRResourceManagerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 978B268A1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m */; };
@@ -116,7 +112,6 @@
 		17AED04C1B3DF535004B7836 /* JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRTestCaseBeginsWithEmptyRecorderTestCase.m; sourceTree = "<group>"; };
 		17B4A7721B3B7CD800699888 /* JSZMatchStrictnessNoneTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZMatchStrictnessNoneTestCase.m; sourceTree = "<group>"; };
 		17B4A7741B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRStrictnessFailWhenNoMatchTestCase.m; sourceTree = "<group>"; };
-		17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZVCRRecorderTestCase.bundle; sourceTree = "<group>"; };
 		17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZVCRStrictnessFailWhenNoMatchTestCase.bundle; sourceTree = "<group>"; };
 		17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZMatchStrictnessNoneTestCase.bundle; sourceTree = "<group>"; };
 		18D7FCD194315E0B48785554 /* libPods-JSZVCR-Example-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR-Example-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,7 +327,6 @@
 				97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */,
 				972B05E01B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle */,
 				17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */,
-				17B4A7761B3B808E00699888 /* JSZVCRRecorderTestCase.bundle */,
 				17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */,
 				97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */,
 				971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */,
@@ -495,7 +489,6 @@
 				5134E58E1C4084230073F9C9 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */,
 				5134E58A1C40841A0073F9C9 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */,
 				5134E58C1C40841F0073F9C9 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */,
-				5134E58D1C4084210073F9C9 /* JSZVCRRecorderTestCase.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +503,6 @@
 				5134E5C91C4088F80073F9C9 /* JSZUnorderedMatcherTestCase.bundle in Resources */,
 				5134E5C71C4088F30073F9C9 /* JSZMatchStrictnessNoneTestCase.bundle in Resources */,
 				5134E5CA1C4088FA0073F9C9 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */,
-				5134E5C81C4088F50073F9C9 /* JSZVCRRecorderTestCase.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +515,6 @@
 				518478911C44D26D0024BDDD /* JSZUnorderedMatcherTestCase.bundle in Resources */,
 				5184788F1C44D2670024BDDD /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */,
 				5184788D1C44D2630024BDDD /* JSZSimpleMatcherTestCase.bundle in Resources */,
-				518478901C44D2690024BDDD /* JSZVCRRecorderTestCase.bundle in Resources */,
 				5184788C1C44D2600024BDDD /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */,
 				5184788E1C44D2650024BDDD /* JSZMatchStrictnessNoneTestCase.bundle in Resources */,
 			);
@@ -542,7 +533,6 @@
 				971EF2FC1B2A7A40000720ED /* JSZPlayerTestCase.bundle in Resources */,
 				97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */,
 				972B05E11B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle in Resources */,
-				17B4A7781B3B808E00699888 /* JSZVCRRecorderTestCase.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

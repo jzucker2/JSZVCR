@@ -8,7 +8,7 @@
 		<key>data</key>
 		<dict>
 			<key>data</key>
-			<data>ewogICJhcmdzIjogewogICAgImJhciI6ICJiYXIiLCAKICAgICJmb28iOiAiZm9vIgogIH0sIAogICJoZWFkZXJzIjogewogICAgIkFjY2VwdCI6ICIqLyoiLCAKICAgICJBY2NlcHQtRW5jb2RpbmciOiAiZ3ppcCwgZGVmbGF0ZSIsIAogICAgIkFjY2VwdC1MYW5ndWFnZSI6ICJlbi11cyIsIAogICAgIkhvc3QiOiAiaHR0cGJpbi5vcmciLCAKICAgICJVc2VyLUFnZW50IjogInhjdGVzdCAodW5rbm93biB2ZXJzaW9uKSBDRk5ldHdvcmsvNzExLjMuMTggRGFyd2luLzE0LjMuMCIKICB9LCAKICAib3JpZ2luIjogIjY3LjE4MC4xMS4yMzMiLCAKICAidXJsIjogImh0dHBzOi8vaHR0cGJpbi5vcmcvZ2V0P2Zvbz1mb28mYmFyPWJhciIKfQo=</data>
+			<data>ewogICJhcmdzIjogewogICAgImJhciI6ICJiYXIiLCAKICAgICJmb28iOiAiZm9vIgogIH0sIAogICJoZWFkZXJzIjogewogICAgIkFjY2VwdCI6ICIqLyoiLCAKICAgICJBY2NlcHQtRW5jb2RpbmciOiAiZ3ppcCwgZGVmbGF0ZSIsIAogICAgIkFjY2VwdC1MYW5ndWFnZSI6ICJlbi11cyIsIAogICAgIkhvc3QiOiAiaHR0cGJpbi5vcmciLCAKICAgICJVc2VyLUFnZW50IjogInhjdGVzdCAodW5rbm93biB2ZXJzaW9uKSBDRk5ldHdvcmsvNzYwLjIuNiBEYXJ3aW4vMTUuMi4wICh4ODZfNjQpIgogIH0sIAogICJvcmlnaW4iOiAiMTk4LjAuMjA5LjIzOCIsIAogICJ1cmwiOiAiaHR0cHM6Ly9odHRwYmluLm9yZy9nZXQ/Zm9vPWZvbyZiYXI9YmFyIgp9Cg==</data>
 			<key>json</key>
 			<dict>
 				<key>args</key>
@@ -29,10 +29,10 @@
 					<key>Host</key>
 					<string>httpbin.org</string>
 					<key>User-Agent</key>
-					<string>xctest (unknown version) CFNetwork/711.3.18 Darwin/14.3.0</string>
+					<string>xctest (unknown version) CFNetwork/760.2.6 Darwin/15.2.0 (x86_64)</string>
 				</dict>
 				<key>origin</key>
-				<string>67.180.11.233</string>
+				<string>198.0.209.238</string>
 				<key>url</key>
 				<string>https://httpbin.org/get?foo=foo&amp;bar=bar</string>
 			</dict>
@@ -88,24 +88,26 @@
 					<key>Access-Control-Allow-Origin</key>
 					<string>*</string>
 					<key>Content-Length</key>
-					<string>362</string>
+					<string>370</string>
 					<key>Content-Type</key>
 					<string>application/json</string>
 					<key>Date</key>
-					<string>Mon, 29 Jun 2015 20:44:35 GMT</string>
+					<string>Tue, 12 Jan 2016 21:32:09 GMT</string>
 					<key>Server</key>
 					<string>nginx</string>
 					<key>access-control-allow-credentials</key>
 					<string>true</string>
 				</dict>
 				<key>expectedContentLength</key>
-				<integer>362</integer>
+				<integer>370</integer>
 				<key>statusCode</key>
 				<integer>200</integer>
 				<key>suggestedFileName</key>
-				<string>get</string>
+				<string>get.json</string>
 			</dict>
 		</dict>
+		<key>uniqueIdentifier</key>
+		<string>AF4B6F28-E144-415B-B23C-5F2856E65E09</string>
 	</dict>
 </array>
 </plist>

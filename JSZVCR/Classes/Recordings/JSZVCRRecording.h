@@ -46,6 +46,11 @@
  */
 @property (nonatomic, getter=isCancelled) BOOL cancelled;
 
+/*
+ *  Used by JSZVCR to track tasks as they progress and associate requests with responses and data
+ */
+@property (nonatomic, copy) NSString *uniqueIdentifier;
+
 /**
  *  Initializer using NSURLSessionTask
  *

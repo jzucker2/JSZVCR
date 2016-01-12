@@ -19,6 +19,10 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
 
 @implementation JSZUnorderedMatcherTestCase
 
+// All test cases should only have one network call recorded. If you need
+// to re-record this test, make sure to remove all but one of the recordings from
+// the fixtures so that these test are still useful (need to show that same
+// fixture will be matched to requests with query items that are in a different order)
 - (BOOL)isRecording {
     return NO;
 }
@@ -39,7 +43,7 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
     XCTAssertNotNil(self.recordings);
     XCTAssertEqual(self.recordings.count, 1);
     UnorderedAssertions assertions = ^void(NSString *headerDate, NSDictionary *args) {
-        XCTAssertEqualObjects(headerDate, @"Mon, 29 Jun 2015 20:44:35 GMT");
+        XCTAssertEqualObjects(headerDate, @"Tue, 12 Jan 2016 21:32:09 GMT");
         NSDictionary *expectedArgsDict = @{
                                            @"bar" : @"bar",
                                            @"foo" : @"foo"
@@ -55,7 +59,7 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
     XCTAssertNotNil(self.recordings);
     XCTAssertEqual(self.recordings.count, 1);
     UnorderedAssertions assertions = ^void(NSString *headerDate, NSDictionary *args) {
-        XCTAssertEqualObjects(headerDate, @"Mon, 29 Jun 2015 20:44:36 GMT");
+        XCTAssertEqualObjects(headerDate, @"Tue, 12 Jan 2016 21:32:10 GMT");
         NSDictionary *expectedArgsDict = @{
                                            @"bar" : @"bar",
                                            @"foo" : @"foo",
@@ -76,7 +80,7 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
     XCTAssertNotNil(self.recordings);
     XCTAssertEqual(self.recordings.count, 1);
     UnorderedAssertions assertions = ^void(NSString *headerDate, NSDictionary *args) {
-        XCTAssertEqualObjects(headerDate, @"Mon, 29 Jun 2015 20:44:34 GMT");
+        XCTAssertEqualObjects(headerDate, @"Tue, 12 Jan 2016 21:32:09 GMT");
         NSDictionary *expectedArgsDict = @{
                              @"bar" : @"",
                              @"foo" : @""
@@ -92,7 +96,7 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
     XCTAssertNotNil(self.recordings);
     XCTAssertEqual(self.recordings.count, 1);
     UnorderedAssertions assertions = ^void(NSString *headerDate, NSDictionary *args) {
-        XCTAssertEqualObjects(headerDate, @"Mon, 29 Jun 2015 20:44:35 GMT");
+        XCTAssertEqualObjects(headerDate, @"Tue, 12 Jan 2016 21:32:09 GMT");
         NSDictionary *expectedArgsDict = @{
                                            };
         XCTAssertEqualObjects(args, expectedArgsDict);
@@ -101,6 +105,8 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
 }
 
 - (void)testUniqueNetworkCallToProveNotAlwaysMatching {
+    XCTAssertNotNil(self.recordings);
+    XCTAssertEqual(self.recordings.count, 0);
     [self performUniqueVerifiedNetworkCall:nil];
 }
 
