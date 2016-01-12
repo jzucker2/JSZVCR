@@ -82,7 +82,7 @@
     [JSZVCRNSURLSessionConnection swizzleNSURLSessionClasses];
 }
 
-- (void)setMatchFailStrictness:(JSZVCRTestingStrictness)matchFailStrictness {
+- (void)setMatchFailStrictness:(JSZVCRMatchingStrictness)matchFailStrictness {
     _matchFailStrictness = matchFailStrictness;
     self.player.matchFailStrictness = _matchFailStrictness;
 }

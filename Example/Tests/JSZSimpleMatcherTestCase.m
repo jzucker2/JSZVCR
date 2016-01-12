@@ -24,8 +24,8 @@
     return [JSZVCRSimpleURLMatcher class];
 }
 
-- (JSZVCRTestingStrictness)matchingFailStrictness {
-    return JSZVCRTestingStrictnessNone;
+- (JSZVCRMatchingStrictness)matchingFailStrictness {
+    return JSZVCRMatchingStrictnessNone;
 }
 
 - (void)testRecordedNetworkCall {

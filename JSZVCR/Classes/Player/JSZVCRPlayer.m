@@ -29,7 +29,7 @@
     self = [super init];
     if (self) {
         _matcher = [matcherClass matcher];
-        _matchFailStrictness = JSZVCRTestingStrictnessNone;
+        _matchFailStrictness = JSZVCRMatchingStrictnessNone;
     }
     return self;
 }
@@ -51,7 +51,7 @@
                 return matched;
             }
             switch (self.matchFailStrictness) {
-                case JSZVCRTestingStrictnessNone:
+                case JSZVCRMatchingStrictnessNone:
                 {
 #if JSZTESTING
                     [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:NO];
@@ -60,7 +60,7 @@
 #endif
                 }
                     break;
-                case JSZVCRTestingStrictnessFailWhenNoMatch:
+                case JSZVCRMatchingStrictnessFailWhenNoMatch:
                 {
 #if JSZTESTING
                     [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:YES];

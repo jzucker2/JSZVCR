@@ -9,20 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "JSZVCRMatching.h"
 
-/**
- * Strictness level for unmatched network calls during a test run
- */
-typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
-    /**
-     *  No strictness for unmatched network requests (default)
-     */
-    JSZVCRTestingStrictnessNone = 0,
-    /**
-     *  Fail any test with unmatched network requests
-     */
-    JSZVCRTestingStrictnessFailWhenNoMatch
-};
-
 #if JSZTESTING
 @class XCTestCase;
 #endif
@@ -43,7 +29,7 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
 /**
  *  Set the response matching strictness during a playback test run
  */
-@property (nonatomic) JSZVCRTestingStrictness matchFailStrictness;
+@property (nonatomic) JSZVCRMatchingStrictness matchFailStrictness;
 
 /**
  *  All available network responses for a test case
@@ -103,7 +89,7 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  *
  *  @param testCase   currently executing test case
  *  @param request  request that just failed to be matched
- *  @param shouldFail if YES then test should be failed (in line with JSZVCRTestingStrictnessFailWhenNoMatch)
+ *  @param shouldFail if YES then test should be failed (in line with JSZVCRMatchingStrictnessFailWhenNoMatch)
  */
 - (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail;
 
@@ -113,7 +99,7 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  * 
  *  @param request
  *  @param request  request that just failed to be matched
- *  @param shouldFail if YES then test should be failed (in line with JSZVCRTestingStrictnessFailWhenNoMatch)
+ *  @param shouldFail if YES then test should be failed (in line with JSZVCRMatchingStrictnessFailWhenNoMatch)
  */
 - (void)unmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail;
 #endif

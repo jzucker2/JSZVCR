@@ -40,7 +40,7 @@
 /**
  *  Set the response matching strictness during a playback test run
  */
-@property (nonatomic) JSZVCRTestingStrictness matchFailStrictness;
+@property (nonatomic) JSZVCRMatchingStrictness matchFailStrictness;
 
 /**
  *  Delegate handles feedback for JSZVCRPlayer during a playback run

@@ -49,8 +49,8 @@ pod "JSZVCR"
     return [JSZVCRSimpleURLMatcher class];
 }
 
-- (JSZVCRTestingStrictness)matchingFailStrictness {
-    return JSZVCRTestingStrictnessNone;
+- (JSZVCRMatchingStrictness)matchingFailStrictness {
+    return JSZVCRMatchingStrictnessNone;
 }
 
 - (void)testSimpleNetworkCall {
@@ -108,8 +108,8 @@ These are set automatically. Feel free to override with appropriate values but i
     return YES;
 }
 
-- (JSZVCRTestingStrictness)matchingFailStrictness {
-    return JSZVCRTestingStrictnessNone;
+- (JSZVCRMatchingStrictness)matchingFailStrictness {
+    return JSZVCRMatchingStrictnessNone;
 }
 
 - (Class<JSZVCRMatching>)matcherClass {

@@ -9,6 +9,20 @@
 #import <Foundation/Foundation.h>
 
 /**
+ * Strictness level for unmatched network calls during a test run
+ */
+typedef NS_ENUM(NSInteger, JSZVCRMatchingStrictness){
+    /**
+     *  No strictness for unmatched network requests (default)
+     */
+    JSZVCRMatchingStrictnessNone = 0,
+    /**
+     *  Fail any test with unmatched network requests
+     */
+    JSZVCRMatchingStrictnessFailWhenNoMatch
+};
+
+/**
  *  This protocol is what any matcher object must conform to for matching requests to responses.
  */
 @protocol JSZVCRMatching <NSObject>
@@ -37,14 +51,14 @@
 - (NSDictionary *)infoForRequest:(NSURLRequest *)request inRecordings:(NSArray *)recordings;
 
 /**
- *  Overrides testCase level JSZVCRTestingStrictness to deal with failure or passing of
+ *  Overrides testCase level JSZVCRMatchingStrictness to deal with failure or passing of
  *  individual requests at a granular level. Useful for whitelisting specific requests
  *  in your framework during the course of a test run by returning NO
  *
  *  @param request request that failed to match
  *
  *  @return returning YES allows unmatched request to go to Internet while returning
- *  NO respects the JSZVCRTestingStrictness value returned by - (JSZVCRTestingStrictness)matchingFailStrictness
+ *  NO respects the JSZVCRMatchingStrictness value returned by - (JSZVCRMatchingStrictness)matchingFailStrictness
  *  in JSZVCRTestCase
  */
 - (BOOL)shouldAllowUnmatchedRequest:(NSURLRequest *)request;
