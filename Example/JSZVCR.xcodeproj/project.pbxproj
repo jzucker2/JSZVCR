@@ -65,7 +65,6 @@
 		5134E5C91C4088F80073F9C9 /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */; };
 		5134E5CA1C4088FA0073F9C9 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */; };
 		5134E5CB1C4088FD0073F9C9 /* JSZPlayerTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 971EF2FB1B2A7A40000720ED /* JSZPlayerTestCase.bundle */; };
-		518478851C44D2260024BDDD /* CoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 518478841C44D2260024BDDD /* CoreTests.m */; };
 		5184788A1C44D2520024BDDD /* JSZUnmockedTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 971EF30B1B2AAFBF000720ED /* JSZUnmockedTestCase.m */; };
 		5184788B1C44D25E0024BDDD /* JSZVCRResourceManagerTestCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */; };
 		5184788C1C44D2600024BDDD /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */; };
@@ -127,7 +126,6 @@
 		5134E59B1C4088610073F9C9 /* JSZVCR-Example-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JSZVCR-Example-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5134E59F1C4088610073F9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		518478821C44D2260024BDDD /* CoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		518478841C44D2260024BDDD /* CoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreTests.m; sourceTree = "<group>"; };
 		518478861C44D2260024BDDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+XCTestCase_JSZVCRAdditions.h"; sourceTree = "<group>"; };
 		51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+XCTestCase_JSZVCRAdditions.m"; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 		518478831C44D2260024BDDD /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				518478841C44D2260024BDDD /* CoreTests.m */,
 				518478861C44D2260024BDDD /* Info.plist */,
 			);
 			path = CoreTests;
@@ -790,7 +787,6 @@
 				5184789A1C44DC900024BDDD /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */,
 				518478941C44D2950024BDDD /* JSZVCRResponseTestCase.m in Sources */,
 				518478931C44D27F0024BDDD /* JSZVCRResourceManagerTestCase.m in Sources */,
-				518478851C44D2260024BDDD /* CoreTests.m in Sources */,
 				518478961C44D29C0024BDDD /* JSZVCRRequestTestCase.m in Sources */,
 				5184788A1C44D2520024BDDD /* JSZUnmockedTestCase.m in Sources */,
 				518478951C44D2990024BDDD /* JSZVCRDataTestCase.m in Sources */,
