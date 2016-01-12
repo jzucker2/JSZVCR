@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
 @import XCTest;

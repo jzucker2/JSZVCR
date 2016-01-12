@@ -23,7 +23,6 @@
     return YES;
 }
 
-#if TARGET_OS_IPHONE
 - (void)setUp {
     [[NSURLSession sharedSession] invalidateAndCancel];
     [[NSURLSession sharedSession] getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
@@ -140,7 +139,5 @@
         XCTAssertNil(error);
     }];
 }
-
-#endif
 
 @end
