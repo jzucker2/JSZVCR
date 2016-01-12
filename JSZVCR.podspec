@@ -27,7 +27,8 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.requires_arc = true
-  s.framework = 'XCTest'
+
+#  s.framework = 'XCTest'
   s.dependency 'OHHTTPStubs', '~> 4.7.0'
 
   #s.source_files = 'JSZVCR/Classes/**/*'
@@ -36,11 +37,13 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.source_files = 'JSZVCR/Classes/**/*'
+    core.exclude_files = "JSZVCR/Classes/**/XCTest.{h,m}"
   end
 
   s.subspec 'Testing' do |testing|
+    testing.framework = 'XCTest'
     testing.dependency 'JSZVCR/Core'
-    testing.source_files = ''
+    testing.source_files = "JSZVCR/Classes/**/XCTest.{h,m}"
     testing.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'JSZTESTING=1'  }
     testing.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'JSZTESTING=1'  }
   end

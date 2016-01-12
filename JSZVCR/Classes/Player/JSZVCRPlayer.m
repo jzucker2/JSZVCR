@@ -6,7 +6,9 @@
 //
 //
 //#import <libkern/OSAtomic.h>
+#if JSZTESTING
 #import <XCTest/XCTest.h>
+#endif
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
 #import "JSZVCRPlayer.h"
