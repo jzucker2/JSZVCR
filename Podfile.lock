@@ -39,6 +39,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - JSZVCR (from `.`)
+  - JSZVCR/Core (from `.`)
 
 EXTERNAL SOURCES:
   JSZVCR:
