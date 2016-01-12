@@ -7,7 +7,7 @@
 //
 
 #import <JSZVCR/JSZVCR.h>
-
+#import <JSZVCR/NSURLSessionTask+JSZVCRAdditions.h>
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
 @interface JSZPlayerTestCase : JSZVCRTestCase
@@ -16,7 +16,7 @@
 @implementation JSZPlayerTestCase
 
 - (BOOL)isRecording {
-    return NO;
+    return YES;
 }
 
 - (void)setUp {

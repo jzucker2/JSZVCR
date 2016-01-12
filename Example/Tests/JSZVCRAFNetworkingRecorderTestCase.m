@@ -9,12 +9,13 @@
 #import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
+#import <JSZVCR/NSURLSessionTask+JSZVCRAdditions.h>
 #import <AFNetworking/AFNetworking.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
 @interface JSZVCRAFNetworkingRecorderTestCase : JSZVCRTestCase
-
+@property (nonatomic, copy) NSString *afnetworkingUniqueIdentifier;
 @end
 
 @implementation JSZVCRAFNetworkingRecorderTestCase
@@ -51,6 +52,16 @@
     [self assertIsEqualFirstRecording:allRecordingsAtEndOfRun[0] secondRecording:allRecordingsAtEndOfRun[1]];
     [self assertIsEqualFirstRecording:networkResponses[0] secondRecording:networkResponses[1]];
     [self assertIsEqualFirstRecording:allRecordingsAtEndOfRun[0] secondRecording:networkResponses[0]];
+    
+    // Lastly, verify both tasks have a unique identifer, but only one matches the one saved during the test run
+    XCTAssertNotEqualObjects(allRecordingsAtEndOfRun[0][@"uniqueIdentifier"], allRecordingsAtEndOfRun[1][@"uniqueIdentifier"]);
+    XCTAssertNotEqualObjects(networkResponses[0][@"uniqueIdentifier"], networkResponses[1][@"uniqueIdentifier"]);
+    XCTAssertTrue([self xorString:allRecordingsAtEndOfRun[0][@"uniqueIdentifier"] withSecondString:allRecordingsAtEndOfRun[1][@"uniqueIdentifier"]]);
+    XCTAssertTrue([self xorString:networkResponses[0][@"uniqueIdentifier"] withSecondString:networkResponses[1][@"uniqueIdentifier"]]);
+    XCTAssertEqualObjects(allRecordingsAtEndOfRun[0][@"uniqueIdentifier"], allRecordingsAtEndOfRun[0][@"uniqueIdentifier"]);
+    XCTAssertEqualObjects(networkResponses[0][@"uniqueIdentifier"], networkResponses[0][@"uniqueIdentifier"]);
+    XCTAssertEqualObjects(allRecordingsAtEndOfRun[1][@"uniqueIdentifier"], allRecordingsAtEndOfRun[1][@"uniqueIdentifier"]);
+    XCTAssertEqualObjects(networkResponses[1][@"uniqueIdentifier"], networkResponses[1][@"uniqueIdentifier"]);
 }
 
 // just check data and requests outside of response date
@@ -108,7 +119,16 @@
     XCTAssertNotNil(secondResponse[@"allHeaderFields"]);
     XCTAssertNotEqual([firstResponse[@"allHeaderFields"] count], 0);
     XCTAssertNotEqual([secondResponse[@"allHeaderFields"] count], 0);
-    
+}
+
+- (BOOL)xorString:(NSString *)firstString withSecondString:(NSString *)secondString {
+    if ([firstString isEqualToString:self.afnetworkingUniqueIdentifier] && ![secondString isEqualToString:self.afnetworkingUniqueIdentifier]) {
+        return YES;
+    } else if (![firstString isEqualToString:self.afnetworkingUniqueIdentifier] && [secondString isEqualToString:self.afnetworkingUniqueIdentifier]) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)testAFNetworkingRecordingNetworkCall {
@@ -118,7 +138,8 @@
     NSDictionary *parameters = @{
                                  @"test" : @"test"
                                  };
-    [[AFHTTPSessionManager manager] GET:requestString parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+    __weak typeof(self) wself = self;
+    [[AFHTTPSessionManager manager] GET:requestString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         XCTAssertNotNil(task);
         XCTAssertNotNil(responseObject);
         XCTAssertNotNil(responseObject[@"args"]);
@@ -130,8 +151,12 @@
         XCTAssertNotNil(task.response);
         XCTAssertNotNil(task.currentRequest);
         XCTAssertNotNil(task.originalRequest);
+        XCTAssertNotNil(task.globallyUniqueIdentifier);
+        XCTAssertNotEqualObjects(task.globallyUniqueIdentifier, @"");
+        __strong typeof(wself) sself = wself;
+        sself.afnetworkingUniqueIdentifier = task.globallyUniqueIdentifier;
         [afGetExpectation fulfill];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         XCTAssertNil(error);
         [afGetExpectation fulfill];
     }];

@@ -9,13 +9,14 @@
 #import <JSZVCR/JSZVCR.h>
 #import <JSZVCR/JSZVCRRecorder.h>
 #import <JSZVCR/JSZVCRRecording.h>
+#import <JSZVCR/NSURLSessionTask+JSZVCRAdditions.h>
 
 #import "XCTestCase+XCTestCase_JSZVCRAdditions.h"
 
 // Cancelled tasks shouldn't have a cancel BOOL but should just save to error iVar properly
 
 @interface JSZVCRRecordingCancelledTask : JSZVCRTestCase
-
+@property (nonatomic, copy) NSString *cancelledTaskUniqueIdentifier;
 @end
 
 @implementation JSZVCRRecordingCancelledTask
@@ -34,6 +35,8 @@
     JSZVCRRecording *recording = (JSZVCRRecording *)[JSZVCRRecorder sharedInstance].allRecordings.firstObject;
     XCTAssertNotNil(recording);
     XCTAssertTrue(recording.cancelled);
+    XCTAssertNotNil(recording.uniqueIdentifier);
+    XCTAssertEqualObjects(recording.uniqueIdentifier, self.cancelledTaskUniqueIdentifier, @"The uuid from the recording should match the cancelled task just recorded.");
     [super tearDown];
 }
 
@@ -57,10 +60,15 @@
     [cancelTask resume];
     NSLog(@"resume: %@", [NSDate date]);
     XCTAssertEqual(cancelTask.state, NSURLSessionTaskStateRunning);
+    __weak typeof (self) wself = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        __strong typeof (wself) sself = wself;
         NSLog(@"timed cancel: %@", [NSDate date]);
         XCTAssertNotNil(cancelTask);
         [cancelTask cancel];
+        sself.cancelledTaskUniqueIdentifier = cancelTask.globallyUniqueIdentifier;
+        XCTAssertNotNil(cancelTask.globallyUniqueIdentifier);
+        XCTAssertNotEqualObjects(cancelTask.globallyUniqueIdentifier, @"");
         XCTAssertEqual(cancelTask.state, NSURLSessionTaskStateCanceling);
     });
     [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
