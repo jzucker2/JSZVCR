@@ -79,8 +79,7 @@
 		518478941C44D2950024BDDD /* JSZVCRResponseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 972B05E21B3D3AEC0037FE84 /* JSZVCRResponseTestCase.m */; };
 		518478951C44D2990024BDDD /* JSZVCRDataTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 972B05E61B3D43E10037FE84 /* JSZVCRDataTestCase.m */; };
 		518478961C44D29C0024BDDD /* JSZVCRRequestTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 972B05E41B3D3EFE0037FE84 /* JSZVCRRequestTestCase.m */; };
-		518478971C44D2C60024BDDD /* JSZVCRUnmatchedRequestsOverrideTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A862191B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m */; };
-		518478981C44D2CC0024BDDD /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4A7741B3B7D5D00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.m */; };
+		5184789A1C44DC900024BDDD /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */; };
 		51D21DE01B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -788,11 +787,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5184789A1C44DC900024BDDD /* XCTestCase+XCTestCase_JSZVCRAdditions.m in Sources */,
 				518478941C44D2950024BDDD /* JSZVCRResponseTestCase.m in Sources */,
 				518478931C44D27F0024BDDD /* JSZVCRResourceManagerTestCase.m in Sources */,
 				518478851C44D2260024BDDD /* CoreTests.m in Sources */,
-				518478971C44D2C60024BDDD /* JSZVCRUnmatchedRequestsOverrideTestCase.m in Sources */,
-				518478981C44D2CC0024BDDD /* JSZVCRStrictnessFailWhenNoMatchTestCase.m in Sources */,
 				518478961C44D29C0024BDDD /* JSZVCRRequestTestCase.m in Sources */,
 				5184788A1C44D2520024BDDD /* JSZUnmockedTestCase.m in Sources */,
 				518478951C44D2990024BDDD /* JSZVCRDataTestCase.m in Sources */,
