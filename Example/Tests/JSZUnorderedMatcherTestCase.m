@@ -105,6 +105,8 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
 }
 
 - (void)testUniqueNetworkCallToProveNotAlwaysMatching {
+    XCTAssertNotNil(self.recordings);
+    XCTAssertEqual(self.recordings.count, 0);
     [self performUniqueVerifiedNetworkCall:nil];
 }
 
