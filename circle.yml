@@ -2,5 +2,5 @@ machine:
   xcode:
     version: 7.2
 test:
-	override:
-		- rake test
+  override:
+    - rake test
