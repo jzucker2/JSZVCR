@@ -54,7 +54,7 @@
 #endif
     Class cfURLSessionConnectionClass = NSClassFromString(overrideSessionConnectionClassString);
     if (!cfURLSessionConnectionClass) {
-        NSLog(@"Could not find __NSCFURLSessionConnection");
+        NSLog(@"Could not find __NSCFURLSessionConnection. It is possible that JSZVCR cannot yet record in this configuration. Please try another platform, system version, or device type.");
         return;
     }
     

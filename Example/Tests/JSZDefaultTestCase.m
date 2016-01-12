@@ -39,8 +39,8 @@
 }
 
 - (void)testNormalTest {
-    XCTAssertEqual([self matchingFailStrictness], JSZVCRTestingStrictnessNone);
-    XCTAssertEqual([self isRecording], YES);
+    XCTAssertEqual([self matchingFailStrictness], JSZVCRMatchingStrictnessNone);
+    XCTAssertTrue([self isRecording], @"The default value for isRecording should always be YES");
     XCTAssertEqualObjects([self matcherClass], [JSZVCRSimpleURLMatcher class]);
     [self performSimpleVerifiedNetworkCall:nil];
 }

@@ -8,24 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "JSZVCRMatching.h"
+#import "JSZVCRPlayerDelegate.h"
 
-/**
- * Strictness level for unmatched network calls during a test run
- */
-typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
-    /**
-     *  No strictness for unmatched network requests (default)
-     */
-    JSZVCRTestingStrictnessNone = 0,
-    /**
-     *  Fail any test with unmatched network requests
-     */
-    JSZVCRTestingStrictnessFailWhenNoMatch
-};
-
+#if JSZTESTING
 @class XCTestCase;
-
-@protocol JSZVCRPlayerDelegate;
+#endif
 
 /**
  *  This plays all recordings during a test run
@@ -37,15 +24,11 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  *  Whether or not the response replayer is active
  */
 @property (nonatomic, getter=isEnabled) BOOL enabled;
-/**
- *  Current test case to be stubbing
- */
-@property (nonatomic) XCTestCase *currentTestCase;
 
 /**
  *  Set the response matching strictness during a playback test run
  */
-@property (nonatomic) JSZVCRTestingStrictness matchFailStrictness;
+@property (nonatomic) JSZVCRMatchingStrictness matchFailStrictness;
 
 /**
  *  All available network responses for a test case
@@ -84,19 +67,12 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  */
 - (void)tearDown;
 
-@end
-
+#if JSZTESTING
 /**
- *  This is for relaying testing state during a run
+ *  Current test case to be stubbing
  */
-@protocol JSZVCRPlayerDelegate <NSObject>
+@property (nonatomic) XCTestCase *currentTestCase;
 
-/**
- *  This provides an update if a testCase encounters an unmatched request
- *
- *  @param testCase   currently executing test case
- *  @param shouldFail if YES then test should be failed (in line with JSZVCRTestingStrictnessFailWhenNoMatch
- */
-- (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail;
+#endif
 
 @end

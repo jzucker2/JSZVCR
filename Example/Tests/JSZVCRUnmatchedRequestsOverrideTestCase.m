@@ -48,7 +48,7 @@ static NSString * const kJSZVCRWhitelistedURLString = @"https://httpbin.org/get?
     self.vcr = [JSZVCR vcrWithMatcherClass:[JSZVCRSimpleURLMatcher class]];
     self.vcr.playerDelegate = self;
     self.vcr.currentTestCase = self;
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessFailWhenNoMatch;
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessFailWhenNoMatch;
 //    [self.vcr swizzleNSURLSessionClasses];
     self.vcr.recording = NO;
     self.isSettingUp = NO;
@@ -71,8 +71,8 @@ static NSString * const kJSZVCRWhitelistedURLString = @"https://httpbin.org/get?
     self.isTearingDown = NO;
 }
 
-- (void)testSucceedsWhenMatchAndJSZVCRTestingStrictnessFailWhenNoMatch {
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessFailWhenNoMatch;
+- (void)testSucceedsWhenMatchAndJSZVCRMatchingStrictnessFailWhenNoMatch {
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessFailWhenNoMatch;
     self.currentRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://httpbin.org/get?strictness"]];
     [self performNetworkRequest:self.currentRequest withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         XCTAssertNil(error);
@@ -89,13 +89,13 @@ static NSString * const kJSZVCRWhitelistedURLString = @"https://httpbin.org/get?
     }];
 }
 
-- (void)testFailsWhenNoMatchAndJSZVCRTestingStrictnessFailWhenNoMatch {
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessFailWhenNoMatch;
+- (void)testFailsWhenNoMatchAndJSZVCRMatchingStrictnessFailWhenNoMatch {
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessFailWhenNoMatch;
     self.currentRequest = [self performUniqueVerifiedNetworkCall:nil];
 }
 
-- (void)testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRTestingStrictnessFailWhenNoMatch {
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessFailWhenNoMatch;
+- (void)testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRMatchingStrictnessFailWhenNoMatch {
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessFailWhenNoMatch;
     self.currentRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:kJSZVCRWhitelistedURLString]];
     [self performNetworkRequest:self.currentRequest withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         XCTAssertNil(error);
@@ -112,8 +112,8 @@ static NSString * const kJSZVCRWhitelistedURLString = @"https://httpbin.org/get?
     }];
 }
 
-- (void)testSucceedsWhenMatchAndJSZVCRTestingStrictnessNone {
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessNone;
+- (void)testSucceedsWhenMatchAndJSZVCRMatchingStrictnessNone {
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessNone;
     self.currentRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://httpbin.org/get?strictness"]];
     [self performNetworkRequest:self.currentRequest withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         XCTAssertNil(error);
@@ -130,13 +130,13 @@ static NSString * const kJSZVCRWhitelistedURLString = @"https://httpbin.org/get?
     }];
 }
 
-- (void)testSucceedsWhenNoMatchAndJSZVCRTestingStrictnessNone {
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessNone;
+- (void)testSucceedsWhenNoMatchAndJSZVCRMatchingStrictnessNone {
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessNone;
     self.currentRequest = [self performUniqueVerifiedNetworkCall:nil];
 }
 
-- (void)testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRTestingStrictnessNone {
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessNone;
+- (void)testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRMatchingStrictnessNone {
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessNone;
     self.currentRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:kJSZVCRWhitelistedURLString]];
     [self performNetworkRequest:self.currentRequest withVerification:^(NSData *data, NSURLResponse *response, NSError *error) {
         XCTAssertNil(error);
@@ -159,25 +159,25 @@ static NSString * const kJSZVCRWhitelistedURLString = @"https://httpbin.org/get?
     XCTAssertFalse(self.isSettingUp);
     XCTAssertFalse(self.isTearingDown);
     XCTAssertEqualObjects(self, testCase);
-    if (self.invocation.selector == @selector(testSucceedsWhenMatchAndJSZVCRTestingStrictnessFailWhenNoMatch)) {
+    if (self.invocation.selector == @selector(testSucceedsWhenMatchAndJSZVCRMatchingStrictnessFailWhenNoMatch)) {
         XCTAssertFalse(shouldFail);
         XCTAssertEqualObjects(self.currentRequest, request);
     }
-    if (self.invocation.selector == @selector(testFailsWhenNoMatchAndJSZVCRTestingStrictnessFailWhenNoMatch)) {
+    if (self.invocation.selector == @selector(testFailsWhenNoMatchAndJSZVCRMatchingStrictnessFailWhenNoMatch)) {
         XCTAssertTrue(shouldFail);
     }
-    if (self.invocation.selector == @selector(testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRTestingStrictnessFailWhenNoMatch)) {
+    if (self.invocation.selector == @selector(testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRMatchingStrictnessFailWhenNoMatch)) {
         XCTAssertFalse(shouldFail);
     }
     
-    if (self.invocation.selector == @selector(testSucceedsWhenMatchAndJSZVCRTestingStrictnessNone)) {
+    if (self.invocation.selector == @selector(testSucceedsWhenMatchAndJSZVCRMatchingStrictnessNone)) {
         XCTAssertFalse(shouldFail);
         XCTAssertEqualObjects(self.currentRequest, request);
     }
-    if (self.invocation.selector == @selector(testSucceedsWhenNoMatchAndJSZVCRTestingStrictnessNone)) {
+    if (self.invocation.selector == @selector(testSucceedsWhenNoMatchAndJSZVCRMatchingStrictnessNone)) {
         XCTAssertFalse(shouldFail);
     }
-    if (self.invocation.selector == @selector(testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRTestingStrictnessNone)) {
+    if (self.invocation.selector == @selector(testSucceedsWhenNoMatchWithWhitelistedRequestAndJSZVCRMatchingStrictnessNone)) {
         XCTAssertFalse(shouldFail);
     }
 }

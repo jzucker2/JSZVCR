@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSZVCRTestCase.h"
+#if JSZTESTING
+    #import "JSZVCRTestCase.h"
+#else
+    #import "JSZVCRPlayerDelegate.h"
+#endif
 #import "JSZVCRMatching.h"
 #import "JSZVCRSimpleURLMatcher.h"
 #import "JSZVCRUnorderedQueryMatcher.h"
@@ -31,11 +35,6 @@
 @property (nonatomic, getter=isDisabled) BOOL disabled;
 
 /**
- *  Current test case that is being run
- */
-@property (nonatomic) XCTestCase *currentTestCase;
-
-/**
  *  Current stored recordings associated with this vcr's player instance
  */
 @property (nonatomic, readonly) NSArray *currentStoredRecordings;
@@ -43,7 +42,7 @@
 /**
  *  Set the response matching strictness during a playback test run
  */
-@property (nonatomic) JSZVCRTestingStrictness matchFailStrictness;
+@property (nonatomic) JSZVCRMatchingStrictness matchFailStrictness;
 
 /**
  *  Delegate handles feedback for JSZVCRPlayer during a playback run
@@ -90,9 +89,18 @@
  */
 - (void)tearDown;
 
+#if JSZTESTING
+
 /**
  *  Save all test recordings
  */
 - (void)saveTestRecordings;
+
+/**
+ *  Current test case that is being run
+ */
+@property (nonatomic) XCTestCase *currentTestCase;
+
+#endif
 
 @end

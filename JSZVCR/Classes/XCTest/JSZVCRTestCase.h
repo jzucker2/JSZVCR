@@ -48,11 +48,11 @@
  *  match any recorded network requests
  *
  *  @return enum level determines strictness for passing tests,
- *  default is JSZVCRTestingStrictnessNone. The enum value
- *  JSZVCRTestingStrictnessFailWhenNoMatch will cause a test to fail
+ *  default is JSZVCRMatchingStrictnessNone. The enum value
+ *  JSZVCRMatchingStrictnessFailWhenNoMatch will cause a test to fail
  *  if a network request occurs that does not match a recorded request.
  */
-- (JSZVCRTestingStrictness)matchingFailStrictness;
+- (JSZVCRMatchingStrictness)matchingFailStrictness;
 
 /**
  *  Available default network responses for this test case.
