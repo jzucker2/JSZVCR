@@ -23,7 +23,6 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/jzucker'
 
   s.ios.deployment_target = '8.0'
-#s.watchos.deployment_target = '2.0'
   s.tvos.deployment_target = '9.0'
   s.osx.deployment_target = '10.9'
   s.requires_arc = true
@@ -36,6 +35,7 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
 
   s.subspec 'Core' do |core|
+    core.watchos.deployment_target = '2.0'
     core.source_files = 'JSZVCR/Classes/**/*'
     core.exclude_files = "JSZVCR/Classes/XCTest/*"
   end
