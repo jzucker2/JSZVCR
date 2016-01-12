@@ -58,7 +58,7 @@
     XCTAssertNotNil(cancelTask);
     XCTAssertEqual(cancelTask.state, NSURLSessionTaskStateSuspended);
     [cancelTask resume];
-    NSLog(@"resume: %@", [NSDate date]);
+    NSLog(@"resumed at: %@", [NSDate date]);
     XCTAssertEqual(cancelTask.state, NSURLSessionTaskStateRunning);
     __weak typeof (self) wself = self;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
