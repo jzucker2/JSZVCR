@@ -25,10 +25,6 @@
 
 #if TARGET_OS_IPHONE
 - (void)setUp {
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
-        return;
-    }
     [[NSURLSession sharedSession] invalidateAndCancel];
     [[NSURLSession sharedSession] getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         NSLog(@"dataTasks: %@", dataTasks);
@@ -39,10 +35,6 @@
 }
 
 - (void)tearDown {
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
-        return;
-    }
     // Copy recordings serialization before we save (save causes a reset)
     NSArray *allRecordingsAtEndOfRun = [[JSZVCRRecorder sharedInstance].allRecordingsForPlist copy];
     XCTAssertEqual(allRecordingsAtEndOfRun.count, 2);
@@ -121,10 +113,6 @@
 }
 
 - (void)testAFNetworkingRecordingNetworkCall {
-    // Stubbing tests until I figure out a way to record on iOS 7
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
-        return;
-    }
     [self performSimpleVerifiedNetworkCall:nil];
     XCTestExpectation *afGetExpectation = [self expectationWithDescription:@"af get"];
     NSString *requestString = @"https://httpbin.org/get";
