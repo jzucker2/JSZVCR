@@ -15,9 +15,12 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - JSZVCR (0.7.4):
-    - JSZVCR/Core (= 0.7.4)
+    - JSZVCR/Testing (= 0.7.4)
     - OHHTTPStubs (~> 4.7.0)
   - JSZVCR/Core (0.7.4):
+    - OHHTTPStubs (~> 4.7.0)
+  - JSZVCR/Testing (0.7.4):
+    - JSZVCR/Core
     - OHHTTPStubs (~> 4.7.0)
   - OHHTTPStubs (4.7.0):
     - OHHTTPStubs/Default (= 4.7.0)
@@ -36,6 +39,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - JSZVCR (from `.`)
+  - JSZVCR/Core (from `.`)
 
 EXTERNAL SOURCES:
   JSZVCR:
@@ -43,7 +47,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
-  JSZVCR: 010eadcc4c9e5a4b676f28a42979e06d4c963622
+  JSZVCR: b2cea1f52ff8ebf76b5df33f14801b927af64480
   OHHTTPStubs: d2bf6a0f407620d67e75a1d3f12d86a2b1dd15c0
 
 COCOAPODS: 0.39.0

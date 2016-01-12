@@ -6,7 +6,9 @@
 //
 //
 //#import <libkern/OSAtomic.h>
+#if JSZTESTING
 #import <XCTest/XCTest.h>
+#endif
 #import <OHHTTPStubs/OHHTTPStubs.h>
 
 #import "JSZVCRPlayer.h"
@@ -27,7 +29,7 @@
     self = [super init];
     if (self) {
         _matcher = [matcherClass matcher];
-        _matchFailStrictness = JSZVCRTestingStrictnessNone;
+        _matchFailStrictness = JSZVCRMatchingStrictnessNone;
     }
     return self;
 }
@@ -49,14 +51,22 @@
                 return matched;
             }
             switch (self.matchFailStrictness) {
-                case JSZVCRTestingStrictnessNone:
+                case JSZVCRMatchingStrictnessNone:
                 {
+#if JSZTESTING
                     [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:NO];
+#else
+                    [self.delegate unmatchedRequest:request shouldFail:NO];
+#endif
                 }
                     break;
-                case JSZVCRTestingStrictnessFailWhenNoMatch:
+                case JSZVCRMatchingStrictnessFailWhenNoMatch:
                 {
+#if JSZTESTING
                     [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:YES];
+#else
+                    [self.delegate unmatchedRequest:request shouldFail:YES];
+#endif
                 }
                     break;
             }
@@ -96,7 +106,11 @@
 //    return _networkResponses;
     @synchronized(_networkResponses) {
         if (!_networkResponses) {
+#if JSZTESTING
             _networkResponses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+#else
+            _networkResponses = [self.delegate networkResponses];
+#endif
         }
         return _networkResponses;
     }

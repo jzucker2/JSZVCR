@@ -23,8 +23,8 @@
     return YES;
 }
 
-- (JSZVCRTestingStrictness)matchingFailStrictness {
-    return JSZVCRTestingStrictnessNone;
+- (JSZVCRMatchingStrictness)matchingFailStrictness {
+    return JSZVCRMatchingStrictnessNone;
 }
 
 - (Class<JSZVCRMatching>)matcherClass {

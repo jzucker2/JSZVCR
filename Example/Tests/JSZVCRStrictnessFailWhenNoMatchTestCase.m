@@ -32,7 +32,7 @@
     self.vcr = [JSZVCR vcrWithMatcherClass:[JSZVCRSimpleURLMatcher class]];
     self.vcr.playerDelegate = self;
     self.vcr.currentTestCase = self;
-    self.vcr.matchFailStrictness = JSZVCRTestingStrictnessFailWhenNoMatch;
+    self.vcr.matchFailStrictness = JSZVCRMatchingStrictnessFailWhenNoMatch;
     self.vcr.recording = NO;
     self.isSettingUp = NO;
 }

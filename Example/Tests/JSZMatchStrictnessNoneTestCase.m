@@ -20,8 +20,8 @@
     return NO;
 }
 
-- (JSZVCRTestingStrictness)matchingFailStrictness {
-    return JSZVCRTestingStrictnessNone;
+- (JSZVCRMatchingStrictness)matchingFailStrictness {
+    return JSZVCRMatchingStrictnessNone;
 }
 
 - (void)testMatchingFailStrictnessNone {

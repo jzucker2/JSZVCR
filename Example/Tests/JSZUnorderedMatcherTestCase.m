@@ -27,11 +27,11 @@ typedef void (^UnorderedAssertions)(NSString *headerDate, NSDictionary *args);
     return [JSZVCRUnorderedQueryMatcher class];
 }
 
-- (JSZVCRTestingStrictness)matchingFailStrictness {
+- (JSZVCRMatchingStrictness)matchingFailStrictness {
     if (self.invocation.selector == @selector(testUniqueNetworkCallToProveNotAlwaysMatching)) {
-        return JSZVCRTestingStrictnessNone;
+        return JSZVCRMatchingStrictnessNone;
     }
-    return JSZVCRTestingStrictnessFailWhenNoMatch;
+    return JSZVCRMatchingStrictnessFailWhenNoMatch;
 }
 
 - (void)testSimpleUnorderedQueryNetworkCallWithQueryParameters {

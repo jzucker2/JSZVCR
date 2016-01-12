@@ -70,20 +70,6 @@
     return self.player.networkResponses;
 }
 
-- (void)setMatchFailStrictness:(JSZVCRTestingStrictness)matchFailStrictness {
-    _matchFailStrictness = matchFailStrictness;
-    self.player.matchFailStrictness = _matchFailStrictness;
-}
-
-- (void)swizzleNSURLSessionClasses {
-    [JSZVCRNSURLSessionConnection swizzleNSURLSessionClasses];
-}
-
-- (void)setCurrentTestCase:(XCTestCase *)currentTestCase {
-    _currentTestCase = currentTestCase;
-    self.player.currentTestCase = _currentTestCase;
-}
-
 - (void)removeAllNetworkResponses {
     [self.player tearDown];
 }
@@ -92,12 +78,28 @@
     [self.recorder reset];
 }
 
+- (void)swizzleNSURLSessionClasses {
+    [JSZVCRNSURLSessionConnection swizzleNSURLSessionClasses];
+}
+
+- (void)setMatchFailStrictness:(JSZVCRMatchingStrictness)matchFailStrictness {
+    _matchFailStrictness = matchFailStrictness;
+    self.player.matchFailStrictness = _matchFailStrictness;
+}
+
+#if JSZTESTING
+
+- (void)setCurrentTestCase:(XCTestCase *)currentTestCase {
+    _currentTestCase = currentTestCase;
+    self.player.currentTestCase = _currentTestCase;
+}
+
 - (void)saveTestRecordings {
     [JSZVCRResourceManager saveToDisk:self.recorder forTest:self.currentTestCase];
     [self.recorder reset];
 }
 
-
+#endif
 
 @end
 
