@@ -34,25 +34,25 @@
 
 + (void)swizzleNSURLSessionClasses
 {
-    // Stubbing tests until I figure out a way to record on iOS 7 or 9
-#if TARGET_OS_IPHONE
-    if (![[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
-        NSLog(@"Current system version is not supported for recording: %@", [[UIDevice currentDevice] systemVersion]);
-        return;
-    }
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self _swizzleNSURLSessionClasses];
     });
-#else
-    NSLog(@"Current system does not support recording");
-    return;
-#endif
 }
 
 + (void)_swizzleNSURLSessionClasses;
 {
-    Class cfURLSessionConnectionClass = NSClassFromString(@"__NSCFURLSessionConnection");
+    NSString *overrideSessionConnectionClassString = nil;
+#if TARGET_OS_IOS
+    if ([[[UIDevice currentDevice] systemVersion] hasPrefix:@"8"]) {
+        overrideSessionConnectionClassString = @"__NSCFURLSessionConnection";
+    } else {
+        overrideSessionConnectionClassString = @"__NSCFURLLocalSessionConnection";
+    }
+#else
+    overrideSessionConnectionClassString = @"__NSCFURLLocalSessionConnection";
+#endif
+    Class cfURLSessionConnectionClass = NSClassFromString(overrideSessionConnectionClassString);
     if (!cfURLSessionConnectionClass) {
         NSLog(@"Could not find __NSCFURLSessionConnection");
         return;
@@ -88,11 +88,6 @@
     if (methods) {
         free(methods);
     }
-}
-
-- (void)JSZ_setTask:(NSURLSessionTask *)task {
-    [task uniqueify];
-    [self JSZ_setTask:task];
 }
 
 - (void)JSZ_cancel {
