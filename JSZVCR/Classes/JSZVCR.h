@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #if JSZTESTING
     #import "JSZVCRTestCase.h"
+#else
+    #import "JSZVCRPlayerDelegate.h"
 #endif
 #import "JSZVCRMatching.h"
 #import "JSZVCRSimpleURLMatcher.h"

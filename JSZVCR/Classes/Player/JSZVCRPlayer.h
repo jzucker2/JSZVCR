@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "JSZVCRMatching.h"
+#import "JSZVCRPlayerDelegate.h"
 
 #if JSZTESTING
 @class XCTestCase;
 #endif
-
-@protocol JSZVCRPlayerDelegate;
 
 /**
  *  This plays all recordings during a test run
@@ -74,34 +73,6 @@
  */
 @property (nonatomic) XCTestCase *currentTestCase;
 
-#endif
-
-@end
-
-/**
- *  This is for relaying testing state during a run
- */
-@protocol JSZVCRPlayerDelegate <NSObject>
-
-#if JSZTESTING
-/**
- *  This provides an update if a testCase encounters an unmatched request
- *
- *  @param testCase   currently executing test case
- *  @param request  request that just failed to be matched
- *  @param shouldFail if YES then test should be failed (in line with JSZVCRMatchingStrictnessFailWhenNoMatch)
- */
-- (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail;
-
-#else
-/**
- *  This is provided when there is no XCTestCase as a framework for recording and replaying
- * 
- *  @param request
- *  @param request  request that just failed to be matched
- *  @param shouldFail if YES then test should be failed (in line with JSZVCRMatchingStrictnessFailWhenNoMatch)
- */
-- (void)unmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail;
 #endif
 
 @end

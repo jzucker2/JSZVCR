@@ -106,7 +106,11 @@
 //    return _networkResponses;
     @synchronized(_networkResponses) {
         if (!_networkResponses) {
+#if JSZTESTING
             _networkResponses = [JSZVCRResourceManager networkResponsesForTest:self.currentTestCase];
+#else
+            _networkResponses = [self.delegate networkResponses];
+#endif
         }
         return _networkResponses;
     }
