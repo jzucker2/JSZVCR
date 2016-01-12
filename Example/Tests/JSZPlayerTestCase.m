@@ -16,7 +16,7 @@
 @implementation JSZPlayerTestCase
 
 - (BOOL)isRecording {
-    return YES;
+    return NO;
 }
 
 - (void)setUp {
