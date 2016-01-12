@@ -33,7 +33,6 @@ pod "JSZVCR"
 ## Example
 
 ```objective-c
-#import <XCTest/XCTest.h>
 #import <JSZVCR/JSZVCR.h>
 
 @interface JSZVCRExampleTestCase : JSZVCRTestCase
