@@ -89,12 +89,12 @@
  */
 - (void)tearDown;
 
+#if JSZTESTING
+
 /**
  *  Save all test recordings
  */
 - (void)saveTestRecordings;
-
-#if JSZTESTING
 
 /**
  *  Current test case that is being run
