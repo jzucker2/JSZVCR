@@ -30,7 +30,14 @@ Pod::Spec.new do |s|
   s.framework = 'XCTest'
   s.dependency 'OHHTTPStubs', '~> 4.7.0'
 
-  s.source_files = 'JSZVCR/Classes/**/*'
+  #s.source_files = 'JSZVCR/Classes/**/*'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
+
+  s.subspec 'Core' do |core|
+    core.source_files = 'JSZVCR/Classes/**/*'
+  end
+
+  s.default_subspec = 'Core'
+
 end
