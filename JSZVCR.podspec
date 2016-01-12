@@ -38,6 +38,13 @@ Pod::Spec.new do |s|
     core.source_files = 'JSZVCR/Classes/**/*'
   end
 
-  s.default_subspec = 'Core'
+  s.subspec 'Testing' do |testing|
+    testing.dependency 'JSZVCR/Core'
+    testing.source_files = ''
+    testing.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'JSZTESTING=1'  }
+    testing.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'JSZTESTING=1'  }
+  end
+
+  s.default_subspec = 'Testing'
 
 end

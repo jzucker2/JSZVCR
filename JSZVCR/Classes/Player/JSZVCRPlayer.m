@@ -51,12 +51,20 @@
             switch (self.matchFailStrictness) {
                 case JSZVCRTestingStrictnessNone:
                 {
+#if JSZTESTING
                     [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:NO];
+#else
+                    [self.delegate unmatchedRequest:request shouldFail:NO];
+#endif
                 }
                     break;
                 case JSZVCRTestingStrictnessFailWhenNoMatch:
                 {
+#if JSZTESTING
                     [self.delegate testCase:self.currentTestCase withUnmatchedRequest:request shouldFail:YES];
+#else
+                    [self.delegate unmatchedRequest:request shouldFail:YES];
+#endif
                 }
                     break;
             }

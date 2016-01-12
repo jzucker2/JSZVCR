@@ -23,7 +23,9 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
     JSZVCRTestingStrictnessFailWhenNoMatch
 };
 
+#if JSZTESTING
 @class XCTestCase;
+#endif
 
 @protocol JSZVCRPlayerDelegate;
 
@@ -37,10 +39,6 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  *  Whether or not the response replayer is active
  */
 @property (nonatomic, getter=isEnabled) BOOL enabled;
-/**
- *  Current test case to be stubbing
- */
-@property (nonatomic) XCTestCase *currentTestCase;
 
 /**
  *  Set the response matching strictness during a playback test run
@@ -84,6 +82,14 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  */
 - (void)tearDown;
 
+#if JSZTESTING
+/**
+ *  Current test case to be stubbing
+ */
+@property (nonatomic) XCTestCase *currentTestCase;
+
+#endif
+
 @end
 
 /**
@@ -91,12 +97,25 @@ typedef NS_ENUM(NSInteger, JSZVCRTestingStrictness){
  */
 @protocol JSZVCRPlayerDelegate <NSObject>
 
+#if JSZTESTING
 /**
  *  This provides an update if a testCase encounters an unmatched request
  *
  *  @param testCase   currently executing test case
- *  @param shouldFail if YES then test should be failed (in line with JSZVCRTestingStrictnessFailWhenNoMatch
+ *  @param request  request that just failed to be matched
+ *  @param shouldFail if YES then test should be failed (in line with JSZVCRTestingStrictnessFailWhenNoMatch)
  */
 - (void)testCase:(XCTestCase *)testCase withUnmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail;
+
+#else
+/**
+ *  This is provided when there is no XCTestCase as a framework for recording and replaying
+ * 
+ *  @param request
+ *  @param request  request that just failed to be matched
+ *  @param shouldFail if YES then test should be failed (in line with JSZVCRTestingStrictnessFailWhenNoMatch)
+ */
+- (void)unmatchedRequest:(NSURLRequest *)request shouldFail:(BOOL)shouldFail;
+#endif
 
 @end

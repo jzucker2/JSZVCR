@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSZVCRTestCase.h"
+#if JSZTESTING
+    #import "JSZVCRTestCase.h"
+#endif
 #import "JSZVCRMatching.h"
 #import "JSZVCRSimpleURLMatcher.h"
 #import "JSZVCRUnorderedQueryMatcher.h"
@@ -29,11 +31,6 @@
  *  turned off. This typically only be called during tearDown
  */
 @property (nonatomic, getter=isDisabled) BOOL disabled;
-
-/**
- *  Current test case that is being run
- */
-@property (nonatomic) XCTestCase *currentTestCase;
 
 /**
  *  Current stored recordings associated with this vcr's player instance
@@ -94,5 +91,14 @@
  *  Save all test recordings
  */
 - (void)saveTestRecordings;
+
+#if JSZTESTING
+
+/**
+ *  Current test case that is being run
+ */
+@property (nonatomic) XCTestCase *currentTestCase;
+
+#endif
 
 @end
