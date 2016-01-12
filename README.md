@@ -137,7 +137,6 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * script to move responses into project
 * clean up responses logging
 * add logging in general
-* separate out xctest dependency (separate subspec, categories for all the extra methods)
 * separate out recorder (separate subspec)
 * change name? (Be kind rewind)
 * return obj instead of dict for responses
