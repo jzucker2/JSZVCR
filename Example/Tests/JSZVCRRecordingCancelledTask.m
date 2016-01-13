@@ -69,7 +69,14 @@
         sself.cancelledTaskUniqueIdentifier = cancelTask.globallyUniqueIdentifier;
         XCTAssertNotNil(cancelTask.globallyUniqueIdentifier);
         XCTAssertNotEqualObjects(cancelTask.globallyUniqueIdentifier, @"");
-        XCTAssertEqual(cancelTask.state, NSURLSessionTaskStateCanceling);
+        switch (cancelTask.state) {
+            case NSURLSessionTaskStateCanceling:
+            case NSURLSessionTaskStateCompleted:
+                break;
+            default:
+                XCTFail(@"cancelTask.state should not be %ld", (long)cancelTask.state);
+                break;
+        }
     });
     [self waitForExpectationsWithTimeout:10 handler:^(NSError *error) {
         if (error) {
