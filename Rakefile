@@ -90,8 +90,7 @@ namespace :test do
 
   task :prepare do
     puts 'Start'
-    kill_open_sims
-    clean_all_sims
+    clean_up_testing_environment
   end
 
   desc "Run the JSZVCR Tests for iOS"
@@ -99,6 +98,7 @@ namespace :test do
     destinations = get_sims_for_run('iOS')
     final_exit_status = 0
     destinations.each { |destination|
+      clean_up_testing_environment
       puts '**********************************'
       puts destination
       puts '**********************************'
@@ -113,6 +113,7 @@ namespace :test do
     destinations = get_sims_for_run('watchOS')
     final_exit_status = 0
     destinations.each { |destination|
+      clean_up_testing_environment
       puts '**********************************'
       puts destination
       puts '**********************************'
@@ -127,6 +128,7 @@ namespace :test do
     destinations = get_sims_for_run('tvOS')
     final_exit_status = 0
     destinations.each { |destination|
+      clean_up_testing_environment
       puts '**********************************'
       puts destination
       puts '**********************************'
@@ -138,6 +140,10 @@ namespace :test do
 
   desc "Run the JSZVCR Tests for Mac OS X"
   task :osx => :prepare do
+    clean_up_testing_environment
+    puts '**********************************'
+    puts 'Mac OSX'
+    puts '**********************************'
     run_tests('JSZVCR-Example-OSX', 'macosx', 'platform=OS X,arch=x86_64')
     tests_failed('OSX') unless $?.success?
   end
@@ -174,6 +180,12 @@ end
 
 def red(string)
  "\033[0;31m! #{string} \033[0m"
+end
+
+def clean_up_testing_environment
+  puts 'Clean up testing environment'
+  kill_open_sims
+  clean_all_sims
 end
 
 def clean_all_sims()

@@ -145,3 +145,6 @@ JSZVCR is available under the MIT license. See the LICENSE file for more info.
 * better support for cancelling and errored network connects
 * proper support for redirects
 * Add Swift tests and Swift testing target
+* 0.8 is new recording archictecture
+* 0.9 is new matching architecture
+* 1.0 contains all fixes above plus improved playback architecture
