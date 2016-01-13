@@ -24,7 +24,7 @@ target 'Tests-tvOS-ObjC', :exclusive => true do
     pod 'AFNetworking', '~>3.0'
 end
 
-target 'CoreTests', :exclusive => true do
+target 'CoreTests-iOS-ObjC', :exclusive => true do
     platform :ios, '8.0'
     xcodeproj 'Example/JSZVCR.xcodeproj'
     pod "JSZVCR/Core", :path => "."
