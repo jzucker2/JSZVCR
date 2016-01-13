@@ -94,7 +94,6 @@
 		978B268D1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = 978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */; };
 		97A8621A1B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A862191B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m */; };
 		97A8621F1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */; };
-		97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 97CAFA691B36AE180063FCC4 /* Rakefile */; };
 		97DD8B871B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DD8B861B3CF28700A4AAAA /* JSZVCRRecordingCancelledTask.m */; };
 		97E143771B3AA50800E72B17 /* JSZDefaultTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E143761B3AA50800E72B17 /* JSZDefaultTestCase.m */; };
 		97FA41EF1B2F9CB2003B9B57 /* JSZPlayerTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41EE1B2F9CB2003B9B57 /* JSZPlayerTestCase.m */; };
@@ -122,6 +121,7 @@
 		5134E59F1C4088610073F9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		518478821C44D2260024BDDD /* CoreTests-iOS-ObjC.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoreTests-iOS-ObjC.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		518478861C44D2260024BDDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5184789E1C46415D0024BDDD /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = "<group>"; };
 		51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+XCTestCase_JSZVCRAdditions.h"; sourceTree = "<group>"; };
 		51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+XCTestCase_JSZVCRAdditions.m"; sourceTree = "<group>"; };
 		590E7CFFA78B3319426E877C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -307,6 +307,7 @@
 				A726CD0DEBB911860BD8471D /* README.md */,
 				590E7CFFA78B3319426E877C /* LICENSE */,
 				97CAFA691B36AE180063FCC4 /* Rakefile */,
+				5184789E1C46415D0024BDDD /* Podfile */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -451,9 +452,6 @@
 					518478811C44D2260024BDDD = {
 						CreatedOnToolsVersion = 7.2;
 					};
-					6003F5AD195388D20070C39A = {
-						TestTargetID = 6003F589195388D20070C39A;
-					};
 				};
 			};
 			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "JSZVCR" */;
@@ -531,7 +529,6 @@
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 				17B4A7791B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle in Resources */,
 				971EF2FC1B2A7A40000720ED /* JSZPlayerTestCase.bundle in Resources */,
-				97CAFA6A1B36AE190063FCC4 /* Rakefile in Resources */,
 				972B05E11B3D27B50037FE84 /* JSZSimpleMatcherTestCase.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,7 +907,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CoreTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = stanera.CoreTests;
@@ -928,7 +925,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = CoreTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = stanera.CoreTests;
@@ -1029,10 +1026,9 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSZVCR_Example.app/JSZVCR_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -1049,10 +1045,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSZVCR_Example.app/JSZVCR_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
