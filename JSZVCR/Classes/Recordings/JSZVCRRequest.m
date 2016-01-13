@@ -47,10 +47,25 @@
     return [dict copy];
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)info {
+    NSParameterAssert(info);
+    self = [super init];
+    if (self) {
+        if (info[kJSZVCRCurrentRequestKey]) {
+            id currentRequest = info[kJSZVCRCurrentRequestKey];
+            if ([currentRequest isKindOfClass:[NSURLRequest class]]) {
+                _currentRequest = currentRequest;
+            } else if ([currentRequest isKindOfClass:[NSDictionary class]]) {
+                _currentRequest = [self dictionaryForRequest:<#(NSURLRequest *)#>]
+            }
+        }
+    }
+}
+
 - (NSDictionary *)dictionaryRepresentation {
     return @{
-             @"currentRequest" : [self dictionaryForRequest:self.currentRequest],
-             @"originalRequest" : [self dictionaryForRequest:self.originalRequest]
+             kJSZVCRCurrentRequestKey : [self dictionaryForRequest:self.currentRequest],
+             kJSZVCROriginalRequestKey : [self dictionaryForRequest:self.originalRequest]
              };
 }
 

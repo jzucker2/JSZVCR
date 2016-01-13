@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "JSZVCRSerializer.h"
+#import "JSZVCRDeserializer.h"
 
 /**
  * Represents everything that can happen to a request over the course of a 
  * network request's lifetime (including NSURLSessionTask)
  */
-@interface JSZVCRRequest : NSObject <JSZVCRSerializer>
+@interface JSZVCRRequest : NSObject <JSZVCRSerializer, JSZVCRDeserializer>
 
 /**
  *  Designated initializer representing every that can happen to a request over its lit
@@ -23,11 +24,6 @@
  *  @return newly initialized request instance
  */
 - (instancetype)initWithTask:(NSURLSessionTask *)task;
-
-/**
- *
- */
-- (instancetype)initWithDictionary:(NSDictionary *)info;
 
 /**
  *  Convenience method for abstract class representing all requests around a URL Loading request
