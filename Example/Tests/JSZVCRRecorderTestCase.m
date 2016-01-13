@@ -31,7 +31,7 @@
 
 - (void)tearDown {
     // Copy recordings serialization before we save (save causes a reset)
-    NSArray *allRecordingsAtEndOfRun = [[JSZVCRRecorder sharedInstance].allRecordingsForPlist copy];
+    NSArray *allRecordingsAtEndOfRun = [[NSArray alloc] initWithArray:[JSZVCRRecorder sharedInstance].allRecordingsForPlist copyItems:YES];
     XCTAssertEqual(allRecordingsAtEndOfRun.count, 1);
     // Check that NSURLSessionTask has the same globally unique identifier for task, recording, and plist
     XCTAssertEqualObjects(allRecordingsAtEndOfRun[0][@"uniqueIdentifier"], self.recordingNetworkCallUniqueIdentifier);
@@ -49,8 +49,8 @@
     // Now verify contents
     NSArray *networkResponses = [[NSArray alloc] initWithContentsOfFile:expectedFilePathForTestCasePlist];
     XCTAssertEqual(networkResponses.count, 1);
-    // Not sure this assert should happen after [super tearDown] is called
-    // XCTAssertEqualObjects(allRecordingsAtEndOfRun, networkResponses);
+    // Should work with deep copy of objects at beginning of tearDown
+     XCTAssertEqualObjects(allRecordingsAtEndOfRun, networkResponses);
 }
 
 - (void)testRecordingNetworkCall {
