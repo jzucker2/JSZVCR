@@ -131,7 +131,7 @@
     }
 }
 
-- (void)testAFNetworkingRecordingNetworkCall {
+- (void)DISABLE_testAFNetworkingRecordingNetworkCall {
     [self performSimpleVerifiedNetworkCall:nil];
     XCTestExpectation *afGetExpectation = [self expectationWithDescription:@"af get"];
     NSString *requestString = @"https://httpbin.org/get";
