@@ -190,11 +190,14 @@ end
 
 def clean_all_sims()
   puts 'Clean all sims'
-  sh('xcrun simctl list devices | grep -v \'^[-=]\' | cut -d "(" -f2 | cut -d ")" -f1 | xargs -I {} xcrun simctl erase "{}"')
+  #sh('xcrun simctl list devices | grep -v \'^[-=]\' | cut -d "(" -f2 | cut -d ")" -f1 | xargs -I {} xcrun simctl erase "{}"')
+  sh('xcrun simctl list | grep Booted | awk -F "[()]" \'{ for (i=2; i<NF; i+=2) print $i }\' | grep \'^[-A-Z0-9]*$\' | xargs -I uuid xcrun simctl shutdown uuid')
+  sh('xcrun simctl list | awk -F "[()]" \'{ for (i=2; i<NF; i+=2) print $i }\' | grep \'^[-A-Z0-9]*$\' | xargs -I uuid xcrun simctl erase uuid')
 end
 
 def kill_open_sims()
-  sh('killall -9 "Simulator" || echo "No matching processes belonging to sim were found"')
+  # sh('killall -9 "Simulator" || echo "No matching processes belonging to sim were found"')
+  sh('osascript -e \'tell app "Simulator" to quit\'')
 end
 
 def get_sims_for_run(platform)
