@@ -25,6 +25,11 @@
 - (instancetype)initWithTask:(NSURLSessionTask *)task;
 
 /**
+ *
+ */
+- (instancetype)initWithDictionary:(NSDictionary *)info;
+
+/**
  *  Convenience method for abstract class representing all requests around a URL Loading request
  *
  *  @param task network task
