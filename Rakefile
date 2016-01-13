@@ -90,6 +90,8 @@ namespace :test do
 
   task :prepare do
     puts 'Start'
+    kill_open_sims
+    clean_all_sims
   end
 
   desc "Run the JSZVCR Tests for iOS"
@@ -172,6 +174,15 @@ end
 
 def red(string)
  "\033[0;31m! #{string} \033[0m"
+end
+
+def clean_all_sims()
+  puts 'Clean all sims'
+  sh('xcrun simctl list devices | grep -v \'^[-=]\' | cut -d "(" -f2 | cut -d ")" -f1 | xargs -I {} xcrun simctl erase "{}"')
+end
+
+def kill_open_sims()
+  sh('killall -9 "Simulator" || echo "No matching processes belonging to sim were found"')
 end
 
 def get_sims_for_run(platform)
