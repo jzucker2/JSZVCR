@@ -98,7 +98,7 @@ namespace :test do
     destinations = get_sims_for_run('iOS')
     final_exit_status = 0
     destinations.each { |destination|
-      clean_up_testing_environment
+      kill_open_sims
       puts '**********************************'
       puts destination
       puts '**********************************'
@@ -113,7 +113,7 @@ namespace :test do
     destinations = get_sims_for_run('watchOS')
     final_exit_status = 0
     destinations.each { |destination|
-      clean_up_testing_environment
+      kill_open_sims
       puts '**********************************'
       puts destination
       puts '**********************************'
@@ -128,7 +128,7 @@ namespace :test do
     destinations = get_sims_for_run('tvOS')
     final_exit_status = 0
     destinations.each { |destination|
-      clean_up_testing_environment
+      kill_open_sims
       puts '**********************************'
       puts destination
       puts '**********************************'
@@ -140,7 +140,7 @@ namespace :test do
 
   desc "Run the JSZVCR Tests for Mac OS X"
   task :osx => :prepare do
-    clean_up_testing_environment
+    kill_open_sims
     puts '**********************************'
     puts 'Mac OSX'
     puts '**********************************'
