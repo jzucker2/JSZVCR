@@ -1,4 +1,4 @@
-# namespace :test do
+namespace :test do
 
 #   desc "Run the JSZVCR Tests for iOS"
 #   task :ios do
@@ -151,10 +151,10 @@ end
 
 desc "Run the JSZVCR Tests for various platforms"
 task :test do
-  Rake::Task['test:ios'].invoke
+  # Rake::Task['test:ios'].invoke
   # Rake::Task['test:watchos'].invoke
   Rake::Task['test:tvos'].invoke
-  Rake::Task['test:osx'].invoke if is_mavericks_or_above
+  # Rake::Task['test:osx'].invoke if is_mavericks_or_above
 end
 
 task :default => 'test'
