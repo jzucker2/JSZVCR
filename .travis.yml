@@ -3,19 +3,14 @@ sudo: false
 osx_image: xcode7.2
 cache: cocoapods
 env:
-    - LC_CTYPE=en_US.UTF-8
-    - LANG=en_US.UTF-8
-    - FASTLANE_LANE=ci_commit
-    - FASTLANE_ENV=ios92_iPhone6
-    # global:
-    #     - LC_CTYPE=en_US.UTF-8
-    #     - LANG=en_US.UTF-8
-    #     - FASTLANE_LANE=ci_commit
-    #     - FASTLANE_ENV=ios92_iPhone6
-# matrix:
-#   include:
-#     # iOS 8.1
-#     - env: FASTLANE_ENV=ios81_iPad2
+    global:
+        - LC_CTYPE=en_US.UTF-8
+        - LANG=en_US.UTF-8
+        - FASTLANE_LANE=ci_commit
+matrix:
+  include:
+    # iOS 8.1
+    # - env: FASTLANE_ENV=ios81_iPad2
 #     # - env: FASTLANE_ENV=ios81_iPadAir
 #     # - env: FASTLANE_ENV=ios81_iPadRetina
 #     # - env: FASTLANE_ENV=ios81_iPhone4S
@@ -79,7 +74,7 @@ env:
 #     # - env: FASTLANE_ENV=ios92_iPad2
 #     # - env: FASTLANE_ENV=ios92_iPadAir
 #     # - env: FASTLANE_ENV=ios92_iPadAir2
-#     - env: FASTLANE_ENV=ios92_iPadPro
+    - env: FASTLANE_ENV=ios92_iPadPro
 #     # - env: FASTLANE_ENV=ios92_iPadRetina
 #     # - env: FASTLANE_ENV=ios92_iPhone4S
 #     # - env: FASTLANE_ENV=ios92_iPhone5
