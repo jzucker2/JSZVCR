@@ -1,4 +1,4 @@
-namespace :test do
+# namespace :test do
 
 #   desc "Run the JSZVCR Tests for iOS"
 #   task :ios do
