@@ -1,9 +1,7 @@
-language: objective-c
 sudo: false
+language: objective-c
 osx_image: xcode7.2
-cache:
-    directories:
-        - Pods
+cache: cocoapods
 env:
     global:
         - LC_CTYPE=en_US.UTF-8
