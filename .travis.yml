@@ -37,10 +37,10 @@ matrix:
     - env: FASTLANE_ENV=ios83_iPhone6
 #     # - env: FASTLANE_ENV=ios83_iPhone6Plus
     # iOS 8.4
-    - env: FASTLANE_ENV=ios84_iPad2
+    # - env: FASTLANE_ENV=ios84_iPad2
 #     # - env: FASTLANE_ENV=ios84_iPadAir
 #     # - env: FASTLANE_ENV=ios84_iPadRetina
-#     - env: FASTLANE_ENV=ios84_iPhone4S
+    - env: FASTLANE_ENV=ios84_iPhone4S
 #     # - env: FASTLANE_ENV=ios84_iPhone5
 #     # - env: FASTLANE_ENV=ios84_iPhone5S
 #     # - env: FASTLANE_ENV=ios84_iPhone6
@@ -85,6 +85,10 @@ matrix:
 #     # - env: FASTLANE_ENV=ios92_iPhone6SPlus
     # OSX
     - env: FASTLANE_ENV=osx
+    # tvOS 9.0
+    - env: FASTLANE_ENV=tvos90_AppleTV1080p
+    # tvOS 9.1
+    - env: FASTLANE_ENV=tvos91_AppleTV1080p
 #     # # - osx_image: xcode7.2
 #     # #   env: FASTLANE_LANE=code_coverage FASTLANE_ENV=default
 #     # - osx_image: xcode7.2
