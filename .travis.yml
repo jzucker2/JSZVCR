@@ -33,8 +33,8 @@ matrix:
 #     # - env: FASTLANE_ENV=ios83_iPadRetina
 #     # - env: FASTLANE_ENV=ios83_iPhone4S
 #     - env: FASTLANE_ENV=ios83_iPhone5
-#     #- env: FASTLANE_ENV=ios83_iPhone5S
-    - env: FASTLANE_ENV=ios83_iPhone6
+    - env: FASTLANE_ENV=ios83_iPhone5S
+    # - env: FASTLANE_ENV=ios83_iPhone6 // this seems to stall on the same test
 #     # - env: FASTLANE_ENV=ios83_iPhone6Plus
     # iOS 8.4
     # - env: FASTLANE_ENV=ios84_iPad2
