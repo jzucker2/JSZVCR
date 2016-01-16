@@ -101,10 +101,10 @@
 		97FA41F11B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FA41F01B2F9D05003B9B57 /* JSZVCRRecorderTestCase.m */; };
 		97FB4DAF1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */; };
 		97FB4DB11B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */; };
+		B65A969F06063D2EC4E8E8E5 /* libPods-JSZVCR-Example-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B23D9AA83E9F5D890B1E8A2A /* libPods-JSZVCR-Example-iOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0251BC24D39024D842E740FA /* Pods-JSZVCR_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		094C45A61F6EEB22310D4BBB /* Pods-JSZVCR-Example-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR-Example-tvOS.release.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR-Example-tvOS/Pods-JSZVCR-Example-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		11932A787AC9E43D3E700DB0 /* Pods-CoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-CoreTests/Pods-CoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		14293F762F7EAB199E6BE7EC /* libPods-JSZVCR-Example-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR-Example-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +115,6 @@
 		17B4A7771B3B808E00699888 /* JSZVCRStrictnessFailWhenNoMatchTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZVCRStrictnessFailWhenNoMatchTestCase.bundle; sourceTree = "<group>"; };
 		17B4A77A1B3B80F500699888 /* JSZMatchStrictnessNoneTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZMatchStrictnessNoneTestCase.bundle; sourceTree = "<group>"; };
 		18D7FCD194315E0B48785554 /* libPods-JSZVCR-Example-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR-Example-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30B208040E596C4437229C11 /* Pods-JSZVCR_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR_Tests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5134E5711C407C120073F9C9 /* JSZVCR-Example-OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JSZVCR-Example-OSX.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5134E5751C407C120073F9C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5134E59B1C4088610073F9C9 /* JSZVCR-Example-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JSZVCR-Example-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,10 +124,11 @@
 		51D21DDE1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+XCTestCase_JSZVCRAdditions.h"; sourceTree = "<group>"; };
 		51D21DDF1B2B551000C4321A /* XCTestCase+XCTestCase_JSZVCRAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+XCTestCase_JSZVCRAdditions.m"; sourceTree = "<group>"; };
 		590E7CFFA78B3319426E877C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5AFF4EC3D80D8AE0417DD4B2 /* Pods-JSZVCR-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR-Example-iOS.release.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR-Example-iOS/Pods-JSZVCR-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F5AE195388D20070C39A /* JSZVCR_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSZVCR_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* JSZVCR-Example-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JSZVCR-Example-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -144,6 +144,7 @@
 		975E1CA51B3C7565009B731B /* JSZVCRAFNetworkingRecorderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRAFNetworkingRecorderTestCase.m; sourceTree = "<group>"; };
 		978B268A1B3D0940001D8EFB /* JSZVCRResourceManagerTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRResourceManagerTestCase.m; sourceTree = "<group>"; };
 		978B268C1B3D0A28001D8EFB /* JSZVCRResourceManagerTestCase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JSZVCRResourceManagerTestCase.txt; sourceTree = "<group>"; };
+		97A63FFCE9ED12F6E15A6A47 /* Pods-JSZVCR-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR-Example-iOS.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR-Example-iOS/Pods-JSZVCR-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		97A862191B41CB6B00C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZVCRUnmatchedRequestsOverrideTestCase.m; sourceTree = "<group>"; };
 		97A8621E1B41D2B500C07193 /* JSZVCRUnmatchedRequestsOverrideTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZVCRUnmatchedRequestsOverrideTestCase.bundle; sourceTree = "<group>"; };
 		97CAFA691B36AE180063FCC4 /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Rakefile; path = ../Rakefile; sourceTree = "<group>"; };
@@ -154,6 +155,7 @@
 		97FB4DAE1B360C0200CA7C91 /* JSZUnorderedMatcherTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZUnorderedMatcherTestCase.m; sourceTree = "<group>"; };
 		97FB4DB01B360CEE00CA7C91 /* JSZUnorderedMatcherTestCase.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSZUnorderedMatcherTestCase.bundle; sourceTree = "<group>"; };
 		A726CD0DEBB911860BD8471D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B23D9AA83E9F5D890B1E8A2A /* libPods-JSZVCR-Example-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR-Example-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC32123E03713B96F9E4B443 /* libPods-CoreTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CoreTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF83E3ADDFD39E181C0AEE2C /* Pods-JSZVCR-Example-OSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSZVCR-Example-OSX.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-JSZVCR-Example-OSX/Pods-JSZVCR-Example-OSX.debug.xcconfig"; sourceTree = "<group>"; };
 		C2C1BB51501A927318E85677 /* libPods-JSZVCR_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JSZVCR_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
 				234ACE5945E9D45CBCCF350F /* libPods-JSZVCR_Tests.a in Frameworks */,
+				B65A969F06063D2EC4E8E8E5 /* libPods-JSZVCR-Example-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +244,7 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5AE195388D20070C39A /* JSZVCR_Tests.xctest */,
+				6003F5AE195388D20070C39A /* JSZVCR-Example-iOS.xctest */,
 				5134E5711C407C120073F9C9 /* JSZVCR-Example-OSX.xctest */,
 				5134E59B1C4088610073F9C9 /* JSZVCR-Example-tvOS.xctest */,
 				518478821C44D2260024BDDD /* CoreTests.xctest */,
@@ -260,6 +263,7 @@
 				14293F762F7EAB199E6BE7EC /* libPods-JSZVCR-Example-OSX.a */,
 				18D7FCD194315E0B48785554 /* libPods-JSZVCR-Example-tvOS.a */,
 				BC32123E03713B96F9E4B443 /* libPods-CoreTests.a */,
+				B23D9AA83E9F5D890B1E8A2A /* libPods-JSZVCR-Example-iOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -337,14 +341,14 @@
 		F0D200F4943AF847090F5D56 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				30B208040E596C4437229C11 /* Pods-JSZVCR_Tests.debug.xcconfig */,
-				0251BC24D39024D842E740FA /* Pods-JSZVCR_Tests.release.xcconfig */,
 				BF83E3ADDFD39E181C0AEE2C /* Pods-JSZVCR-Example-OSX.debug.xcconfig */,
 				631424B03397FD3FDBCE0512 /* Pods-JSZVCR-Example-OSX.release.xcconfig */,
 				17A8B2C944EB37C020FA127E /* Pods-JSZVCR-Example-tvOS.debug.xcconfig */,
 				094C45A61F6EEB22310D4BBB /* Pods-JSZVCR-Example-tvOS.release.xcconfig */,
 				11932A787AC9E43D3E700DB0 /* Pods-CoreTests.debug.xcconfig */,
 				DF2782BCB5CBF3DA4FA0B43C /* Pods-CoreTests.release.xcconfig */,
+				97A63FFCE9ED12F6E15A6A47 /* Pods-JSZVCR-Example-iOS.debug.xcconfig */,
+				5AFF4EC3D80D8AE0417DD4B2 /* Pods-JSZVCR-Example-iOS.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -412,9 +416,9 @@
 			productReference = 518478821C44D2260024BDDD /* CoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6003F5AD195388D20070C39A /* JSZVCR_Tests */ = {
+		6003F5AD195388D20070C39A /* JSZVCR-Example-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "JSZVCR_Tests" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "JSZVCR-Example-iOS" */;
 			buildPhases = (
 				E8A40ECBCC091CC424EFAA45 /* Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
@@ -427,9 +431,9 @@
 			);
 			dependencies = (
 			);
-			name = JSZVCR_Tests;
+			name = "JSZVCR-Example-iOS";
 			productName = JSZVCRTests;
-			productReference = 6003F5AE195388D20070C39A /* JSZVCR_Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* JSZVCR-Example-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -469,7 +473,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F5AD195388D20070C39A /* JSZVCR_Tests */,
+				6003F5AD195388D20070C39A /* JSZVCR-Example-iOS */,
 				5134E5701C407C120073F9C9 /* JSZVCR-Example-OSX */,
 				5134E59A1C4088610073F9C9 /* JSZVCR-Example-tvOS */,
 				518478811C44D2260024BDDD /* CoreTests */,
@@ -566,7 +570,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR-Example-iOS/Pods-JSZVCR-Example-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1DE8AA8D05BAF719E958ED36 /* Copy Pods Resources */ = {
@@ -701,7 +705,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR_Tests/Pods-JSZVCR_Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-JSZVCR-Example-iOS/Pods-JSZVCR-Example-iOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8A40ECBCC091CC424EFAA45 /* Check Pods Manifest.lock */ = {
@@ -1015,7 +1019,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30B208040E596C4437229C11 /* Pods-JSZVCR_Tests.debug.xcconfig */;
+			baseConfigurationReference = 97A63FFCE9ED12F6E15A6A47 /* Pods-JSZVCR-Example-iOS.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1039,7 +1043,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0251BC24D39024D842E740FA /* Pods-JSZVCR_Tests.release.xcconfig */;
+			baseConfigurationReference = 5AFF4EC3D80D8AE0417DD4B2 /* Pods-JSZVCR-Example-iOS.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1096,7 +1100,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "JSZVCR_Tests" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "JSZVCR-Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,

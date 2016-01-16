@@ -3,7 +3,7 @@ workspace 'JSZVCR.xcworkspace'
 xcodeproj 'Example/JSZVCR.xcodeproj'
 #use_frameworks!
 
-target 'JSZVCR_Tests', :exclusive => true do
+target 'JSZVCR-Example-iOS', :exclusive => true do
   platform :ios, '8.0'
   xcodeproj 'Example/JSZVCR.xcodeproj'
   pod "JSZVCR", :path => "."
