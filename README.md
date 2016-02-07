@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/JSZVCR.svg?style=flat)](http://cocoapods.org/pods/JSZVCR)
 [![Platform](https://img.shields.io/cocoapods/p/JSZVCR.svg?style=flat)](http://cocoapods.org/pods/JSZVCR)
 
+**This project has been discontinued, and is no longer being maintained. Use [BeKindRewind](https://github.com/jzucker2/BeKindRewind) instead.**
+
 Simple XCTest subclass for recording and replaying network events for integration testing
 
 ## Features
